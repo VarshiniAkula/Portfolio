@@ -1,0 +1,56 @@
+import type { TravelStamp } from '@/types/content';
+
+export const travels: TravelStamp[] = [
+  {
+    id: 'hyderabad',
+    city: 'Hyderabad',
+    country: 'India',
+    date: '2018–2022',
+    memory: 'Where I built my foundation — four years of code, competitions, and community at GNITS.',
+    stampColor: '#B87333',
+    connection: 'University years, first hackathons, Literaria Clava',
+  },
+  {
+    id: 'chandigarh',
+    city: 'Chandigarh',
+    country: 'India',
+    date: '2019',
+    memory: 'NASA Space Apps nationals — the first time ambition had a boarding pass.',
+    stampColor: '#4A90D9',
+    connection: 'NASA Space Apps Hackathon finals',
+  },
+  {
+    id: 'mumbai',
+    city: 'Mumbai',
+    country: 'India',
+    date: '2020',
+    memory: 'Code for Good finals at JPMorgan\'s campus. The win that opened every door after.',
+    stampColor: '#D4A574',
+    connection: 'JPMorgan Chase Code for Good',
+  },
+  {
+    id: 'bangalore',
+    city: 'Bangalore',
+    country: 'India',
+    date: '2022',
+    memory: 'The tech capital. Meeting engineers who\'d been building at scale taught me what production really means.',
+    stampColor: '#3C2415',
+  },
+  {
+    id: 'tempe',
+    city: 'Tempe, AZ',
+    country: 'USA',
+    date: '2024–Present',
+    memory: 'Desert sunsets and deep learning. ASU is where curiosity meets rigor.',
+    stampColor: '#BF360C',
+    connection: 'M.S. Computer Science at ASU',
+  },
+  {
+    id: 'phoenix',
+    city: 'Phoenix',
+    country: 'USA',
+    date: '2024',
+    memory: 'Exploring the Valley of the Sun — where the desert teaches patience and the coffee shops fuel late-night research.',
+    stampColor: '#E65100',
+  },
+];

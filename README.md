@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Atlas — Varshini Akula's Portfolio
 
-## Getting Started
+A premium AI engineer portfolio built with Next.js 16, TypeScript, and Tailwind CSS v4.
 
-First, run the development server:
+## Quick Start
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Next.js 16** App Router with TypeScript strict mode
+- **Tailwind CSS v4** with custom design tokens
+- **Motion** (framer-motion) for animations
+- **Fuse.js** for AI assistant local search
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- **Two experience modes**: Recruiter (fast, metrics-first) and Explorer (immersive, story-rich)
+- **AI Assistant**: "Ask Varshini" chatbot grounded in real profile content
+- **Interactive journey map**: Milestones as passport stamps
+- **Premium case studies**: 5 projects with detailed architecture and metrics
+- **Book library**: Interactive bookshelf with reading insights
+- **Travel stamps**: Cities and memories connected to growth
+- **SEO**: JSON-LD, sitemap, OG metadata on every route
+- **Accessible**: Keyboard nav, screen reader friendly, reduced motion support
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├── app/          # Pages and API routes
+├── components/   # UI components by feature
+├── content/      # All content as typed TypeScript
+├── lib/          # Utilities and helpers
+├── hooks/        # Custom React hooks
+├── providers/    # Context providers
+└── types/        # TypeScript definitions
+```
 
-## Deploy on Vercel
+## Adding Content
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+All content lives in `src/content/`. To add a new project, add it to `content/projects/index.ts` and add case study sections to `content/projects/case-studies.ts`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+```bash
+npm run build   # Production build
+npm start       # Start production server
+```
+
+Deploy to [Vercel](https://vercel.com) for automatic optimization.
+
+## AI Assistant
+
+The "Ask Varshini" chat uses curated responses + fuzzy search. To upgrade to LLM-powered responses, add an API key to `.env.local`:
+
+```
+OPENAI_API_KEY=your_key_here
+```
+
+Then update `src/app/api/chat/route.ts` to use the Vercel AI SDK.
