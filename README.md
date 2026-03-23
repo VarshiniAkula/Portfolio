@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open www.varshiniakula.com
 
 ## Stack
 
@@ -42,19 +42,6 @@ src/
 └── types/        # TypeScript definitions
 ```
 
-## Adding Content
-
-All content lives in `src/content/`. To add a new project, add it to `content/projects/index.ts` and add case study sections to `content/projects/case-studies.ts`.
-
-## Deployment
-
-```bash
-npm run build   # Production build
-npm start       # Start production server
-```
-
-Deploy to [Vercel](https://vercel.com) for automatic optimization.
-
 ## AI Assistant
 
 The "Ask Varshini" chat uses curated responses + fuzzy search. To upgrade to LLM-powered responses, add an API key to `.env.local`:
@@ -63,4 +50,3 @@ The "Ask Varshini" chat uses curated responses + fuzzy search. To upgrade to LLM
 OPENAI_API_KEY=your_key_here
 ```
 
-Then update `src/app/api/chat/route.ts` to use the Vercel AI SDK.
