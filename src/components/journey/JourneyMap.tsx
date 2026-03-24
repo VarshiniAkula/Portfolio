@@ -27,14 +27,13 @@ export function JourneyMap() {
         {/* Full-width editorial header */}
         <Reveal delay={0} direction="up">
           <header className="mb-24 space-y-6 max-w-4xl">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-[#fff6e4] leading-tight">
-              From Curiosity to{' '}
-              <span className="text-[#00F2FF]">Production-Grade AI</span>{' '}
-              — One Milestone at a Time.
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#fff6e4] leading-tight">
+              Building at the Intersection of{' '}
+              <span className="text-[#00F2FF]">AI and Engineering</span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-[#fff6e4]/50 font-sans max-w-2xl leading-relaxed">
-              From a summer in C to building production AI systems — every
-              milestone is a stamp on the map.
+              From enterprise chatbots at JPMorgan Chase to LLM research at ASU
+              - shipping systems that solve real problems.
             </p>
           </header>
         </Reveal>
@@ -140,7 +139,7 @@ export function JourneyMap() {
                       aria-hidden="true"
                     />
 
-                    {/* Card — alternates sides on desktop */}
+                    {/* Card - alternates sides on desktop */}
                     {isLeft ? (
                       <>
                         <div className="w-full md:w-[45%] pl-12 md:pl-0 md:pr-16 text-left md:text-right order-2 md:order-1">
@@ -379,7 +378,7 @@ function TimelineCard({ milestone, mode, align }: TimelineCardProps) {
         {milestone.subtitle}
       </p>
 
-      {/* Description — switches on mode */}
+      {/* Description - switches on mode */}
       <p className="text-sm sm:text-base font-sans text-[#fff6e4]/80 leading-relaxed mb-6">
         {mode === 'recruiter'
           ? milestone.description.recruiter

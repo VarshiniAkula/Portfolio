@@ -25,7 +25,7 @@ function buildContentIndex(): ContentChunk[] {
   // Metrics
   profile.highlights.forEach((m) => {
     chunks.push({
-      text: `${m.label}: ${m.value} ${m.unit}${m.context ? ` — ${m.context}` : ''}`,
+      text: `${m.label}: ${m.value} ${m.unit}${m.context ? ` - ${m.context}` : ''}`,
       source: 'metrics',
       section: 'home',
     });
@@ -61,7 +61,7 @@ function buildContentIndex(): ContentChunk[] {
   // Milestones
   milestones.forEach((m) => {
     chunks.push({
-      text: `${m.date}: ${m.title} — ${m.description.explorer}`,
+      text: `${m.date}: ${m.title} - ${m.description.explorer}`,
       source: m.id,
       section: 'journey',
     });

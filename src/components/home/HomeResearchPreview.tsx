@@ -47,7 +47,7 @@ export function HomeResearchPreview() {
           ))}
         </div>
 
-        {/* Publications — always visible but emphasized in recruiter mode */}
+        {/* Publications - always visible but emphasized in recruiter mode */}
         <Reveal delay={0.25}>
           <div className="mt-10 rounded-xl border border-espresso/5 bg-paper/50 p-6">
             <h3 className="font-mono text-xs tracking-widest text-sunset uppercase mb-4">

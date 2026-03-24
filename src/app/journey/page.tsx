@@ -4,7 +4,7 @@ import { JourneyMap } from '@/components/journey/JourneyMap';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Journey',
-  description: 'From a summer in C to building production AI systems — the story of an AI engineer.',
+  description: 'From a summer in C to building production AI systems - the story of an AI engineer.',
   path: '/journey',
 });
 

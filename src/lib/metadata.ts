@@ -16,8 +16,8 @@ export function generatePageMetadata({
   type = 'website',
 }: PageMetaArgs): Metadata {
   const fullTitle = title
-    ? `${title} — Varshini Akula`
-    : 'Varshini Akula — AI Engineer';
+    ? `${title} - Varshini Akula`
+    : 'Varshini Akula - AI Engineer';
   const desc =
     description ||
     'AI Engineer building intelligent systems from prototype to production. M.S. CS at ASU, former SDE at JPMorgan Chase.';

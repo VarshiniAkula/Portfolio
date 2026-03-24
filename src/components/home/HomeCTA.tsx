@@ -6,7 +6,7 @@ import { profile } from '@/content/profile';
 
 export function HomeCTA() {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 text-center">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 text-center">
       <div className="max-w-3xl mx-auto">
         <Reveal>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#fff6e4] mb-10 tracking-tight">

@@ -8,7 +8,7 @@ export const books: Book[] = [
     coverColor: '#2D4A7A',
     spineColor: '#1A3156',
     category: 'engineering',
-    takeaway: 'The best systems book I\'ve read — it changed how I think about data flow, consistency, and distributed systems trade-offs.',
+    takeaway: 'The best systems book I\'ve read - it changed how I think about data flow, consistency, and distributed systems trade-offs.',
   },
   {
     id: 'attention-all',
@@ -81,7 +81,7 @@ export const books: Book[] = [
     coverColor: '#1A8870',
     spineColor: '#136B59',
     category: 'fiction',
-    takeaway: 'The labyrinth of suffering and the beauty of seeking — a book that stays with you long after the last page.',
+    takeaway: 'The labyrinth of suffering and the beauty of seeking - a book that stays with you long after the last page.',
   },
   {
     id: 'fault-in-our-stars',
@@ -100,7 +100,7 @@ export const books: Book[] = [
     coverColor: '#9C27B0',
     spineColor: '#7B1FA2',
     category: 'fiction',
-    takeaway: 'The Mahabharata retold through Draupadi\'s eyes — power, desire, and the cost of destiny.',
+    takeaway: 'The Mahabharata retold through Draupadi\'s eyes - power, desire, and the cost of destiny.',
   },
   {
     id: 'silent-honor',
@@ -109,7 +109,7 @@ export const books: Book[] = [
     coverColor: '#C62828',
     spineColor: '#8E0000',
     category: 'fiction',
-    takeaway: 'A story of resilience during one of history\'s darkest chapters — honor in the face of injustice.',
+    takeaway: 'A story of resilience during one of history\'s darkest chapters - honor in the face of injustice.',
   },
   {
     id: 'song-of-achilles',
@@ -127,7 +127,7 @@ export const books: Book[] = [
     coverColor: '#D4AF37',
     spineColor: '#B8960C',
     category: 'fiction',
-    takeaway: 'Glamour, ambition, and the hidden truths we carry — a masterclass in storytelling and character.',
+    takeaway: 'Glamour, ambition, and the hidden truths we carry - a masterclass in storytelling and character.',
   },
   {
     id: 'pride-and-prejudice',
@@ -173,7 +173,7 @@ export const books: Book[] = [
     coverColor: '#37474F',
     spineColor: '#263238',
     category: 'mystery',
-    takeaway: 'The queen of mystery at her finest — every page turns itself, and the ending rewrites everything.',
+    takeaway: 'The queen of mystery at her finest - every page turns itself, and the ending rewrites everything.',
   },
   {
     id: 'murder-orient-express',

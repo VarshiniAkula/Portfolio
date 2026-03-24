@@ -5,13 +5,13 @@ import { useRef } from 'react';
 import { Reveal } from '@/components/ui/Reveal';
 
 const lifeCards = [
-  { label: 'Espresso Rituals', image: '', rotate: '-2deg' },
-  { label: 'The Boys', image: '', rotate: '1.5deg' },
-  { label: 'New Cities', image: '', rotate: '-1deg' },
-  { label: 'Mountain Trails', image: '', rotate: '2deg' },
-  { label: 'Golden Hours', image: '', rotate: '-1.5deg' },
-  { label: 'Code & Create', image: '', rotate: '1deg' },
-  { label: 'Concert Nights', image: '', rotate: '-2.5deg' },
+  { label: 'tempe sunsets', image: '/life/tempe-sunsets.jpg', rotate: '-2deg' },
+  { label: 'beach smiles', image: '/life/beach-smiles.jpg', rotate: '1.5deg' },
+  { label: 'street art finds', image: '/life/street-art.jpg', rotate: '-1deg' },
+  { label: 'Hollywood dreams', image: '/life/hollywood.jpg', rotate: '2deg' },
+  { label: 'ocean walks', image: '/life/ocean-walks.jpg', rotate: '-1.5deg' },
+  { label: 'golden hours', image: '/life/golden-hours.jpg', rotate: '1deg' },
+  { label: 'Hollywood hills', image: '/life/hollywood-hills.jpg', rotate: '-2.5deg' },
 ];
 
 export function LifesGreat() {
@@ -27,10 +27,10 @@ export function LifesGreat() {
   };
 
   return (
-    <section className="py-20 sm:py-28 bg-black">
+    <section className="py-16 sm:py-20 bg-black">
       {/* Heading */}
       <Reveal>
-        <h2 className="text-center font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-[#fff6e4] mb-16 sm:mb-20">
+        <h2 className="text-center font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#fff6e4] mb-12 sm:mb-16">
           Life&apos;s great
         </h2>
       </Reveal>
@@ -67,33 +67,24 @@ export function LifesGreat() {
           {lifeCards.map((card, i) => (
             <Reveal key={card.label} delay={i * 0.06} direction="up">
               <div
-                className="flex-shrink-0 w-56 sm:w-64 cursor-default transition-transform duration-300 hover:scale-105"
+                className="flex-shrink-0 w-48 sm:w-56 cursor-default transition-transform duration-300 hover:scale-105"
                 style={{ transform: `rotate(${card.rotate})` }}
               >
                 {/* Polaroid frame */}
-                <div className="bg-white p-2.5 pb-14 rounded-sm shadow-[0_4px_20px_rgba(0,0,0,0.12)] relative">
+                <div className="bg-white p-2 pb-12 rounded-sm shadow-[0_4px_20px_rgba(0,0,0,0.3)] relative">
                   {/* Photo */}
                   <div className="aspect-[3/4] relative overflow-hidden bg-[#e8e3de]">
-                    {card.image ? (
-                      <Image
-                        src={card.image}
-                        alt={card.label}
-                        fill
-                        className="object-cover"
-                        sizes="260px"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#e8e3de] to-[#d5cec7] flex items-center justify-center">
-                        <span className="text-4xl opacity-20">📷</span>
-                      </div>
-                    )}
+                    <Image
+                      src={card.image}
+                      alt={card.label}
+                      fill
+                      className="object-cover"
+                      sizes="240px"
+                    />
                   </div>
 
                   {/* Handwritten label */}
-                  <p
-                    className="absolute bottom-3 left-0 right-0 text-center text-lg sm:text-xl text-[#333] font-handwriting"
-                    style={{ fontFamily: 'var(--font-handwriting)' }}
-                  >
+                  <p className="absolute bottom-2.5 left-0 right-0 text-center text-base sm:text-lg text-[#333] italic font-serif">
                     {card.label}
                   </p>
                 </div>

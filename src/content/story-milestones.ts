@@ -6,10 +6,10 @@ export const milestones: Milestone[] = [
     date: 'Dec 2020 – May 2024',
     year: 2020,
     title: 'JNTU Hyderabad',
-    subtitle: 'B.Tech. in CS & Engineering (Data Science) — CGPA: 9.49/10',
+    subtitle: 'B.Tech. in CS & Engineering (Data Science) - CGPA: 9.49/10',
     description: {
       recruiter: 'Completed B.Tech. in Computer Science and Engineering (Data Science) at Jawaharlal Nehru Technological University (JNTU), Hyderabad with a CGPA of 9.49/10.',
-      explorer: 'College wasn\'t just coursework — it was a launchpad. I arrived knowing C and left knowing how to build systems, lead teams, and win under pressure. Four years of building, competing, leading, and growing.',
+      explorer: 'College wasn\'t just coursework - it was a launchpad. I arrived knowing C and left knowing how to build systems, lead teams, and win under pressure. Four years of building, competing, leading, and growing.',
     },
     type: 'education',
     icon: '🎓',
@@ -23,7 +23,7 @@ export const milestones: Milestone[] = [
     subtitle: 'Learning to argue with evidence',
     description: {
       recruiter: 'Won first place in Model United Nations, developing persuasion and structured argumentation skills.',
-      explorer: 'MUN taught me that the best argument isn\'t the loudest — it\'s the most structured. That skill transfers directly to system design reviews, research presentations, and product pitches.',
+      explorer: 'MUN taught me that the best argument isn\'t the loudest - it\'s the most structured. That skill transfers directly to system design reviews, research presentations, and product pitches.',
     },
     type: 'achievement',
     icon: '🏆',
@@ -37,7 +37,7 @@ export const milestones: Milestone[] = [
     subtitle: 'Chandigarh nationals',
     description: {
       recruiter: 'Won NASA Space Apps Hackathon regional round and advanced to nationals in Chandigarh.',
-      explorer: 'Building something for a NASA challenge felt like the scope of ambition I\'d always wanted. Traveling to Chandigarh for nationals was the first time I realized: this work can take me places — literally and figuratively.',
+      explorer: 'Building something for a NASA challenge felt like the scope of ambition I\'d always wanted. Traveling to Chandigarh for nationals was the first time I realized: this work can take me places - literally and figuratively.',
     },
     type: 'achievement',
     icon: '🚀',
@@ -51,7 +51,7 @@ export const milestones: Milestone[] = [
     subtitle: 'The win that changed everything',
     description: {
       recruiter: 'Won JPMorgan Chase Code for Good national hackathon in second year, leading to an internship offer.',
-      explorer: 'Second-year students don\'t usually win national hackathons against final-year teams. But we did — and that win opened the door to JPMorgan Chase. It proved that hunger and clarity beat experience when you\'re solving the right problem.',
+      explorer: 'Second-year students don\'t usually win national hackathons against final-year teams. But we did - and that win opened the door to JPMorgan Chase. It proved that hunger and clarity beat experience when you\'re solving the right problem.',
     },
     type: 'achievement',
     icon: '💻',
@@ -66,7 +66,7 @@ export const milestones: Milestone[] = [
     subtitle: 'Leading through literature',
     description: {
       recruiter: 'Rose through ranks to become President of the college literature club, organizing events and mentoring juniors.',
-      explorer: 'Literature isn\'t a hobby separate from engineering — it\'s where I learned to think in narratives, build arguments, and understand what moves people. Leading Literaria Clava taught me that good leadership feels like good editing: you make others\' work shine.',
+      explorer: 'Literature isn\'t a hobby separate from engineering - it\'s where I learned to think in narratives, build arguments, and understand what moves people. Leading Literaria Clava taught me that good leadership feels like good editing: you make others\' work shine.',
     },
     type: 'leadership',
     icon: '📚',
@@ -80,7 +80,7 @@ export const milestones: Milestone[] = [
     subtitle: 'Chairing conversations that matter',
     description: {
       recruiter: 'Chaired the Women Leadership Conclave, organizing speakers and panels on women in technology.',
-      explorer: 'Chairing the Women Leadership Conclave wasn\'t about a title — it was about creating space for conversations that don\'t happen enough. The conclave brought together leaders across industries and gave students a stage to ask the hard questions.',
+      explorer: 'Chairing the Women Leadership Conclave wasn\'t about a title - it was about creating space for conversations that don\'t happen enough. The conclave brought together leaders across industries and gave students a stage to ask the hard questions.',
     },
     type: 'leadership',
     icon: '✨',
@@ -90,7 +90,7 @@ export const milestones: Milestone[] = [
     id: 'jpmc-internship',
     date: 'Jan 2024 – Jun 2024',
     year: 2024,
-    title: 'JPMC — Software Engineering Intern',
+    title: 'JPMC - Software Engineering Intern',
     subtitle: 'LLM chatbot & real-time data streaming',
     description: {
       recruiter: 'Engineered an LLM-powered incident chatbot reducing resolution time by 60%. Developed a real-time data streaming application with Java and Apache Kafka for 70+ downstream applications.',
@@ -105,11 +105,11 @@ export const milestones: Milestone[] = [
     id: 'jpmc-fulltime',
     date: 'Jul 2024 – Aug 2025',
     year: 2024,
-    title: 'JPMC — Software Development Engineer I',
+    title: 'JPMC - Software Development Engineer I',
     subtitle: 'RASA NLU assistant & production CI/CD',
     description: {
       recruiter: 'Architected a RASA NLU virtual assistant eliminating 320+ hours/quarter of manual data entry. Built Java/AWS microservices cutting provisioning time by 40%. Hardened CI/CD pipelines achieving 99.9% uptime SLA.',
-      explorer: 'They started calling me "the chatbot girl" — not as a joke, but as recognition. I took early proof-of-concepts that others had shelved and turned them into production systems handling real user queries at enterprise scale. That reputation was built one deploy at a time.',
+      explorer: 'They started calling me "the chatbot girl" - not as a joke, but as recognition. I took early proof-of-concepts that others had shelved and turned them into production systems handling real user queries at enterprise scale. That reputation was built one deploy at a time.',
     },
     type: 'work',
     icon: '🤖',
@@ -124,7 +124,7 @@ export const milestones: Milestone[] = [
     subtitle: 'Cloud fundamentals validated',
     description: {
       recruiter: 'Earned AWS Certified Cloud Practitioner certification, validating cloud architecture and services knowledge.',
-      explorer: 'Getting AWS certified was about validating what I\'d already been building in production — but the structured learning filled in gaps I didn\'t know I had.',
+      explorer: 'Getting AWS certified was about validating what I\'d already been building in production - but the structured learning filled in gaps I didn\'t know I had.',
     },
     type: 'achievement',
     icon: '☁️',
@@ -134,11 +134,11 @@ export const milestones: Milestone[] = [
     id: 'asu-journey',
     date: 'Aug 2025 – May 2027',
     year: 2025,
-    title: 'ASU — M.S. Computer Science',
+    title: 'ASU - M.S. Computer Science',
     subtitle: 'GPA: 4.0/4.0',
     description: {
       recruiter: 'Enrolled in M.S. Computer Science at Arizona State University with a 4.0 GPA. Coursework: NLP, Foundations of Algorithms, Information Assurance & Security.',
-      explorer: 'I could have stayed comfortable at JPMC. But every chatbot I built made me want to understand the deeper mechanics — why do models hallucinate? How do you build agents that actually reason? ASU was the answer: a place to turn questions into research.',
+      explorer: 'I could have stayed comfortable at JPMC. But every chatbot I built made me want to understand the deeper mechanics - why do models hallucinate? How do you build agents that actually reason? ASU was the answer: a place to turn questions into research.',
     },
     type: 'education',
     icon: '🌵',
@@ -167,7 +167,7 @@ export const milestones: Milestone[] = [
     subtitle: 'Director of Engagement',
     description: {
       recruiter: 'Serving as Director of Engagement for ACM at ASU, organizing technical events and fostering community.',
-      explorer: 'Leading ACM at ASU means building the kind of community I wish I\'d had earlier — where someone can walk in curious and leave connected. It\'s the same energy as Literaria Clava, just with more Python and fewer sonnets.',
+      explorer: 'Leading ACM at ASU means building the kind of community I wish I\'d had earlier - where someone can walk in curious and leave connected. It\'s the same energy as Literaria Clava, just with more Python and fewer sonnets.',
     },
     type: 'leadership',
     icon: '🌐',

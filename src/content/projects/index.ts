@@ -9,7 +9,7 @@ export const projects: ProjectMeta[] = [
       recruiter:
         'Architected a RASA NLU virtual assistant that collected customer metadata for document-storage onboarding, eliminating 320+ hours of manual data entry per quarter. Built Java and SQL microservices on AWS to automate metadata extraction and container-storage record creation across Consumer & Community Banking, cutting provisioning time by 40%.',
       explorer:
-        'The storage team was drowning in manual data entry — hundreds of hours per quarter spent on repetitive metadata extraction. I built a conversational AI system that understood natural language queries, extracted metadata automatically, and created storage records. It went from a proof-of-concept nobody believed in to a production system that changed how the team worked.',
+        'The storage team was drowning in manual data entry - hundreds of hours per quarter spent on repetitive metadata extraction. I built a conversational AI system that understood natural language queries, extracted metadata automatically, and created storage records. It went from a proof-of-concept nobody believed in to a production system that changed how the team worked.',
     },
     date: 'Jul 2024 – Aug 2025',
     tags: ['NLP', 'Conversational AI', 'Enterprise', 'Automation'],
@@ -55,7 +55,7 @@ export const projects: ProjectMeta[] = [
       recruiter:
         'Built a RAG orchestration system in Python routing queries across 5 retrievers (BM25, TF-IDF, FAISS, SVM, Time-Weighted) using intent classification and rule-based decision logic. Improved Recall@5 by +18 pts (0.65 to 0.83) on LongMemEval with Qwen2.5-7B.',
       explorer:
-        'LLMs have a memory problem — they forget context across long conversations. I designed a multi-retriever orchestration system that routes queries across BM25, TF-IDF, FAISS, SVM, and Time-Weighted retrievers using intent classification. The jump from 0.65 to 0.83 Recall@5 on LongMemEval proved that smarter retrieval architectures can meaningfully improve conversational continuity.',
+        'LLMs have a memory problem - they forget context across long conversations. I designed a multi-retriever orchestration system that routes queries across BM25, TF-IDF, FAISS, SVM, and Time-Weighted retrievers using intent classification. The jump from 0.65 to 0.83 Recall@5 on LongMemEval proved that smarter retrieval architectures can meaningfully improve conversational continuity.',
     },
     date: 'Sep 2025 – Dec 2025',
     tags: ['RAG', 'Memory Systems', 'LLM', 'Benchmarking'],
@@ -100,7 +100,7 @@ export const projects: ProjectMeta[] = [
       recruiter:
         'Fine-tuned Llama-3.2-3B-Instruct using STaR rationale-bootstrapping on NVIDIA A100 GPUs, achieving 46.2% on GSM8K (+65% relative gain over zero-shot CoT). Generated 3.5K synthetic hint-conditioned training samples via self-improvement loops.',
       explorer:
-        'Can you teach a model to reason better by having it practice reasoning? The STaR approach says yes. I fine-tuned Llama-3.2-3B with iterative self-generated rationales on A100 GPUs, generating 3.5K synthetic training samples. The 46.2% on GSM8K outperformed vanilla SFT (39.2%) by 7 absolute points — proving models can bootstrap their own reasoning abilities.',
+        'Can you teach a model to reason better by having it practice reasoning? The STaR approach says yes. I fine-tuned Llama-3.2-3B with iterative self-generated rationales on A100 GPUs, generating 3.5K synthetic training samples. The 46.2% on GSM8K outperformed vanilla SFT (39.2%) by 7 absolute points - proving models can bootstrap their own reasoning abilities.',
     },
     date: 'Aug 2025 – Oct 2025',
     tags: ['Reasoning', 'Fine-tuning', 'LLM', 'GSM8K'],
@@ -145,7 +145,7 @@ export const projects: ProjectMeta[] = [
       recruiter:
         'Built a multi-source travel planning conversational agent using Playwright browser automation, LLM-based intent parsing, and FastAPI. Aggregates flights, hotels, weather, and cultural data from a single natural language query.',
       explorer:
-        'Travel planning is broken — you open 10 tabs, compare prices, check weather, read guides, and still feel uncertain. ClickLess AI replaces that entire workflow with a single conversation. Ask it "Plan a week in Tokyo in April" and it scrapes real-time flights, hotel prices, weather forecasts, and cultural tips, then synthesizes everything into a coherent trip brief.',
+        'Travel planning is broken - you open 10 tabs, compare prices, check weather, read guides, and still feel uncertain. ClickLess AI replaces that entire workflow with a single conversation. Ask it "Plan a week in Tokyo in April" and it scrapes real-time flights, hotel prices, weather forecasts, and cultural tips, then synthesizes everything into a coherent trip brief.',
     },
     date: '2025',
     tags: ['Conversational AI', 'Web Scraping', 'Travel', 'LLM', 'Playwright'],
@@ -167,7 +167,7 @@ export const projects: ProjectMeta[] = [
       recruiter:
         'Full-stack construction project management platform with RBAC, AI-powered document search (RAG), RFI intelligence with NLP classification, and analytics dashboards.',
       explorer:
-        'Construction projects generate mountains of documents — RFIs, change orders, submittals, schedules. I built an AI assistant that understands construction documents, answers questions with citations, classifies RFIs automatically, and flags risks before they become problems.',
+        'Construction projects generate mountains of documents - RFIs, change orders, submittals, schedules. I built an AI assistant that understands construction documents, answers questions with citations, classifies RFIs automatically, and flags risks before they become problems.',
     },
     date: '2026',
     tags: ['Full-Stack', 'RAG', 'NLP', 'Construction Tech'],

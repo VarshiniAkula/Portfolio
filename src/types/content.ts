@@ -89,6 +89,7 @@ export interface Publication {
   authors: string[];
   abstract: string;
   url?: string;
+  certificateImage?: string;
 }
 
 export interface Book {

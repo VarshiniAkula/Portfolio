@@ -18,12 +18,12 @@ export function LeadershipPage() {
           label="// Marginalia of Leadership"
         />
 
-        {/* Visual intro — explorer mode */}
+        {/* Visual intro - explorer mode */}
         {mode === 'explorer' && (
           <Reveal>
             <div className="mb-16 max-w-2xl">
               <p className="text-lg text-[#fff6e4]/60 leading-relaxed">
-                Leadership, for me, has always been about creating space — for
+                Leadership, for me, has always been about creating space - for
                 ideas, for voices, for the kind of conversations that don&apos;t happen
                 unless someone makes room for them. From a literature club to a
                 leadership conclave, the medium changed but the mission stayed
@@ -37,7 +37,7 @@ export function LeadershipPage() {
           {leadership.map((item, i) => (
             <Reveal key={item.id} delay={i * 0.1}>
               <div className="group relative rounded-2xl border border-white/5 bg-[#111111]/50 p-6 sm:p-8 h-full hover:border-[#00F2FF]/20 transition-all duration-300 hover:shadow-lg hover:shadow-[#00F2FF]/5">
-                {/* Metaphor badge — explorer mode */}
+                {/* Metaphor badge - explorer mode */}
                 {mode === 'explorer' && (
                   <div className="absolute -top-3 right-6 flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#00F2FF] text-black text-xs font-medium">
                     <span>{item.metaphor.icon}</span>
@@ -81,7 +81,7 @@ export function LeadershipPage() {
         <Reveal delay={0.4}>
           <div className="mt-16 text-center max-w-2xl mx-auto">
             <blockquote className="font-serif text-xl sm:text-2xl text-[#fff6e4] leading-relaxed italic">
-              &ldquo;Good leadership feels like good editing — you make others&apos; work shine.&rdquo;
+              &ldquo;Good leadership feels like good editing - you make others&apos; work shine.&rdquo;
             </blockquote>
           </div>
         </Reveal>

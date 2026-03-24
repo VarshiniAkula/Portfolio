@@ -24,7 +24,7 @@ export function ProjectGrid() {
         {/* Page Header */}
         <Reveal>
           <header className="mb-20">
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-[#fff6e4] tracking-tight mb-6">
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#fff6e4] tracking-tight mb-6">
               Selected <span className="text-[#00F2FF]">Works</span>
             </h1>
             <p className="font-serif italic text-xl md:text-2xl text-[#fff6e4]/40 max-w-2xl">
@@ -39,7 +39,7 @@ export function ProjectGrid() {
             <Reveal key={project.slug} delay={i * 0.08}>
               <Link
                 href={`/projects/${project.slug}`}
-                className="group block relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/5 transition-all duration-500 hover:border-[#00F2FF]/20 hover:shadow-[0_0_40px_rgba(0,242,255,0.1)]"
+                className="group block relative aspect-[3/2] rounded-2xl overflow-hidden border border-white/5 transition-all duration-500 hover:border-[#00F2FF]/20 hover:shadow-[0_0_40px_rgba(0,242,255,0.1)]"
               >
                 {/* Project image */}
                 {projectImages[project.slug] ? (

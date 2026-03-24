@@ -39,6 +39,8 @@ export const publications: Publication[] = [
     authors: ['Varshini Akula'],
     abstract:
       'Developed an ML model using Local Binary Patterns and classification techniques, compared multiple algorithms for fake face detection in forensic applications.',
+    url: 'https://ijitce.org/index.php/ijitce/article/view/566',
+    certificateImage: '/certs/deepfake-publication.jpg',
   },
   {
     id: 'pub-security',
@@ -48,6 +50,7 @@ export const publications: Publication[] = [
     authors: ['Varshini Akula'],
     abstract:
       'Built a machine learning-based network security model to detect intrusions with improved accuracy using ensemble machine learning algorithms on large datasets.',
+    url: 'https://ijitce.org/index.php/ijitce/article/view/498',
   },
 ];
 
@@ -58,6 +61,7 @@ export const certifications: Certification[] = [
     description: 'Foundational understanding of AWS Cloud services, architecture, pricing, and support. Validated cloud literacy and deployment best practices.',
     credentialId: 'AWS-CCP-2024',
     date: 'Dec 2024',
+    verifyUrl: 'https://www.credly.com/badges/c19b8926-f60e-4208-9a3d-7a0c7a77b034/',
   },
   {
     id: 'nptel-dbms',
@@ -65,6 +69,7 @@ export const certifications: Certification[] = [
     description: 'National Programme on Technology Enhanced Learning (NPTEL) certification from Indian Institute of Technology, Kharagpur. Comprehensive coverage of DBMS concepts, SQL, normalization, and transaction management.',
     credentialId: 'NPTEL22CS51S43582362',
     date: 'Mar 2022',
+    verifyUrl: '/certs/nptel-dbms.pdf',
   },
   {
     id: 'coding-ninjas-cpp',
@@ -72,6 +77,7 @@ export const certifications: Certification[] = [
     description: 'Coding Ninjas certification covering C++ fundamentals, object-oriented programming, data structures, and algorithmic problem-solving.',
     credentialId: '1462393dd86c5323cfd272856817319bb0c2c89',
     date: 'May 2021',
+    verifyUrl: 'https://files.codingninjas.in/certificate1462393dd86c5323cfd272856817319bb0c2c89.pdf',
   },
 ];
 

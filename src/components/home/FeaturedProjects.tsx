@@ -30,7 +30,7 @@ export function FeaturedProjects() {
     .filter(Boolean) as typeof projects;
 
   return (
-    <section className="py-16 bg-white/[0.02] border-y border-white/5" aria-labelledby="featured-projects-heading">
+    <section className="py-12 bg-white/[0.02] border-y border-white/5" aria-labelledby="featured-projects-heading">
       <Container>
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <Reveal>
@@ -56,7 +56,7 @@ export function FeaturedProjects() {
             <Reveal key={project.slug} delay={0.06 + i * 0.05}>
               <Link
                 href={`/projects/${project.slug}`}
-                className="group block relative aspect-[3/2] rounded-2xl overflow-hidden border border-white/5 card-hover"
+                className="group block relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/5 card-hover"
               >
                 {/* Project image */}
                 {projectImages[project.slug] ? (

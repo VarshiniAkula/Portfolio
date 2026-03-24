@@ -14,7 +14,7 @@ export default function NotFound() {
             Lost in the Atlas
           </h1>
           <p className="text-[#fff6e4]/60 text-lg leading-relaxed mb-8">
-            This page doesn&apos;t exist yet — but there&apos;s plenty to explore.
+            This page doesn&apos;t exist yet - but there&apos;s plenty to explore.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Button href="/" size="lg">

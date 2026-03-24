@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 
@@ -36,10 +37,19 @@ export function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="font-serif italic font-bold text-2xl text-[#fff6e4] tracking-tighter hover:text-[#00F2FF] transition-colors"
+          className="flex items-center gap-3 hover:opacity-90 transition-opacity"
           aria-label="Home"
         >
-          Varshini Akula
+          <Image
+            src="/logo.jpg"
+            alt="Logo"
+            width={36}
+            height={36}
+            className="rounded-full"
+          />
+          <span className="font-serif italic font-bold text-xl text-[#fff6e4] tracking-tighter hidden sm:inline">
+            Varshini Akula
+          </span>
         </Link>
 
         {/* Desktop Nav */}

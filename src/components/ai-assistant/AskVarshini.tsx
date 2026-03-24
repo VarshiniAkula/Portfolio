@@ -73,7 +73,7 @@ export function AskVarshini() {
             ? 'rounded-full bg-[#141414] text-[#fff6e4] px-4 py-3 shadow-lg'
             : 'rounded-full shadow-lg hover:shadow-xl hover:scale-110'
         )}
-        aria-label={isOpen ? 'Close AI assistant' : 'Ask Varshini — AI assistant'}
+        aria-label={isOpen ? 'Close AI assistant' : 'Ask Varshini - AI assistant'}
       >
         {isOpen ? (
           <span className="text-sm font-medium">Close</span>

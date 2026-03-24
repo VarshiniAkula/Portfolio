@@ -29,7 +29,7 @@ export function LibraryPage() {
       <Container>
         <Reveal>
           <div className="mb-12">
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-[#fff6e4] tracking-tight mb-4">
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#fff6e4] tracking-tight mb-4">
               The Book<span className="text-[#00F2FF]">shelf</span>
             </h1>
             <p className="text-[#fff6e4]/60 text-lg max-w-2xl leading-relaxed">
@@ -122,7 +122,7 @@ export function LibraryPage() {
         <Reveal delay={0.3}>
           <div className="mt-16 max-w-2xl mx-auto text-center">
             <p className="text-[#fff6e4]/60 leading-relaxed">
-              Reading isn&apos;t separate from engineering — it&apos;s where I
+              Reading isn&apos;t separate from engineering - it&apos;s where I
               learn to think in narratives, understand systems at scale, and
               find the patterns that connect technology to human experience.
             </p>

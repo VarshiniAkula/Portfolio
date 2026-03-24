@@ -13,7 +13,7 @@ export function ResearchPage() {
         {/* ── Page Header ── */}
         <Reveal>
           <div className="mb-24 max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold tracking-tight leading-tight mb-8 text-[#fff6e4]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold tracking-tight leading-tight mb-8 text-[#fff6e4]">
               Credentials &amp;{' '}
               <br className="hidden sm:block" />
               <span className="text-[#00F2FF] tech-glow-text">The Archives</span>
@@ -28,7 +28,7 @@ export function ResearchPage() {
         <div className="mb-24">
           <div className="flex items-baseline gap-4 mb-12">
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#fff6e4]">
-              Holographic Certifications
+              Certifications
             </h2>
             <div className="h-px flex-grow bg-gradient-to-r from-white/10 to-transparent" />
           </div>
@@ -53,12 +53,23 @@ export function ResearchPage() {
                           ID: {cert.credentialId}
                         </span>
                       )}
-                      <button className="flex items-center gap-2 text-xs uppercase tracking-wider font-bold text-[#00F2FF] px-4 py-2 border border-[#00F2FF]/20 rounded-full bg-[#00F2FF]/5 hover:bg-[#00F2FF]/10 hover:border-[#00F2FF]/40 hover:shadow-[0_0_15px_rgba(0,242,255,0.2)] transition-all">
-                        Verify
-                        <svg className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                        </svg>
-                      </button>
+                      {cert.verifyUrl ? (
+                        <a
+                          href={cert.verifyUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-xs uppercase tracking-wider font-bold text-[#00F2FF] px-4 py-2 border border-[#00F2FF]/20 rounded-full bg-[#00F2FF]/5 hover:bg-[#00F2FF]/10 hover:border-[#00F2FF]/40 hover:shadow-[0_0_15px_rgba(0,242,255,0.2)] transition-all"
+                        >
+                          Verify
+                          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                          </svg>
+                        </a>
+                      ) : (
+                        <span className="flex items-center gap-2 text-xs uppercase tracking-wider font-bold text-[#fff6e4]/30 px-4 py-2 border border-white/10 rounded-full cursor-default">
+                          Verify
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -128,7 +139,7 @@ export function ResearchPage() {
         <div className="mb-24">
           <SectionHeading
             title="Active Research"
-            label="// Lab Notebook"
+            label=""
             subtitle="Investigating the boundaries of AI reliability, reasoning, and security."
           />
 

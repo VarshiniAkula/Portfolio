@@ -174,8 +174,8 @@ export function TravelPage() {
           <div className="mt-16 max-w-2xl mx-auto text-center">
             <p className="text-[#fff6e4]/60 leading-relaxed">
               Travel is how I calibrate perspective. Every new city is a lesson
-              in adaptability, every journey a reminder that the best systems —
-              like the best trips — are designed for the humans who use them.
+              in adaptability, every journey a reminder that the best systems -
+              like the best trips - are designed for the humans who use them.
             </p>
           </div>
         </Reveal>

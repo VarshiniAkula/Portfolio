@@ -4,7 +4,7 @@ import { LeadershipPage } from '@/components/leadership/LeadershipPage';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Leadership',
-  description: 'Leading communities from literature clubs to ACM chapters — building movements, not just teams.',
+  description: 'Leading communities from literature clubs to ACM chapters - building movements, not just teams.',
   path: '/leadership',
 });
 

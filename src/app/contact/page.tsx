@@ -21,7 +21,7 @@ export default function ContactPage() {
         {/* Hero heading */}
         <Reveal direction="up" delay={0}>
           <header className="mb-20">
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-[#fff6e4] tracking-tight leading-tight max-w-4xl">
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#fff6e4] tracking-tight leading-tight max-w-4xl">
               Let&apos;s build something soulful
             </h1>
             <div className="mt-8 flex items-center gap-3 text-[#00F2FF] font-label font-medium tracking-wide">
@@ -37,7 +37,7 @@ export default function ContactPage() {
                   clipRule="evenodd"
                 />
               </svg>
-              <span>Tempe, Arizona &amp; Globally Distributed</span>
+              <span>Tempe, Arizona</span>
             </div>
           </header>
         </Reveal>
