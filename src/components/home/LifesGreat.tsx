@@ -4,18 +4,49 @@ import Image from 'next/image';
 import { useRef } from 'react';
 import { Reveal } from '@/components/ui/Reveal';
 
-const lifeCards = [
-  { label: 'NASA space apps win', image: '/life/nasa-medal.jpg', rotate: '-2deg' },
-  { label: 'fall in Arizona', image: '/life/fall-arizona.jpg', rotate: '1.5deg' },
-  { label: 'day one at JPMorgan', image: '/life/jpmc-office.jpg', rotate: '-1deg' },
-  { label: 'doors of old towns', image: '/life/old-town-doors.jpg', rotate: '2deg' },
-  { label: 'chairing the conclave', image: '/life/conclave-podium.jpg', rotate: '-1.5deg' },
-  { label: 'mountain lakes', image: '/life/mountain-lakes.jpg', rotate: '1deg' },
-  { label: 'code for good winners', image: '/life/code-for-good.jpg', rotate: '-2.5deg' },
-  { label: 'Udaipur sunsets', image: '/life/udaipur-sunset.jpg', rotate: '1.5deg' },
-  { label: 'river adventures', image: '/life/river-adventures.jpg', rotate: '-1deg' },
-  { label: 'coffee and croissants', image: '/life/coffee-croissants.jpg', rotate: '2deg' },
-  { label: 'Irani chai mornings', image: '/life/irani-chai.jpg', rotate: '-2deg' },
+const lifeCards: { label: string; image: string; rotate: string; objectPosition?: string }[] = [
+  // Achievements
+  { label: 'NASA Space Apps medal', image: '/life/1655792141440.jpeg', rotate: '-2deg' },
+  { label: 'at the PMO office', image: '/life/1668267351952.jpeg', rotate: '1.5deg' },
+  { label: 'chairing the conclave', image: '/life/1678550404119.jpeg', rotate: '-1deg' },
+  { label: 'day one at JPMorgan', image: '/life/1684667945041.jpeg', rotate: '2deg' },
+  { label: 'hackathon in Chandigarh', image: '/life/hackathon-in-chandigarh---nasa-space-apps.jpeg', rotate: '-1.5deg' },
+  { label: 'head of research, IIITH', image: '/life/head-of-research-and-incubation-iiith.jpeg', rotate: '1deg', objectPosition: 'center 30%' },
+  { label: 'with Anna Roy at PMO', image: '/life/picture-in-pmo-office-ms.anna-roy.jpeg', rotate: '-2.5deg' },
+  { label: 'with AICTE chairman', image: '/life/picture-with-aicte-chairman.jpeg', rotate: '1.5deg' },
+  { label: 'WLC speaker moment', image: '/life/img_1873.jpg', rotate: '-1deg' },
+  { label: 'graduation day', image: '/life/bachelor-s-grad.jpg', rotate: '-2deg' },
+  { label: 'Women\'s Leadership 2024', image: '/life/img_0143.jpg', rotate: '1.5deg' },
+  { label: 'with ISRO scientist', image: '/life/picture-with-isro-scientist.jpg', rotate: '-1.5deg' },
+  { label: 'with GMR CEO', image: '/life/picture-with-mr.-rama-iyer-gmr-ceo.jpg', rotate: '1deg' },
+  // Travel
+  { label: 'Arizona arches', image: '/life/arizona.jpg', rotate: '-2.5deg' },
+  { label: 'sunset reads', image: '/life/beach-sunsets-and-book.jpg', rotate: '2deg' },
+  { label: 'Chopta valley snow', image: '/life/chopta-valley.jpg', rotate: '-1deg' },
+  { label: 'conquering fears', image: '/life/conquering-fears.jpg', rotate: '1.5deg' },
+  { label: 'fall in Colorado', image: '/life/fall-in-love-with-colorado.jpg', rotate: '-2deg' },
+  { label: 'girl in the city', image: '/life/girl-in-the-city.jpg', rotate: '1deg' },
+  { label: 'I fly', image: '/life/i-fly.jpg', rotate: '-1.5deg' },
+  { label: 'doors of old towns', image: '/life/img_3562.jpg', rotate: '2.5deg' },
+  { label: 'Udaipur sunsets', image: '/life/udaipur-sunsets.jpg', rotate: '-1deg' },
+  { label: 'last day at JPMC', image: '/life/last-day-at-jpmc.jpg', rotate: '1.5deg' },
+  { label: 'Nariman Point, Mumbai', image: '/life/nariman-point-mumbai.jpg', rotate: '-2deg' },
+  { label: 'Mumbai heritage', image: '/life/mumbai.jpg', rotate: '2deg' },
+  { label: 'Rocky Mountain lakes', image: '/life/rocky-mountains.jpg', rotate: '-1.5deg' },
+  { label: 'A Mountain, Tempe', image: '/life/tempe---a-mountain.jpg', rotate: '1deg' },
+  { label: 'the Ganges', image: '/life/the-ganges.jpg', rotate: '-2.5deg' },
+  { label: 'the Sphere, Vegas', image: '/life/the-sphere.jpg', rotate: '1.5deg' },
+  { label: 'art in Vegas', image: '/life/vegas.jpg', rotate: '-1deg' },
+  { label: 'Western Ghats of India', image: '/life/western-ghats-of-india.jpg', rotate: '2deg' },
+  // Other
+  { label: 'hot chocolate and cake', image: '/life/img_1529-2.jpg', rotate: '-2deg' },
+  { label: 'coffee and croissants', image: '/life/img_3148-2.jpg', rotate: '1.5deg' },
+  { label: 'Irani chai mornings', image: '/life/img_5772-2.jpg', rotate: '-1.5deg' },
+  { label: 'Hyderabad sunset', image: '/life/img_0320.jpg', rotate: '1deg' },
+  { label: 'golden hour palms', image: '/life/img_0550-2.jpg', rotate: '-2.5deg' },
+  { label: 'sunset by the sea', image: '/life/img_1154-2.jpg', rotate: '2deg' },
+  { label: 'starry nights', image: '/life/img_2049.jpg', rotate: '-1deg' },
+  { label: 'Tempe skies', image: '/life/img_7405.jpg', rotate: '1.5deg' },
 ];
 
 export function LifesGreat() {
@@ -84,6 +115,7 @@ export function LifesGreat() {
                       fill
                       className="object-cover"
                       sizes="240px"
+                      style={card.objectPosition ? { objectPosition: card.objectPosition } : undefined}
                     />
                   </div>
 
