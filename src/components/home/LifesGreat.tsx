@@ -5,13 +5,17 @@ import { useRef } from 'react';
 import { Reveal } from '@/components/ui/Reveal';
 
 const lifeCards = [
-  { label: 'tempe sunsets', image: '/life/tempe-sunsets.jpg', rotate: '-2deg' },
-  { label: 'beach smiles', image: '/life/beach-smiles.jpg', rotate: '1.5deg' },
-  { label: 'street art finds', image: '/life/street-art.jpg', rotate: '-1deg' },
-  { label: 'Hollywood dreams', image: '/life/hollywood.jpg', rotate: '2deg' },
-  { label: 'ocean walks', image: '/life/ocean-walks.jpg', rotate: '-1.5deg' },
-  { label: 'golden hours', image: '/life/golden-hours.jpg', rotate: '1deg' },
-  { label: 'Hollywood hills', image: '/life/hollywood-hills.jpg', rotate: '-2.5deg' },
+  { label: 'NASA space apps win', image: '/life/nasa-medal.jpg', rotate: '-2deg' },
+  { label: 'fall in Arizona', image: '/life/fall-arizona.jpg', rotate: '1.5deg' },
+  { label: 'day one at JPMorgan', image: '/life/jpmc-office.jpg', rotate: '-1deg' },
+  { label: 'doors of old towns', image: '/life/old-town-doors.jpg', rotate: '2deg' },
+  { label: 'chairing the conclave', image: '/life/conclave-podium.jpg', rotate: '-1.5deg' },
+  { label: 'mountain lakes', image: '/life/mountain-lakes.jpg', rotate: '1deg' },
+  { label: 'code for good winners', image: '/life/code-for-good.jpg', rotate: '-2.5deg' },
+  { label: 'Udaipur sunsets', image: '/life/udaipur-sunset.jpg', rotate: '1.5deg' },
+  { label: 'river adventures', image: '/life/river-adventures.jpg', rotate: '-1deg' },
+  { label: 'coffee and croissants', image: '/life/coffee-croissants.jpg', rotate: '2deg' },
+  { label: 'Irani chai mornings', image: '/life/irani-chai.jpg', rotate: '-2deg' },
 ];
 
 export function LifesGreat() {

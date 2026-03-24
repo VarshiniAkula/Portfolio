@@ -71,7 +71,7 @@ export function AskVarshini() {
           'fixed bottom-6 right-6 z-50 group transition-all duration-300',
           isOpen
             ? 'rounded-full bg-[#141414] text-[#fff6e4] px-4 py-3 shadow-lg'
-            : 'rounded-full shadow-lg hover:shadow-xl hover:scale-110'
+            : 'rounded-full shadow-[0_0_20px_rgba(0,242,255,0.4),0_0_60px_rgba(0,242,255,0.15)] hover:shadow-[0_0_30px_rgba(0,242,255,0.6),0_0_80px_rgba(0,242,255,0.25)] hover:scale-110 animate-pulse'
         )}
         aria-label={isOpen ? 'Close AI assistant' : 'Ask Varshini - AI assistant'}
       >
