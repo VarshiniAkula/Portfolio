@@ -15,6 +15,18 @@ const socialIcons: Record<string, string> = {
 };
 
 export default function ContactPage() {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const name = (form.elements.namedItem('name') as HTMLInputElement).value;
+    const email = (form.elements.namedItem('email') as HTMLInputElement).value;
+    const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
+
+    const subject = encodeURIComponent(`Message from ${name}`);
+    const body = encodeURIComponent(`From: ${name}\nEmail: ${email}\n\n${message}`);
+    window.location.href = `mailto:varshiniakula2003@gmail.com?subject=${subject}&body=${body}`;
+  }
+
   return (
     <main className="min-h-screen bg-[#000000] text-[#fff6e4] pt-32 pb-24">
       <Container>
@@ -47,7 +59,7 @@ export default function ContactPage() {
           {/* Left Column: Contact Form */}
           <Reveal direction="up" delay={0.1} className="lg:col-span-7">
             <section className="bg-[#111111] p-8 md:p-12 rounded">
-              <form action="#" method="POST" className="space-y-8">
+              <form onSubmit={handleSubmit} className="space-y-8">
                 {/* Name */}
                 <div className="space-y-2">
                   <label
