@@ -1,4 +1,4 @@
-# AGENTS.md — Atlas Portfolio
+# AGENTS.md - Atlas Portfolio
 
 ## Before Modifying This Project
 
@@ -10,7 +10,7 @@
 
 ## Project Overview
 
-This is "Atlas of an AI Engineer" — a premium portfolio for Varshini Akula. It's built with Next.js App Router, TypeScript strict, and Tailwind CSS v4. The design concept weaves travel, books, and coffee into the UX of a technical portfolio.
+This is "Atlas of an AI Engineer" - a premium portfolio for Varshini Akula. It's built with Next.js App Router, TypeScript strict, and Tailwind CSS v4. The design concept weaves travel, books, and coffee into the UX of a technical portfolio.
 
 ## Architecture
 
@@ -51,7 +51,7 @@ All content lives in `src/content/*.ts` as typed TypeScript exports. Types are d
 
 ### AI Assistant
 The "Ask Varshini" chat (`/api/chat`) uses two tiers:
-1. **Curated responses** in `content/prompts.ts` — matched by trigger keywords
+1. **Curated responses** in `content/prompts.ts` - matched by trigger keywords
 2. **Fuzzy search** via Fuse.js over all content files
 
 To upgrade to LLM-powered responses, add `OPENAI_API_KEY` or `ANTHROPIC_API_KEY` to `.env.local` and modify the API route to use Vercel AI SDK.
@@ -68,7 +68,7 @@ All animations use `motion/react` and respect `prefers-reduced-motion`. The `<Re
 ## Key Conventions
 - Components are 'use client' only when they need interactivity
 - All pages export `generateMetadata` for SEO
-- Content is never hardcoded in JSX — always imported from `content/`
+- Content is never hardcoded in JSX - always imported from `content/`
 - Use `cn()` from `lib/utils` for conditional classNames
 - Fonts: serif (Playfair Display) for headings, sans (Plus Jakarta Sans) for body, mono (JetBrains Mono) for metrics/code
 

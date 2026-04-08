@@ -1,4 +1,4 @@
-# Atlas — Varshini Akula's Portfolio
+# Atlas - Varshini Akula's Portfolio
 
 A premium AI engineer portfolio built with Next.js 16, TypeScript, and Tailwind CSS v4.
 

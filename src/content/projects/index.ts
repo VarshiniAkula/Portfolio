@@ -50,12 +50,12 @@ export const projects: ProjectMeta[] = [
   {
     slug: 'memory-augmented-llm',
     title: 'HyArg',
-    subtitle: 'Hybrid multi-retriever orchestration for long-term conversational memory — Recall@5 0.65 → 0.83',
+    subtitle: 'Hybrid multi-retriever orchestration for long-term conversational memory - Recall@5 0.65 → 0.83',
     description: {
       recruiter:
         'HyArg is a hybrid multi-retriever orchestration system in Python that uses an LLM-based selector to dynamically route queries across 5 specialized retrievers (BM25, TF-IDF, FAISS, SVM, Time-Weighted). Evaluated on LongMemEval (500 questions) and Locomo (1538 questions); achieved Recall@5 of 0.83 on LongMemEval with Qwen2.5-7B (+18 pts over the best single retriever) and 0.36 on Locomo with LLaMA 3.1 8B Instruct.',
       explorer:
-        'LLMs forget context across long conversations, and no single retriever is good at everything — BM25 nails exact phrases, FAISS handles semantics, time-weighted methods catch recency. HyArg is the system I co-built that uses an LLM orchestrator to read each query, extract signals (temporal cues, quoted phrases, entity mentions, query length), and dynamically route to the best of five retrievers. We tested it on LongMemEval and Locomo across LLaMA 3.1 8B, Mistral 7B, and Qwen2.5 7B, and the jump from 0.65 → 0.83 Recall@5 on LongMemEval validated that dynamic retriever selection beats any fixed single-retriever baseline.',
+        'LLMs forget context across long conversations, and no single retriever is good at everything - BM25 nails exact phrases, FAISS handles semantics, time-weighted methods catch recency. HyArg is the system I co-built that uses an LLM orchestrator to read each query, extract signals (temporal cues, quoted phrases, entity mentions, query length), and dynamically route to the best of five retrievers. We tested it on LongMemEval and Locomo across LLaMA 3.1 8B, Mistral 7B, and Qwen2.5 7B, and the jump from 0.65 → 0.83 Recall@5 on LongMemEval validated that dynamic retriever selection beats any fixed single-retriever baseline.',
     },
     date: 'Sep 2025 – Dec 2025',
     tags: ['RAG', 'Memory Systems', 'LLM', 'Benchmarking'],
@@ -187,12 +187,12 @@ export const projects: ProjectMeta[] = [
   {
     slug: 'flowmind',
     title: 'FlowMind',
-    subtitle: 'Visual AI assistant platform — Figma for conversational AI + a debugger for AI behavior',
+    subtitle: 'Visual AI assistant platform - Figma for conversational AI + a debugger for AI behavior',
     description: {
       recruiter:
         'Building FlowMind, a visual production-grade AI assistant platform with its own graph runtime, website/document grounding, hybrid deterministic+agentic orchestration, deep testing/observability, enterprise controls, and one-click deployment. Live preview: https://flowmind-nine-tau.vercel.app/',
       explorer:
-        'FlowMind is what happens when you treat conversational AI design like a debuggable system instead of a black box. Think Figma for conversational AI: a node-graph canvas where you compose message, retrieval, LLM, tool, condition, and human-handoff steps, run them in a live simulator with full traces, ground them in your own websites and documents, and one-click deploy as a chat widget. Multi-tenant org/workspace structure, pgvector retrieval with hybrid lexical+semantic search, Inngest-driven background jobs, and a model gateway that routes between Gemini and Groq. Currently in active build — early preview at https://flowmind-nine-tau.vercel.app/',
+        'FlowMind is what happens when you treat conversational AI design like a debuggable system instead of a black box. Think Figma for conversational AI: a node-graph canvas where you compose message, retrieval, LLM, tool, condition, and human-handoff steps, run them in a live simulator with full traces, ground them in your own websites and documents, and one-click deploy as a chat widget. Multi-tenant org/workspace structure, pgvector retrieval with hybrid lexical+semantic search, Inngest-driven background jobs, and a model gateway that routes between Gemini and Groq. Currently in active build - early preview at https://flowmind-nine-tau.vercel.app/',
     },
     date: '2026 –',
     tags: ['LLM', 'Visual Builder', 'RAG', 'Multi-tenant', 'In Progress'],

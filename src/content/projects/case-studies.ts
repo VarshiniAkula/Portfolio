@@ -84,29 +84,29 @@ export const caseStudyContent: Record<string, CaseStudy> = {
       {
         title: 'The Problem',
         content: [
-          'Large language model conversational systems degrade sharply on long conversation histories — accuracy can drop 30–60% on conversations spanning ~115k tokens. The root cause isn\'t just context window size; it\'s that no single retriever is good at every kind of question. BM25 nails exact phrase and entity lookups. Dense retrievers like FAISS capture semantic similarity but miss lexical matches. Time-weighted methods optimize for recency but mishandle non-temporal queries. Conversational memory queries cut across all of these — information extraction, temporal reasoning, multi-session aggregation, and knowledge updates — so any fixed single-retriever baseline leaves recall on the table.',
+          'Large language model conversational systems degrade sharply on long conversation histories - accuracy can drop 30–60% on conversations spanning ~115k tokens. The root cause isn\'t just context window size; it\'s that no single retriever is good at every kind of question. BM25 nails exact phrase and entity lookups. Dense retrievers like FAISS capture semantic similarity but miss lexical matches. Time-weighted methods optimize for recency but mishandle non-temporal queries. Conversational memory queries cut across all of these - information extraction, temporal reasoning, multi-session aggregation, and knowledge updates - so any fixed single-retriever baseline leaves recall on the table.',
         ],
       },
       {
         title: 'The Approach',
         content: [
-          'HyArg is a hybrid multi-retriever orchestration system built around an LLM-based selector. The pipeline starts with a Signal Extractor that pulls features from each query — temporal cues ("recent", "yesterday", "last"), quoted phrases, entity mentions, query length, and structural patterns. A Prompt Builder then assembles those signals together with an orchestrator guide (decision rubric, tie-breakers, anti-patterns, and few-shot examples) and asks the LLM to choose which retriever should handle this specific query.',
-          'The Retriever Pool has five specialized retrievers — BM25 (sparse lexical, k1=1.5, b=0.75), TF-IDF (sparse statistical), FAISS (dense neural with sentence-transformers/MiniLM-L6-v2), SVM (linear-kernel semantic), and Time-Weighted BM25 with exponential decay. The selector outputs structured JSON of the form {retriever, CoT reasoning}, the router dispatches accordingly, and the chosen retriever pulls the top-k documents from session-based indexes.',
-          'The data pipeline deliberately preserves session boundaries and temporal metadata instead of consolidating dialogue into a single bag — that\'s what makes time-weighted retrieval and true cross-session synthesis possible.',
+          'HyArg is a hybrid multi-retriever orchestration system built around an LLM-based selector. The pipeline starts with a Signal Extractor that pulls features from each query - temporal cues ("recent", "yesterday", "last"), quoted phrases, entity mentions, query length, and structural patterns. A Prompt Builder then assembles those signals together with an orchestrator guide (decision rubric, tie-breakers, anti-patterns, and few-shot examples) and asks the LLM to choose which retriever should handle this specific query.',
+          'The Retriever Pool has five specialized retrievers - BM25 (sparse lexical, k1=1.5, b=0.75), TF-IDF (sparse statistical), FAISS (dense neural with sentence-transformers/MiniLM-L6-v2), SVM (linear-kernel semantic), and Time-Weighted BM25 with exponential decay. The selector outputs structured JSON of the form {retriever, CoT reasoning}, the router dispatches accordingly, and the chosen retriever pulls the top-k documents from session-based indexes.',
+          'The data pipeline deliberately preserves session boundaries and temporal metadata instead of consolidating dialogue into a single bag - that\'s what makes time-weighted retrieval and true cross-session synthesis possible.',
         ],
       },
       {
         title: 'Results',
         content: [
           'We evaluated HyArg on two benchmarks: LongMemEval (500 questions across 7 categories) and Locomo (1538 questions across 5 categories), using LLaMA 3.1 8B Instruct, Mistral 7B Instruct, and Qwen2.5 7B Instruct as base models.',
-          'On LongMemEval, HyArg with Qwen2.5 7B reached Recall@5 of 0.83 — an absolute gain of +18 percentage points over the best single retriever (0.65 → 0.83). On Locomo, HyArg with LLaMA 3.1 8B Instruct reached Recall@5 of 0.36 (+4 points over the best single-retriever baseline at 0.32). Both results validate the central thesis: dynamic retriever selection based on query characteristics outperforms any fixed retriever across diverse conversational memory tasks.',
+          'On LongMemEval, HyArg with Qwen2.5 7B reached Recall@5 of 0.83 - an absolute gain of +18 percentage points over the best single retriever (0.65 → 0.83). On Locomo, HyArg with LLaMA 3.1 8B Instruct reached Recall@5 of 0.36 (+4 points over the best single-retriever baseline at 0.32). Both results validate the central thesis: dynamic retriever selection based on query characteristics outperforms any fixed retriever across diverse conversational memory tasks.',
         ],
       },
       {
         title: 'Lessons Learned',
         content: [
-          'Memory in conversational AI isn\'t just about storing information — it\'s about routing the right kind of question to the right kind of retriever. The orchestrator guide (rules + few-shot examples) ended up being as important as the retrievers themselves: most of the gains came from getting the routing right.',
-          'Preserving session boundaries and temporal metadata instead of pre-consolidating dialogue mattered more than expected — it\'s what unlocked the time-weighted and multi-session aggregation paths in the first place.',
+          'Memory in conversational AI isn\'t just about storing information - it\'s about routing the right kind of question to the right kind of retriever. The orchestrator guide (rules + few-shot examples) ended up being as important as the retrievers themselves: most of the gains came from getting the routing right.',
+          'Preserving session boundaries and temporal metadata instead of pre-consolidating dialogue mattered more than expected - it\'s what unlocked the time-weighted and multi-session aggregation paths in the first place.',
         ],
       },
     ],
@@ -230,7 +230,7 @@ export const caseStudyContent: Record<string, CaseStudy> = {
         title: 'The Problem',
         content: [
           'Building production-grade conversational AI is still painful. Teams stitch together prompt files, vector stores, function-calling tools, and a fragile mess of glue code, then lose visibility into why the assistant said what it said. Non-technical stakeholders can\'t safely shape behavior, regressions sneak in silently, and "deploy" usually means redeploying an entire app for a single prompt tweak.',
-          'I wanted a single visual environment where you can design a conversational assistant as a graph, ground it in your own websites and documents, simulate it with a full execution trace, run regression tests, and one-click deploy it as an embeddable widget — without juggling six different tools.',
+          'I wanted a single visual environment where you can design a conversational assistant as a graph, ground it in your own websites and documents, simulate it with a full execution trace, run regression tests, and one-click deploy it as an embeddable widget - without juggling six different tools.',
         ],
       },
       {
@@ -245,14 +245,14 @@ export const caseStudyContent: Record<string, CaseStudy> = {
         title: 'Key Decisions',
         content: [
           'Storing nodes and edges as JSONB inside graph_versions instead of normalized rows. Graphs are read and written atomically, version history is trivial, and Supabase row counts stay lean enough to live inside the free tier.',
-          'Treating the runtime as a real interpreter — not a chain of LLM calls. Every node emits a trace event with input, output, latency, tokens, and cost. That means the simulator is also a debugger, and analytics, regression tests, and observability all read from the same source of truth.',
-          'Designing for $0/month from day one. Every service in the stack (Supabase, Vercel, Inngest, Upstash, Gemini, Groq) has a real free tier, and the architecture is shaped around those quotas — aggressive prompt caching, batched embeddings, JSONB graphs, and Inngest for retries and cron instead of long-running workers.',
+          'Treating the runtime as a real interpreter - not a chain of LLM calls. Every node emits a trace event with input, output, latency, tokens, and cost. That means the simulator is also a debugger, and analytics, regression tests, and observability all read from the same source of truth.',
+          'Designing for $0/month from day one. Every service in the stack (Supabase, Vercel, Inngest, Upstash, Gemini, Groq) has a real free tier, and the architecture is shaped around those quotas - aggressive prompt caching, batched embeddings, JSONB graphs, and Inngest for retries and cron instead of long-running workers.',
         ],
       },
       {
         title: 'Status',
         content: [
-          'FlowMind is currently in active build — not finished. The graph schema, runtime, knowledge ingestion pipeline, and editor shell are coming online; the simulator, test harness, and one-click deploy flow are next. Early preview lives at https://flowmind-nine-tau.vercel.app/.',
+          'FlowMind is currently in active build - not finished. The graph schema, runtime, knowledge ingestion pipeline, and editor shell are coming online; the simulator, test harness, and one-click deploy flow are next. Early preview lives at https://flowmind-nine-tau.vercel.app/.',
         ],
       },
     ],
