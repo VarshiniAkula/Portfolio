@@ -24,7 +24,8 @@ export default function ContactPage() {
 
     const subject = encodeURIComponent(`Message from ${name}`);
     const body = encodeURIComponent(`From: ${name}\nEmail: ${email}\n\n${message}`);
-    window.location.href = `mailto:varshiniakula2003@gmail.com?subject=${subject}&body=${body}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=varshiniakula2003@gmail.com&su=${subject}&body=${body}`;
+    window.open(gmailUrl, '_blank', 'noopener,noreferrer');
   }
 
   return (

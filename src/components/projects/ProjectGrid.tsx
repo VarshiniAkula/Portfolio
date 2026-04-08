@@ -15,6 +15,7 @@ const projectImages: Record<string, string> = {
   'kafka-streaming': '/projects/kafka-streaming.jpg',
   'clickless-ai': '/projects/clickless-ai.jpg',
   'construction-intelligence': '/projects/construction-intelligence.jpg',
+  'flowmind': '/projects/flowmind.png',
 };
 
 export function ProjectGrid() {

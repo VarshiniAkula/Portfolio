@@ -23,7 +23,12 @@ export function HomeCTA() {
             <Button href="/contact" size="lg">
               Get in Touch
             </Button>
-            <Button href={profile.resumeUrl} variant="secondary" size="lg">
+            <Button
+              href={profile.resumeUrl}
+              variant="secondary"
+              size="lg"
+              download="Resume.pdf"
+            >
               Download CV
             </Button>
           </div>

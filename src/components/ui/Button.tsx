@@ -4,6 +4,9 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   href?: string;
+  download?: boolean | string;
+  target?: string;
+  rel?: string;
 }
 
 export function Button({
@@ -12,6 +15,9 @@ export function Button({
   size = 'md',
   href,
   className,
+  download,
+  target,
+  rel,
   ...props
 }: ButtonProps) {
   const classes = cn(
@@ -31,7 +37,13 @@ export function Button({
 
   if (href) {
     return (
-      <a href={href} className={classes}>
+      <a
+        href={href}
+        className={classes}
+        download={download}
+        target={target}
+        rel={rel}
+      >
         {children}
       </a>
     );

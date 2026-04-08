@@ -28,7 +28,9 @@ export function ContactPage() {
                     Email
                   </span>
                   <a
-                    href={`mailto:${profile.email}`}
+                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=${profile.email}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-lg text-espresso hover:text-copper transition-colors font-medium"
                   >
                     {profile.email}
@@ -45,14 +47,12 @@ export function ContactPage() {
                       <a
                         key={social.platform}
                         href={social.url}
-                        target={social.platform !== 'Email' ? '_blank' : undefined}
-                        rel={social.platform !== 'Email' ? 'noopener noreferrer' : undefined}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-cream border border-espresso/5 text-sm text-espresso hover:border-copper/20 hover:text-copper transition-colors"
                       >
                         {social.label}
-                        {social.platform !== 'Email' && (
-                          <span aria-hidden="true" className="text-xs">↗</span>
-                        )}
+                        <span aria-hidden="true" className="text-xs">↗</span>
                       </a>
                     ))}
                   </div>
@@ -63,7 +63,11 @@ export function ContactPage() {
                   <span className="font-mono text-xs tracking-widest text-copper uppercase block mb-3">
                     Resume
                   </span>
-                  <Button href={profile.resumeUrl} variant="primary">
+                  <Button
+                    href={profile.resumeUrl}
+                    variant="primary"
+                    download="Resume.pdf"
+                  >
                     Download Resume &darr;
                   </Button>
                 </div>

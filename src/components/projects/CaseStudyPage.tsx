@@ -70,6 +70,23 @@ export function CaseStudyPage({ project }: { project: ProjectMeta }) {
                 {project.duration}
               </span>
             </div>
+
+            {project.links && project.links.length > 0 && (
+              <div className="mt-6 flex flex-wrap gap-3">
+                {project.links.map((link) => (
+                  <a
+                    key={link.url}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#00F2FF]/30 bg-[#00F2FF]/10 text-[#00F2FF] text-sm font-label uppercase tracking-widest hover:bg-[#00F2FF]/20 transition-colors"
+                  >
+                    {link.label}
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                ))}
+              </div>
+            )}
           </header>
         </Reveal>
 

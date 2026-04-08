@@ -49,13 +49,13 @@ export const projects: ProjectMeta[] = [
   },
   {
     slug: 'memory-augmented-llm',
-    title: 'Hybrid Multi-Retriever Orchestration',
-    subtitle: 'Long-term conversational memory improving Recall@5 from 0.65 to 0.83',
+    title: 'HyArg',
+    subtitle: 'Hybrid multi-retriever orchestration for long-term conversational memory — Recall@5 0.65 → 0.83',
     description: {
       recruiter:
-        'Built a RAG orchestration system in Python routing queries across 5 retrievers (BM25, TF-IDF, FAISS, SVM, Time-Weighted) using intent classification and rule-based decision logic. Improved Recall@5 by +18 pts (0.65 to 0.83) on LongMemEval with Qwen2.5-7B.',
+        'HyArg is a hybrid multi-retriever orchestration system in Python that uses an LLM-based selector to dynamically route queries across 5 specialized retrievers (BM25, TF-IDF, FAISS, SVM, Time-Weighted). Evaluated on LongMemEval (500 questions) and Locomo (1538 questions); achieved Recall@5 of 0.83 on LongMemEval with Qwen2.5-7B (+18 pts over the best single retriever) and 0.36 on Locomo with LLaMA 3.1 8B Instruct.',
       explorer:
-        'LLMs have a memory problem - they forget context across long conversations. I designed a multi-retriever orchestration system that routes queries across BM25, TF-IDF, FAISS, SVM, and Time-Weighted retrievers using intent classification. The jump from 0.65 to 0.83 Recall@5 on LongMemEval proved that smarter retrieval architectures can meaningfully improve conversational continuity.',
+        'LLMs forget context across long conversations, and no single retriever is good at everything — BM25 nails exact phrases, FAISS handles semantics, time-weighted methods catch recency. HyArg is the system I co-built that uses an LLM orchestrator to read each query, extract signals (temporal cues, quoted phrases, entity mentions, query length), and dynamically route to the best of five retrievers. We tested it on LongMemEval and Locomo across LLaMA 3.1 8B, Mistral 7B, and Qwen2.5 7B, and the jump from 0.65 → 0.83 Recall@5 on LongMemEval validated that dynamic retriever selection beats any fixed single-retriever baseline.',
     },
     date: 'Sep 2025 – Dec 2025',
     tags: ['RAG', 'Memory Systems', 'LLM', 'Benchmarking'],
@@ -165,9 +165,9 @@ export const projects: ProjectMeta[] = [
     subtitle: 'AI-powered construction project management with document intelligence',
     description: {
       recruiter:
-        'Full-stack construction project management platform with RBAC, AI-powered document search (RAG), RFI intelligence with NLP classification, and analytics dashboards.',
+        'Full-stack construction project management platform with RBAC, AI-powered document search (RAG), RFI intelligence with NLP classification, and analytics dashboards. Live demo: https://constructionrag.vercel.app/',
       explorer:
-        'Construction projects generate mountains of documents - RFIs, change orders, submittals, schedules. I built an AI assistant that understands construction documents, answers questions with citations, classifies RFIs automatically, and flags risks before they become problems.',
+        'Construction projects generate mountains of documents - RFIs, change orders, submittals, schedules. I built an AI assistant that understands construction documents, answers questions with citations, classifies RFIs automatically, and flags risks before they become problems. Try the live demo at https://constructionrag.vercel.app/',
     },
     date: '2026',
     tags: ['Full-Stack', 'RAG', 'NLP', 'Construction Tech'],
@@ -180,6 +180,50 @@ export const projects: ProjectMeta[] = [
     status: 'completed',
     featured: true,
     category: 'enterprise',
+    links: [
+      { label: 'Live Demo', url: 'https://constructionrag.vercel.app/' },
+    ],
+  },
+  {
+    slug: 'flowmind',
+    title: 'FlowMind',
+    subtitle: 'Visual AI assistant platform — Figma for conversational AI + a debugger for AI behavior',
+    description: {
+      recruiter:
+        'Building FlowMind, a visual production-grade AI assistant platform with its own graph runtime, website/document grounding, hybrid deterministic+agentic orchestration, deep testing/observability, enterprise controls, and one-click deployment. Live preview: https://flowmind-nine-tau.vercel.app/',
+      explorer:
+        'FlowMind is what happens when you treat conversational AI design like a debuggable system instead of a black box. Think Figma for conversational AI: a node-graph canvas where you compose message, retrieval, LLM, tool, condition, and human-handoff steps, run them in a live simulator with full traces, ground them in your own websites and documents, and one-click deploy as a chat widget. Multi-tenant org/workspace structure, pgvector retrieval with hybrid lexical+semantic search, Inngest-driven background jobs, and a model gateway that routes between Gemini and Groq. Currently in active build — early preview at https://flowmind-nine-tau.vercel.app/',
+    },
+    date: '2026 –',
+    tags: ['LLM', 'Visual Builder', 'RAG', 'Multi-tenant', 'In Progress'],
+    techStack: [
+      'Next.js 15',
+      'React 19',
+      'TypeScript',
+      'Tailwind v4',
+      'React Flow v12',
+      'Zustand',
+      'Hono',
+      'Drizzle',
+      'Supabase',
+      'pgvector',
+      'Inngest',
+      'Upstash Redis',
+      'Vercel AI SDK',
+      'Gemini 2.5 Flash',
+      'Groq',
+    ],
+    metrics: [
+      { label: 'Status', value: 'WIP', unit: 'in active build' },
+    ],
+    role: 'Solo Builder',
+    duration: 'Ongoing',
+    status: 'ongoing',
+    featured: false,
+    category: 'ai',
+    links: [
+      { label: 'Live Preview', url: 'https://flowmind-nine-tau.vercel.app/' },
+    ],
   },
 ];
 

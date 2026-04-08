@@ -13,7 +13,7 @@ export const socials: SocialLink[] = [
   },
   {
     platform: 'Email',
-    url: 'mailto:varshiniakula2003@gmail.com',
+    url: 'https://mail.google.com/mail/?view=cm&fs=1&to=varshiniakula2003@gmail.com',
     label: 'Email',
   },
 ];
