@@ -27,7 +27,7 @@ export function HomeCTA() {
               href={profile.resumeUrl}
               variant="secondary"
               size="lg"
-              download="Resume.pdf"
+              download="Varshini_Akula_Resume.pdf"
             >
               Download CV
             </Button>
