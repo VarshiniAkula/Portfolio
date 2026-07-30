@@ -40,12 +40,28 @@ export function PortfolioGallery({ photos, videos, showUploader = true }: Portfo
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight max-w-4xl">
             A creative eye for <span className="gradient-text">stories worth sharing</span>.
           </h1>
-          <p className="mt-6 text-[#fff6e4]/70 text-lg max-w-2xl leading-relaxed">
+          <p className="mt-6 font-serif text-xl sm:text-2xl italic text-[#fff6e4] max-w-2xl leading-snug">
+            Hi, I&apos;m Varshini &mdash; I shoot and edit the everyday moments that make people stop scrolling.
+          </p>
+          <p className="mt-5 text-[#fff6e4]/70 text-lg max-w-2xl leading-relaxed">
             Photos and short-form video I&apos;ve shot, edited, and published across
             campus life, travel, and events. Curated for the{' '}
             <span className="text-[#fff6e4]">ASU Brand Social Media</span> team &mdash;
             built to move fast and look sharp on Instagram, Threads, and beyond.
           </p>
+          <a
+            href="https://www.instagram.com/crazy.flies"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#00F2FF]/25 px-4 py-2 text-sm font-semibold text-[#fff6e4] hover:border-[#00F2FF]/50 hover:text-[#00F2FF] hover:bg-[#00F2FF]/5 transition-all"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+            @crazy.flies
+          </a>
         </Reveal>
 
         {/* Stats */}
