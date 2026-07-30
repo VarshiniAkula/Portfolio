@@ -41,12 +41,12 @@ export function PortfolioGallery({ photos, videos, showUploader = true }: Portfo
             A creative eye for <span className="gradient-text">stories worth sharing</span>.
           </h1>
           <p className="mt-6 font-serif text-xl sm:text-2xl italic text-[#fff6e4] max-w-2xl leading-snug">
-            Hi, I&apos;m Varshini &mdash; I shoot and edit the everyday moments that make people stop scrolling.
+            Hi, I&apos;m Varshini. I shoot and edit the everyday moments that make people stop scrolling.
           </p>
           <p className="mt-5 text-[#fff6e4]/70 text-lg max-w-2xl leading-relaxed">
             Photos and short-form video I&apos;ve shot, edited, and published across
             campus life, travel, and events. Curated for the{' '}
-            <span className="text-[#fff6e4]">ASU Brand Social Media</span> team &mdash;
+            <span className="text-[#fff6e4]">ASU Brand Social Media</span> team,
             built to move fast and look sharp on Instagram, Threads, and beyond.
           </p>
           <a
@@ -82,7 +82,7 @@ export function PortfolioGallery({ photos, videos, showUploader = true }: Portfo
           </div>
         </Reveal>
 
-        {/* Uploader (local only — hidden on the deployed site) */}
+        {/* Uploader (local only, hidden on the deployed site) */}
         {showUploader && (
           <Reveal delay={0.15}>
             <Uploader />

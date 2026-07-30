@@ -229,30 +229,32 @@ export const caseStudyContent: Record<string, CaseStudy> = {
       {
         title: 'The Problem',
         content: [
-          'Building production-grade conversational AI is still painful. Teams stitch together prompt files, vector stores, function-calling tools, and a fragile mess of glue code, then lose visibility into why the assistant said what it said. Non-technical stakeholders can\'t safely shape behavior, regressions sneak in silently, and "deploy" usually means redeploying an entire app for a single prompt tweak.',
-          'I wanted a single visual environment where you can design a conversational assistant as a graph, ground it in your own websites and documents, simulate it with a full execution trace, run regression tests, and one-click deploy it as an embeddable widget - without juggling six different tools.',
+          'Building a useful chat assistant still means stitching together prompt files, a vector store, retrieval glue, and a model API, then losing all visibility into why the assistant said what it said. Non-technical people can\'t safely shape behavior, and "test it" usually means poking a black box in production.',
+          'I wanted a single visual environment where you can design an assistant as a flow, ground it in your own documents, run it in a simulator with a full execution trace, and publish it as a hosted chat page or embeddable widget - all behind a real login, with your data isolated to your account.',
         ],
       },
       {
         title: 'The Approach',
         content: [
-          'FlowMind is a visual AI assistant platform built around its own graph runtime. The editor is a React Flow v12 canvas where each node is a strongly-typed step (message, input, choice, condition, RAG query, LLM response, HTTP action, transform, validator, structured extract, tool router, human handoff, loop, subflow, end). The runtime executes that graph node-by-node, streams trace events into a debugger panel, and persists every conversation, message, and trace in Postgres.',
-          'Knowledge grounding is first-class: paste a website or upload PDFs and DOCX, and a background pipeline (Inngest jobs) crawls, parses, chunks, and embeds the content into pgvector on Supabase. Retrieval at query time fuses semantic search (Gemini text-embedding-004) with lexical search (Postgres full-text), then cites the source documents back into the assistant\'s reply.',
-          'The model layer is a gateway that routes between Google Gemini 2.5 Flash (primary, free tier) and Groq Llama 3.3 70B (fallback), with prompt-hash caching in Upstash Redis to stay inside free tiers. Auth, RLS, storage, and realtime are all Supabase. The whole thing is a Turborepo monorepo with shared TypeScript types and Zod validators between the Next.js 15 web app and the Hono API.',
+          'FlowMind is a full-stack Next.js 15 (App Router, RSC) and React 19 app backed entirely by Supabase. You sign up with an email/password account; protected routes and session auth run through @supabase/ssr, and every assistant, document chunk, and file is isolated per user by Postgres Row-Level Security. There is no separate API service - the backend is Next.js API routes on the Node runtime, same-origin and RLS-guarded.',
+          'The builder has three surfaces: a Story Builder that turns a plain-English description into a working flow, a React Flow v12 Canvas of executable nodes (message, input, choice, condition, RAG query, LLM response) that auto-saves, and a Test simulator that runs the whole flow with a live execution trace and variable capture. Shared TypeScript types, node constants, and Zod validators live in a pnpm + Turbo workspace package.',
+          'Knowledge grounding is server-side and per-user: upload .txt/.md/.csv/.html, and the file lands in private Supabase Storage, gets parsed and chunked on the server, and is embedded with Gemini gemini-embedding-001 (768-dim) into pgvector. At query time, retrieval runs a cosine match over an HNSW index with a BM25-lite lexical fallback when no key is present, and the retrieval tester shows which path actually ran.',
+          'The LLM Response node follows a strict, transparent precedence: a user\'s own Gemini key (BYOK - validated server-side, encrypted in an auto-expiring HttpOnly cookie, never stored in the browser or database), then a small shared Groq demo allowance (openai/gpt-oss-20b, capped atomically per-user and globally in Postgres), then an opt-in platform Gemini key, and finally a clearly-labeled deterministic simulation. The trace always shows which provider and model answered.',
         ],
       },
       {
         title: 'Key Decisions',
         content: [
-          'Storing nodes and edges as JSONB inside graph_versions instead of normalized rows. Graphs are read and written atomically, version history is trivial, and Supabase row counts stay lean enough to live inside the free tier.',
-          'Treating the runtime as a real interpreter - not a chain of LLM calls. Every node emits a trace event with input, output, latency, tokens, and cost. That means the simulator is also a debugger, and analytics, regression tests, and observability all read from the same source of truth.',
-          'Designing for $0/month from day one. Every service in the stack (Supabase, Vercel, Inngest, Upstash, Gemini, Groq) has a real free tier, and the architecture is shaped around those quotas - aggressive prompt caching, batched embeddings, JSONB graphs, and Inngest for retries and cron instead of long-running workers.',
+          'Real auth and Row-Level Security from the start, not an afterthought. Because every table is RLS-isolated per user, the same queries that power the dashboard are safe multi-user by construction - each account only ever sees its own assistants, chunks, and files.',
+          'Bring-your-own-key first, with graceful degradation. FlowMind stays fully usable with zero configuration: without any key it falls back to a deterministic simulation, so the builder and RAG pipeline are demoable offline, and connecting a Gemini key unlocks real generation without changing anything else.',
+          'An offline evaluation harness (RAG + workflow metrics) wired into CI, so retrieval and flow-execution changes are measured rather than eyeballed - unusual for an early prototype, and the thing that keeps the honest status honest.',
         ],
       },
       {
         title: 'Status',
         content: [
-          'FlowMind is currently in active build - not finished. The graph schema, runtime, knowledge ingestion pipeline, and editor shell are coming online; the simulator, test harness, and one-click deploy flow are next. Early preview lives at https://flowmind-nine-tau.vercel.app/.',
+          'FlowMind is an honest early-stage prototype, not production-ready. Working today: accounts and login, per-user assistant history, the Story → Canvas → Test builder, knowledge upload with pgvector retrieval, real LLM answers via Gemini BYOK or the Groq demo, and a legacy publish path with hosted chat (/chat/[id]) plus a /widget.js embed script.',
+          'Still on the roadmap: organizations (multi-member, invites, roles - today each user gets one personal workspace), PDF/DOCX ingestion (.txt/.md/.csv/.html only for now), and a versioned publish schema with a rate-limited public chat endpoint. Live preview: https://flowmind-nine-tau.vercel.app/ · Code: https://github.com/VarshiniAkula/FlowMind',
         ],
       },
     ],

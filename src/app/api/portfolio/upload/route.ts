@@ -37,7 +37,7 @@ async function uniquePath(dir: string, filename: string): Promise<string> {
 }
 
 export async function POST(req: Request) {
-  // Uploads write to the local filesystem — this works in `next dev` / `next start`,
+  // Uploads write to the local filesystem. This works in `next dev` / `next start`,
   // but NOT on serverless hosts (e.g. Vercel) where the filesystem is read-only.
   if (process.env.VERCEL) {
     return NextResponse.json(

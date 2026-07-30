@@ -23,12 +23,12 @@ export function Hero() {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
           {/* Left: Text content */}
           <div className="flex-1 flex flex-col items-start text-left">
-            {/* System Online badge */}
+            {/* Open to work badge */}
             <Reveal delay={0}>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#222222] border border-white/10 mb-6">
                 <span className="w-2 h-2 rounded-full bg-[#00F2FF] animate-pulse shadow-[0_0_8px_#00f2ff]" />
                 <span className="text-[#00F2FF] text-xs font-bold uppercase tracking-[0.05em] font-label">
-                  System Online
+                  Open to Full-Time &amp; Internship Roles
                 </span>
               </div>
             </Reveal>
@@ -38,7 +38,7 @@ export function Hero() {
               <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-[-0.02em] text-[#fff6e4] mb-4">
                 AI &amp; Software{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e1fdff] to-[#00F2FF] drop-shadow-[0_0_16px_rgba(0,242,255,0.4)]">
-                  Developer
+                  Engineer
                 </span>
               </h1>
             </Reveal>
@@ -46,7 +46,7 @@ export function Hero() {
             {/* Tagline */}
             <Reveal delay={0.2}>
               <p className="text-[#fff6e4]/80 text-lg lg:text-xl font-normal leading-relaxed max-w-xl mb-4">
-                Architecting high-performance digital ecosystems. Merging meticulous code with the art of technical storytelling.
+                I turn AI prototypes into production systems: LLM assistants, RAG pipelines, and cloud-native services that ship, scale, and hold up under real load.
               </p>
             </Reveal>
 

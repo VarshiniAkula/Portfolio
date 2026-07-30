@@ -19,10 +19,12 @@ const projectImages: Record<string, string> = {
 };
 
 const homeFeaturedSlugs = [
+  'flowmind',
   'rasa-virtual-assistant',
   'memory-augmented-llm',
-  'star-reasoning',
   'construction-intelligence',
+  'star-reasoning',
+  'llm-incident-chatbot',
 ];
 
 export function FeaturedProjects() {

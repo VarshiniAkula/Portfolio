@@ -2,8 +2,8 @@ import type { Profile } from '@/types/content';
 
 export const profile: Profile = {
   name: 'Varshini Akula',
-  title: 'AI & Software Developer',
-  tagline: 'Building intelligent systems from prototype to production.',
+  title: 'AI & Software Engineer',
+  tagline: 'Turning AI prototypes into production systems.',
   location: 'Tempe, AZ, USA',
   email: 'varshiniakula2003@gmail.com',
   resumeUrl: '/resume.pdf',
