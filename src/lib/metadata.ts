@@ -17,10 +17,10 @@ export function generatePageMetadata({
 }: PageMetaArgs): Metadata {
   const fullTitle = title
     ? `${title} - Varshini Akula`
-    : 'Varshini Akula - AI Engineer';
+    : 'Varshini Akula - Backend & Software Engineer';
   const desc =
     description ||
-    'AI Engineer building intelligent systems from prototype to production. M.S. CS at ASU, former SDE at JPMorgan Chase.';
+    'Backend and software engineer who ships secure, production-oriented AI systems. M.S. CS at ASU, former SDE at JPMorgan Chase.';
 
   return {
     title: fullTitle,
@@ -49,7 +49,7 @@ export function generatePersonJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Varshini Akula',
-    jobTitle: 'AI Engineer',
+    jobTitle: 'Backend & Software Engineer',
     url: siteUrl,
     alumniOf: [
       {
@@ -62,12 +62,14 @@ export function generatePersonJsonLd() {
       },
     ],
     knowsAbout: [
-      'Artificial Intelligence',
-      'Machine Learning',
-      'Natural Language Processing',
-      'Large Language Models',
+      'Backend Engineering',
       'Software Engineering',
-      'Conversational AI',
+      'Distributed Systems',
+      'Cloud Infrastructure',
+      'Production AI Systems',
+      'Large Language Models',
+      'Retrieval-Augmented Generation',
+      'Application Security',
     ],
     sameAs: [
       'https://github.com/varshiniakula',

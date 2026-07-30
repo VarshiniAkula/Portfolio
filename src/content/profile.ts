@@ -2,17 +2,17 @@ import type { Profile } from '@/types/content';
 
 export const profile: Profile = {
   name: 'Varshini Akula',
-  title: 'AI & Software Engineer',
-  tagline: 'Turning AI prototypes into production systems.',
+  title: 'Backend & Software Engineer',
+  tagline: 'Shipping secure, production-oriented AI systems.',
   location: 'Tempe, AZ, USA',
   email: 'varshiniakula2003@gmail.com',
   resumeUrl: '/resume.pdf',
   monogram: 'VA',
   bio: {
     recruiter:
-      'M.S. Computer Science student at ASU and former SDE at JPMorgan Chase with production experience building AI-powered assistants, cloud-native Java/AWS microservices, and data streaming pipelines. Designs end-to-end solutions that automate workflows, reduce manual effort, and strengthen reliability across large-scale enterprise systems.',
+      'Backend and software engineer, M.S. Computer Science at ASU and former SDE at JPMorgan Chase, who ships secure, production-oriented AI systems. I build cloud-native Java and AWS microservices, real-time data pipelines, and LLM-powered assistants with the access controls, reliability, and observability that production actually demands, turning prototypes into systems teams can trust at scale.',
     explorer:
-      'I taught myself C during a summer holiday because I wanted to understand how computers think. That curiosity led me from building chatbots at JPMorgan Chase to researching LLM vulnerabilities at ASU. I turn early prototypes into production systems, lead communities that matter, and believe the best AI is the kind that makes someone\'s Tuesday afternoon easier. When I\'m not shipping code, I\'m reading novels, exploring new cities, or finding the best coffee in town.',
+      'I taught myself C during a summer holiday because I wanted to understand how computers think. That curiosity led me from building chatbots at JPMorgan Chase to researching LLM vulnerabilities at ASU. I turn early prototypes into secure, production-ready systems, lead communities that matter, and believe the best AI is the kind that makes someone\'s Tuesday afternoon easier. When I\'m not shipping code, I\'m reading novels, exploring new cities, or finding the best coffee in town.',
   },
   highlights: [
     {

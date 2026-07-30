@@ -15,7 +15,7 @@ export function HomeCTA() {
         </Reveal>
         <Reveal delay={0.1}>
           <p className="text-xl text-white/60 mb-14">
-            I&apos;m actively seeking full-time and internship/co-op roles in AI and software engineering. Ready to make an impact from day one. Let&apos;s talk.
+            I&apos;m actively seeking full-time and internship/co-op roles in backend and software engineering, building secure, production-grade AI systems. Ready to make an impact from day one. Let&apos;s talk.
           </p>
         </Reveal>
         <Reveal delay={0.2}>

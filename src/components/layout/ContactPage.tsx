@@ -83,9 +83,9 @@ export function ContactPage() {
               </h3>
               <div className="flex flex-wrap justify-center gap-2">
                 {[
-                  'AI Engineering Roles',
+                  'Backend & Software Engineering Roles',
+                  'Production AI Systems',
                   'Research Collaborations',
-                  'Product Opportunities',
                   'Startup Conversations',
                   'Open Source Projects',
                 ].map((item) => (

@@ -10,12 +10,12 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Varshini Akula',
   description:
-    'AI & Software Developer building intelligent systems from prototype to production. M.S. CS at ASU (4.0 GPA), former SDE at JPMorgan Chase. Research in LLMs, agentic workflows, and conversational AI.',
+    'Backend and software engineer who ships secure, production-oriented AI systems. M.S. CS at ASU (4.0 GPA), former SDE at JPMorgan Chase. Cloud-native services, real-time data pipelines, and LLM-powered assistants.',
   metadataBase: new URL('https://varshiniakula.com'),
   openGraph: {
     title: 'Varshini Akula',
     description:
-      'AI & Software Developer building intelligent systems from prototype to production.',
+      'Backend and software engineer who ships secure, production-oriented AI systems.',
     siteName: 'Varshini Akula',
     type: 'website',
     locale: 'en_US',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Varshini Akula',
     description:
-      'AI & Software Developer building intelligent systems from prototype to production.',
+      'Backend and software engineer who ships secure, production-oriented AI systems.',
   },
   robots: { index: true, follow: true },
 };

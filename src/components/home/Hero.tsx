@@ -36,7 +36,7 @@ export function Hero() {
             {/* Headline */}
             <Reveal delay={0.1}>
               <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-[-0.02em] text-[#fff6e4] mb-4">
-                AI &amp; Software{' '}
+                Backend &amp; Software{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e1fdff] to-[#00F2FF] drop-shadow-[0_0_16px_rgba(0,242,255,0.4)]">
                   Engineer
                 </span>
@@ -46,7 +46,7 @@ export function Hero() {
             {/* Tagline */}
             <Reveal delay={0.2}>
               <p className="text-[#fff6e4]/80 text-lg lg:text-xl font-normal leading-relaxed max-w-xl mb-4">
-                I turn AI prototypes into production systems: LLM assistants, RAG pipelines, and cloud-native services that ship, scale, and hold up under real load.
+                I ship secure, production-oriented AI systems: LLM assistants, RAG pipelines, and cloud-native services built to hold up under real load.
               </p>
             </Reveal>
 
