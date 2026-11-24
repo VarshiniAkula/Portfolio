@@ -5,18 +5,8 @@ import Image from 'next/image';
 import { projects } from '@/content/projects';
 import { Container } from '@/components/ui/Container';
 import { Reveal } from '@/components/ui/Reveal';
+import { projectImages } from '@/content/projects/images';
 
-const projectImages: Record<string, string> = {
-  'rasa-virtual-assistant': '/projects/rasa-virtual-assistant.jpg',
-  'llm-incident-chatbot': '/projects/llm-incident-chatbot.jpg',
-  'memory-augmented-llm': '/projects/memory-augmented-llm.jpg',
-  'deepfake-detection': '/projects/deepfake-detection.jpg',
-  'star-reasoning': '/projects/star-reasoning.jpg',
-  'kafka-streaming': '/projects/kafka-streaming.jpg',
-  'clickless-ai': '/projects/clickless-ai.jpg',
-  'construction-intelligence': '/projects/construction-intelligence.jpg',
-  'flowmind': '/projects/flowmind.png',
-};
 
 export function ProjectGrid() {
   return (

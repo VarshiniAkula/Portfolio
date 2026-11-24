@@ -32,7 +32,7 @@ export const disciplines: Discipline[] = [
       'Reproducible LLM evaluation',
     ],
     tools: ['PyTorch', 'Hugging Face', 'MLX-LM', 'LangChain', 'FAISS', 'pgvector', 'OpenAI', 'Gemini'],
-    proof: { label: 'Recall@5', value: '0.83', unit: 'up from 0.65 on LongMemEval' },
+    proof: { label: 'Held-out approval', value: '8/10', unit: 'BrandPilot LoRA v5 vs 3/10 base' },
     projectSlugs: ['memory-augmented-llm', 'lora-brand-assistant', 'skillshift', 'llm-incident-chatbot', 'star-reasoning'],
   },
   {

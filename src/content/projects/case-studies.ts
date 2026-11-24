@@ -264,31 +264,31 @@ export const caseStudyContent: Record<string, CaseStudy> = {
       {
         title: 'The Problem',
         content: [
-          'Brand outreach emails are only useful if every claim about the company is true and current. A fine-tuned small model is cheap and fast, but it will happily invent facts. The goal: input a company, research it on the public web, and produce a short Instagram collaboration email where every factual sentence traces back to a real source.',
-          'Phase 4 showed that a 1B generator could not produce the full analysis-and-claims JSON it was trained on. No output reached a usable email.',
+          'Credible brand outreach needs current research on a company\'s positioning, audience, marketing activity and gaps. Doing it by hand is slow and goes stale as brands change their marketing, and a model working from memory alone uses outdated facts or hallucinates marketing activity.',
+          'BrandPilot AI was built for CSE 598 Agentic AI at Arizona State University by Varshini Akula, Thanishka Bolisetty, Thushar Reddy Vemula, Suhas Gajula and YJ Kim, with Amatya Katyayan as stakeholder.',
         ],
       },
       {
-        title: 'The Approach',
+        title: 'How the Agent Works',
         content: [
-          'Phase 3 (my work): verified LoRA adapter inference on Gemma 3 1B (4-bit QAT) served by MLX-LM, with a runtime load ledger that proves which adapter actually answered, saved-packet replay so base and adapter see identical evidence, and per-run records with honest statuses.',
-          'Phase 4 (my work): verification checks, an atomic reviewer, caching and a bounded repair controller, with the evaluation configuration frozen before any model call.',
-          'Phase 5 (my work): a fact-first split. Code selects 2-3 company facts as exact quotes with passage IDs, states one Instagram opportunity, and the model writes only a subject and a 100-150 word body at temperature 0. Code attaches [P#] citations using stemmed content-word coverage (0.6 threshold, numbers and negations must match), then deterministic checks run, with at most one sentence-level revision before human review.',
+          'Everything runs on a local Apple Silicon laptop with no paid APIs. (1) A research tool searches the public web and returns passages with URLs, abstaining when there is no evidence. Passages go into a numbered, hashed, replayable evidence packet. (2) Code selects 2-3 exact quotes with passage IDs, and a teammate verifies or rejects each fact. (3) Code states one collaborative Instagram opportunity built on a fact, with no weakness language.',
+          '(4) The LoRA-tuned Gemma 3 1B (4-bit, served by MLX with a load ledger) writes only a subject and a 100-150 word email. (5) Code matches each sentence to the facts and attaches [P#] citations; new claims get none. (6) Checks cover facts, sender, Instagram-only, promises and length. A failing draft gets at most one revision of its failing sentences, then is withheld and never sent. A human reviewer approves, edits or rejects.',
+          'Model: Gemma 3 1B (QAT 4-bit) with LoRA adapter v5 (rank 8), trained on 40 grounded examples from a 148-company dataset split by company 99 / 16 / 33.',
         ],
       },
       {
         title: 'Key Decisions',
         content: [
-          'Keep facts in RAG and style in LoRA. The model never sees fact IDs and never writes citations; any model-written citation fails the checks, so the system cannot cite evidence for claims the model invented.',
-          'Freeze before testing. The workflow freeze records the SHA-256 of every workflow file, prompt and check versions, the adapter hash and the held-out list. The driver refuses held-out runs if anything changed, and hashes were re-checked after the runs.',
-          'A held-out rule fixed in code before any held-out packet was read: 10 companies never used for training, checkpoint selection or workflow development.',
+          'Fact-first instead of adaptive re-search. The planned adaptive re-search loop was replaced: verified quotes come before drafting, so the model never has to decide what is true.',
+          'Freeze before testing. The workflow was tuned on 3 development companies, frozen with file hashes, then run once on 10 of the 33 held-out companies. Base and LoRA got identical prompts, and every case is reported.',
         ],
       },
       {
         title: 'Results',
         content: [
-          'On the 10 held-out companies, every final draft in both arms (base and v5 adapter) was correctly addressed, Instagram-only and free of promised results. 5 of 20 drafts passed all automated checks, with a median first-draft latency of about 8 seconds.',
-          'Passing the checks was necessary but not sufficient: the main cause of rejection was the fact selector accepting text that was not a real company fact (agency SEO copy, taglines, image alt text). The adapter did not help this short-email task, since it was trained on the long JSON format. These are reported plainly rather than tuned away, and they point directly at the next fix: better fact selection.',
+          'Approved, evidence-backed emails went from 0 at Milestone 2 to 11 on the held-out set. On 10 held-out companies each, LoRA v5 passed all checks and was approved in human review for 8, versus 3 for the base model; 10/10 LoRA drafts hit the 100-150 word target. 20/20 drafts had the correct sender and recipient and stayed Instagram-only, with 0 execution failures in 157 generations.',
+          'Example (Away, same facts and prompt): the base model was withheld for crediting third-party articles to Away, merging two collaborations and running to 154 words. LoRA v5 passed and was approved on its first try, using facts from Away\'s own press page, in studio voice, at 126 words.',
+          'Future work: a wider dataset, with more verified companies across more categories for training and a larger held-out evaluation.',
         ],
       },
     ],
