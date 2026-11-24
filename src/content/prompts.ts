@@ -1,121 +1,312 @@
-import type { PromptChip, CuratedResponse } from '@/types/content';
+import type { CuratedResponse, PromptGroup } from '@/types/content';
 
-export const promptChips: PromptChip[] = [
+/**
+ * Starter questions shown when the chat opens, grouped by topic.
+ * Every query here is answered by a curated response below.
+ */
+export const promptGroups: PromptGroup[] = [
   {
-    label: 'Strongest production work',
-    query: 'Show me her strongest production work',
+    title: 'Quick overview',
+    chips: [
+      { label: 'Who is Varshini?', query: 'Tell me about Varshini' },
+      { label: 'Roles she fits', query: 'What roles is she looking for?' },
+      { label: 'Why hire her?', query: 'Why should we hire her?' },
+      { label: 'When can she start?', query: 'When does she graduate and when is she available?' },
+    ],
   },
   {
-    label: 'What makes her different?',
-    query: 'What makes her different from a typical CS grad?',
+    title: 'Experience',
+    chips: [
+      { label: 'JPMorgan Chase', query: 'What did she do at JPMorgan Chase?' },
+      { label: 'Internships', query: 'What did she build in her JPMorgan internships?' },
+      { label: 'Education', query: 'What is her education and GPA?' },
+      { label: 'Skills', query: 'What is her tech stack and skills?' },
+    ],
   },
   {
-    label: 'Best projects for AI roles',
-    query: 'Which projects matter most for AI roles?',
+    title: 'Projects',
+    chips: [
+      { label: 'Project overview', query: 'What projects has she built?' },
+      { label: 'BrandPilot AI', query: 'Tell me about BrandPilot AI' },
+      { label: 'FAISS benchmark', query: 'Tell me about the FAISS benchmark' },
+      { label: 'FlowMind', query: 'Tell me about FlowMind' },
+      { label: 'SkillShift', query: 'Tell me about SkillShift' },
+      { label: 'Rate limiter', query: 'Tell me about the distributed rate limiter' },
+    ],
   },
   {
-    label: 'Leadership experience',
-    query: 'How has she shown leadership?',
-  },
-  {
-    label: 'Work at JPMC',
-    query: 'What did she work on at JPMorgan Chase?',
-  },
-  {
-    label: 'Research at ASU',
-    query: 'What research is she exploring at ASU?',
+    title: 'Beyond code',
+    chips: [
+      { label: 'Publications', query: 'What has she published?' },
+      { label: 'Leadership & teaching', query: 'What leadership and teaching has she done?' },
+      { label: 'Awards', query: 'What awards and hackathons has she won?' },
+      { label: 'Contact & résumé', query: 'How can I contact her or get her resume?' },
+    ],
   },
 ];
 
+const P = (label: string, query: string) => ({ label, query });
+
 export const curatedResponses: CuratedResponse[] = [
+  // ── Overview ────────────────────────────────────────────
   {
-    triggers: ['strongest production', 'best production', 'biggest impact', 'most impactful', 'enterprise work'],
+    id: 'about',
+    triggers: ['tell me about varshini', 'about varshini', 'who is', 'who are you', 'introduce', 'summary', 'overview of her', 'about her', 'background', 'doing now', 'currently', 'right now', 'these days'],
     response:
-      'Her strongest production work is the RASA NLU Virtual Assistant at JPMorgan Chase. She took an early proof-of-concept and turned it into a production system that eliminated 320+ hours of manual data entry per quarter, reduced provisioning time by 40%, and achieved 99.9% uptime SLA compliance. She also built an LLM-powered incident chatbot that reduced mean query resolution time by 60%. These weren\'t side projects - they were enterprise systems handling real workloads.',
-    section: 'projects',
+      'Varshini Akula is a software engineer who works across three disciplines: software engineering, AI engineering and software performance engineering.\n\nShe is pursuing an M.S. in Computer Science at Arizona State University (4.00 GPA, graduating May 2027). Before that she spent a full-time Software Development Engineer I role and two internships at JPMorgan Chase, building AWS services, Kafka integrations and NLP/LLM assistants at scale: 40M+ documents per day and 320+ hours saved per quarter.\n\nToday she builds and measures LLM, RAG and agent systems, fine-tunes models in PyTorch, and profiles CPU performance at the thread and core level. She was named SME for NLP and AI at JPMC and has two peer-reviewed publications.',
+    link: { href: '/journey', label: 'Read her story' },
+    followUps: [P('Roles she fits', 'What roles is she looking for?'), P('JPMorgan Chase', 'What did she do at JPMorgan Chase?'), P('Projects', 'What projects has she built?')],
   },
   {
-    triggers: ['different', 'stand out', 'unique', 'special', 'typical cs grad'],
+    id: 'roles',
+    triggers: ['roles', 'role', 'looking for', 'open to', 'position', 'job', 'disciplines', 'software engineer', 'ai engineer', 'performance engineer', 'fit'],
     response:
-      'Three things set Varshini apart: First, she bridges the gap between research and production - she doesn\'t just build models, she ships them as enterprise systems (320+ hours saved, 99.9% uptime). Second, she has genuine leadership depth - president of a literature club, chair of a leadership conclave, ACM director - these aren\'t resume padding, they\'re evidence of someone who builds communities. Third, her range is unusual: she goes from RASA chatbots to deepfake detection to LLM reasoning research with equal fluency.',
-    section: 'journey',
+      'She is open to full-time roles starting after May 2027 in three areas:\n\n• Software engineering: backend and full-stack services. At JPMC she built AWS microservices, a 40M+ documents/day pipeline and Kafka integrations, holding a 99% uptime SLA.\n• AI engineering: LLM, RAG and agent systems that are evaluated honestly, e.g. BrandPilot AI (8/10 held-out companies approved) and HyArg (Recall@5 0.65 → 0.83).\n• Software performance engineering: benchmarking and profiling, e.g. the FAISS benchmark (VTune, thread scaling, P-core vs E-core) and a rate limiter benchmarked at 1M+ checks/sec.',
+    link: { href: '/contact', label: 'Get in touch' },
+    followUps: [P('Why hire her?', 'Why should we hire her?'), P('When can she start?', 'When does she graduate and when is she available?')],
   },
   {
-    triggers: ['ai role', 'ai position', 'ai job', 'ml role', 'machine learning', 'which project'],
+    id: 'why-hire',
+    triggers: ['why hire', 'why should', 'stand out', 'different', 'unique', 'strength', 'strongest', 'best at', 'what makes her'],
     response:
-      'For AI/ML roles, her three most relevant projects are: (1) Memory-Augmented Conversational AI - multi-retriever orchestration that improved Recall@5 from 0.65 to 0.83 on LongMemEval, showing deep RAG architecture skills. (2) Deepfake Detection System - 94.5% accuracy using computer vision and deep learning, demonstrating research rigor. (3) STaR Reasoning Model - fine-tuning LLMs with self-generated rationales for improved mathematical reasoning, showing she understands model training at a fundamental level.',
-    section: 'projects',
+      'Three things stand out:\n\n1. Production experience at scale. At JPMorgan Chase she took a 3-service Rasa NLU platform to production in under 6 months (320+ hours saved per quarter), built a pipeline handling 40M+ documents per day, and was named team SME for NLP and AI.\n2. Honest measurement. Her AI work uses frozen held-out evaluations (BrandPilot AI: 8/10 vs 3/10 for the base model), and her performance work separates what was measured from what is only a hypothesis (FAISS + Intel VTune).\n3. Range. She moves between Java/AWS services, LLM fine-tuning in PyTorch, a C++ compiler and CPU profiling, and she leads communities too (ACM at ASU, 4,700+ members).',
+    followUps: [P('JPMorgan Chase', 'What did she do at JPMorgan Chase?'), P('BrandPilot AI', 'Tell me about BrandPilot AI')],
   },
   {
-    triggers: ['leadership', 'lead', 'manage', 'team'],
+    id: 'availability',
+    triggers: ['graduate', 'graduation', 'graduating', 'available', 'availability', 'start date', 'when can she start', 'full-time', 'full time', 'visa', 'sponsor', 'sponsorship', 'relocate', 'relocation', 'location', 'where is she', 'based'],
     response:
-      'Varshini\'s leadership is multi-dimensional: She was President of Literaria Clava (literature club), growing it from a small group to an active community. She chaired the Women Leadership Conclave, bringing together 200+ attendees. At ASU, she serves as Director of Engagement for ACM. She also mentors as a Graduate Teaching Assistant. The pattern: she doesn\'t just participate - she builds and scales communities.',
-    section: 'leadership',
+      'She graduates with her M.S. in Computer Science from Arizona State University in May 2027 and is open to full-time roles from then. She is based in Tempe, Arizona.\n\nFor questions about start dates, relocation or work authorization, please reach out to her directly; she will answer quickly.',
+    link: { href: '/contact', label: 'Contact Varshini' },
+  },
+
+  // ── Experience ──────────────────────────────────────────
+  {
+    id: 'jpmc',
+    triggers: ['jpmorgan', 'jp morgan', 'jpmc', 'chase', 'sde', 'software development engineer', 'work experience', 'experience', 'worked', 'industry', 'documents', 'documents per day', 'pipeline', 'mongodb', 's3', 'uptime', 'sme'],
+    response:
+      'She spent three roles at JPMorgan Chase in Hyderabad:\n\n• Software Development Engineer I (Jul 2024 – Aug 2025): architected a 3-service AWS platform (Rasa NLU, Python action service, TypeScript front end) that replaced manual onboarding calls, saving 320+ hours per quarter, and took it to production in under 6 months. Built a metadata pipeline processing 40M+ documents per day from Amazon S3 to MongoDB through CRUD APIs. Developed Java and AWS microservices and CI/CD with structured logging, tracing and health checks to hold a 99% uptime SLA. Named team SME for NLP and AI.\n• Program Attachment Intern (Jan – Jun 2024): an LLM incident console that cut resolution time by 60%, plus a RAG onboarding assistant.\n• Databus Intern (May – Jul 2023): a virtual assistant on a Kafka platform serving 70+ applications; this led to her full-time offer.',
+    link: { href: '/projects/rasa-virtual-assistant', label: 'See the Rasa platform' },
+    followUps: [P('Internships', 'What did she build in her JPMorgan internships?'), P('Skills', 'What is her tech stack and skills?')],
   },
   {
-    triggers: ['jpmc', 'jpmorgan', 'jp morgan', 'chase', 'work experience'],
+    id: 'internships',
+    triggers: ['intern', 'internship', 'internships', 'databus', 'program attachment', 'jpmorgan', 'jpmc', 'chase'],
     response:
-      'At JPMorgan Chase, Varshini earned the nickname "the chatbot girl" - she took early proof-of-concepts that others had shelved and turned them into production systems. She built a RASA NLU virtual assistant that eliminated 320+ hours of manual data entry per quarter and reduced provisioning time by 40%. She also built Java + SQL microservices on AWS to automate metadata extraction and storage record creation, plus real-time streaming software with Java + Kafka. Her LLM-powered incident chatbot reduced mean query resolution time by 60%.',
-    section: 'projects',
+      'She did two internships at JPMorgan Chase before joining full-time:\n\n• Software Engineering Program Attachment Intern (Jan – Jun 2024): built a React/TypeScript incident console with an LLM chatbot (OpenAI API, Python) over historical incident data, cutting mean incident query resolution time by 60%. Also built a retrieval-augmented onboarding assistant over document embeddings and vector search with a rule-based fallback, and migrated a .NET test suite to Java.\n• Software Engineering Intern, Databus (May – Jul 2023): integrated a virtual assistant into an Apache Kafka publisher/consumer platform serving 70+ downstream applications, and delivered Java/Spring Boot upgrades with JUnit and Mockito coverage. The internship led to a full-time offer.',
+    link: { href: '/projects/llm-incident-chatbot', label: 'See the incident chatbot' },
   },
   {
-    triggers: ['research', 'asu', 'arizona', 'studying', 'grad school', 'master'],
+    id: 'education',
+    triggers: ['education', 'degree', 'gpa', 'university', 'asu', 'arizona state', 'jntu', 'gnits', 'master', 'masters', 'bachelor', 'b.tech', 'btech', 'college', 'coursework', 'studying', 'study', 'studied', 'undergrad', 'undergraduate'],
     response:
-      'At ASU (4.0 GPA), Varshini is exploring the frontier of AI reliability. Her current research areas include LLM vulnerability analysis (prompt injection, jailbreaking, adversarial attacks), agentic workflow systems, and memory architectures for conversational AI. She\'s also published work on fake face detection and security prediction. Her research is driven by a practical question: how do we make AI systems more reliable, honest, and useful?',
-    section: 'research',
+      '• M.S. in Computer Science, Arizona State University, Tempe (Aug 2025 – May 2027), GPA 4.00/4.00.\n• B.Tech in Computer Science and Engineering (Data Science), Jawaharlal Nehru Technological University via G. Narayanamma Institute of Technology and Science, Hyderabad (Dec 2020 – May 2024), 9.49/10 CGPA, First Class with Distinction.\n\nAt ASU she also works as a course grader (Graduate Distributed Systems, CSE 598 Advanced Software Analysis and Design, CIS 310).',
+    link: { href: '/journey', label: 'See her journey' },
   },
   {
-    triggers: ['tech stack', 'technologies', 'tools', 'languages', 'skills'],
+    id: 'skills',
+    triggers: ['skills', 'skill', 'tech stack', 'stack', 'technologies', 'languages', 'tools', 'frameworks', 'programming', 'java', 'python', 'typescript', 'react', 'aws', 'cloud', 'docker', 'kubernetes'],
     response:
-      'Varshini works across the full stack: Python, Java, TypeScript for core languages. PyTorch, Hugging Face, LangChain for AI/ML. RASA and OpenAI APIs for conversational AI. AWS, Kafka, PostgreSQL for infrastructure. React for frontend. She\'s comfortable going from model training (LoRA, PEFT fine-tuning) to production deployment (microservices, SLA compliance, observability).',
-    section: 'projects',
+      '• Languages: Python, Java, TypeScript, JavaScript, SQL, C, C++ (coursework), Bash.\n• Web & backend: React, Next.js, Angular, Tailwind CSS, FastAPI, Spring Boot, Flask, REST APIs, microservices, Kafka.\n• Data: PostgreSQL, Supabase, MongoDB, Redis, pgvector, FAISS, Amazon S3.\n• AI & ML: LLM APIs (OpenAI, Gemini, Groq), RAG, agents, tool calling, embeddings, evaluation, fine-tuning (LoRA, SFT), PyTorch, Hugging Face, scikit-learn, MLX-LM, LangChain, OpenCV, Rasa.\n• Performance & systems: Intel VTune profiling, OpenMP thread scaling, benchmarking, concurrency, distributed systems.\n• Cloud, DevOps & testing: AWS, Docker, Kubernetes, CI/CD, Vercel, Git, Linux, pytest, JUnit, Mockito, Playwright. She uses Claude Code, Cursor and Copilot daily.',
+    followUps: [P('Projects', 'What projects has she built?'), P('Certifications', 'What certifications does she have?')],
   },
   {
-    triggers: ['contact', 'hire', 'reach', 'connect', 'email', 'available'],
+    id: 'certifications',
+    triggers: ['certification', 'certifications', 'certified', 'certificate', 'nptel', 'aws certified'],
     response:
-      'Varshini is open to opportunities in AI engineering, ML research, and product roles. You can reach her via email or connect on LinkedIn and GitHub. Visit the Contact section for details.',
-    section: 'contact',
+      '• AWS Certified Cloud Practitioner (2024).\n• Database Management Systems, NPTEL, IIT Kharagpur.',
+    link: { href: '/research', label: 'See certifications' },
+  },
+
+  // ── Projects ────────────────────────────────────────────
+  {
+    id: 'projects',
+    triggers: ['projects', 'project', 'built', 'portfolio', 'side projects', 'what has she made', 'work samples'],
+    response:
+      'Highlights, grouped by discipline:\n\n• AI: BrandPilot AI (LoRA-tuned Gemma 3 1B agent, 8/10 held-out approvals), HyArg (Recall@5 0.65 → 0.83), STaR (46.2% on GSM8K), SkillShift (agent skill evolution, in progress), Deepfake Detection (94.5% on Celeb-DF), ClickLess AI.\n• Software: FlowMind (visual AI assistant builder, in progress), Construction Project Intelligence / BuildDocs AI (95% less manual lookup), Compiler and IR Generator in C++, and her JPMC platforms.\n• Performance: FAISS CPU Retrieval Benchmark (3,492 qps, VTune) and a Distributed Rate Limiter (1M+ checks/sec).\n\nAsk about any of them by name.',
+    link: { href: '/projects', label: 'Browse all projects' },
+    followUps: [P('BrandPilot AI', 'Tell me about BrandPilot AI'), P('FAISS benchmark', 'Tell me about the FAISS benchmark'), P('FlowMind', 'Tell me about FlowMind')],
   },
   {
-    triggers: ['education', 'school', 'university', 'degree', 'gpa'],
+    id: 'ai-work',
+    triggers: ['ai projects', 'ai work', 'llm', 'llms', 'machine learning', 'ml', 'rag', 'agent', 'agents', 'agentic', 'nlp', 'genai', 'generative'],
     response:
-      'Varshini holds a B.Tech in Computer Science from GNITS, Hyderabad, and is currently pursuing her M.S. in Computer Science at Arizona State University with a perfect 4.0 GPA. She chose ASU specifically to deepen her expertise in NLP and AI research after her production experience at JPMorgan Chase.',
-    section: 'journey',
+      'Her AI work covers the full loop from data to evaluation:\n\n• Agents: BrandPilot AI, a local research-to-outreach agent with a LoRA-tuned Gemma 3 1B, verified facts and [P#] citations (8/10 held-out approvals vs 3/10 base). SkillShift, research on feedback selection for agent skill evolution.\n• RAG and retrieval: HyArg, LLM-routed retrieval across 5 retrievers (Recall@5 0.65 → 0.83 on LongMemEval). RAG in FlowMind and BuildDocs AI.\n• Fine-tuning: STaR on Llama-3.2-3B (46.2% on GSM8K, +65% over zero-shot CoT).\n• Production NLP: a Rasa NLU platform and an LLM incident chatbot at JPMorgan Chase.',
+    link: { href: '/projects', label: 'See AI projects' },
   },
   {
-    triggers: ['hackathon', 'competition', 'nasa', 'code for good', 'award'],
+    id: 'performance',
+    triggers: ['performance', 'profiling', 'profile', 'optimization', 'optimisation', 'latency', 'throughput', 'benchmark', 'benchmarking', 'vtune', 'concurrency'],
     response:
-      'Varshini has a strong competitive track record: She won first place at Model United Nations, won NASA Space Apps Hackathon (going to Chandigarh for nationals), and won JPMorgan Chase\'s national Code for Good hackathon in her second year - which led directly to her JPMC internship and career. These wins show she performs under pressure and delivers when stakes are high.',
-    section: 'journey',
+      'Performance engineering is one of her three disciplines:\n\n• FAISS CPU Retrieval Benchmark: thread scaling and P-core vs E-core placement on an Intel i9-14900HX. Throughput peaks at 3,492 qps at 8 threads (2.18x) and regresses at 16; Intel VTune traced ~81% of CPU time to OpenMP barrier/wait vs 6% in sgemm. P-cores were 3.43x faster than E-cores. 47 regression tests keep results reproducible.\n• Distributed Rate Limiter: a thread-safe core and a Redis/Lua distributed token bucket, benchmarked at 1M+ checks/sec.\n• At JPMC: observability work (logging, tracing, health checks) holding a 99% uptime SLA.',
+    link: { href: '/projects/faiss-cpu-benchmark', label: 'See the FAISS benchmark' },
   },
   {
-    triggers: ['hobby', 'hobbies', 'interest', 'fun', 'personal', 'travel', 'book', 'coffee', 'read'],
+    id: 'backend',
+    triggers: ['backend', 'back end', 'distributed', 'system design', 'microservice', 'microservices', 'api', 'apis', 'database', 'full stack', 'full-stack'],
     response:
-      'Beyond engineering, Varshini is an avid reader who loves novels and believes literature shapes how she thinks about systems and people. She loves travel - from Chandigarh for NASA nationals to Tempe for her master\'s - and sees every new city as a lesson in perspective. And yes, there\'s always coffee involved. These aren\'t disconnected hobbies; they feed her curiosity, creativity, and energy.',
-    section: 'library',
+      'On the backend and systems side:\n\n• JPMC: Java and AWS microservices with CI/CD, a 3-service Rasa platform, a 40M+ documents/day S3 → MongoDB pipeline through CRUD APIs, and Kafka integrations serving 70+ applications.\n• FlowMind: Next.js + Supabase with multi-tenant Postgres Row-Level Security, encrypted BYOK keys and atomic inference quotas.\n• Distributed Rate Limiter: four algorithms, Redis-backed shared limits via an atomic Lua script.\n• Compiler and IR Generator: recursive-descent compiler in C++ with a graph IR.',
+    link: { href: '/projects', label: 'Browse projects' },
   },
   {
-    triggers: ['deepfake', 'fake face', 'detection', 'computer vision'],
+    id: 'brandpilot',
+    priority: 2,
+    triggers: ['brandpilot', 'brand pilot', 'brand assistant', 'brand', 'outreach', 'lora', 'gemma', 'mlx', 'cse 598'],
     response:
-      'Varshini built a deepfake detection system achieving 94.5% accuracy. The system analyzes facial artifacts, temporal inconsistencies, and frequency-domain signatures to identify synthetic media. She has published research in fake face detection methodologies, comparing different approaches to the growing challenge of synthetic media.',
-    section: 'projects',
+      'BrandPilot AI (CSE 598 Agentic AI, team of 5, Fall 2026) is a local agent that researches a brand and drafts an Instagram collaboration email, running on Apple Silicon with no paid APIs.\n\nVarshini built the inference pipeline, verification and the fact-first workflow. A LoRA-tuned Gemma 3 1B (4-bit, MLX-LM) writes only from verified facts; code maps sentences to [P#] citations, checks scope and length, and withholds failing drafts before human review.\n\nThe workflow was frozen with file hashes before testing: 8/10 held-out companies approved vs 3/10 for the base model, with 0 execution failures in 157 generations.',
+    link: { href: '/projects/lora-brand-assistant', label: 'Read the case study' },
   },
   {
-    triggers: ['memory', 'rag', 'retrieval', 'recall', 'longmemeval', 'conversational memory'],
+    id: 'faiss',
+    priority: 2,
+    triggers: ['faiss', 'vector search', 'thread', 'threads', 'p-core', 'e-core', 'openmp', 'i9', 'retrieval benchmark'],
     response:
-      'Her Memory-Augmented Conversational AI project tackled the challenge of LLMs losing context in long conversations. She designed a multi-retriever orchestration system combining semantic search, temporal indexing, and conversation graph traversal. The system improved Recall@5 from 0.65 to 0.83 on the LongMemEval benchmark - a meaningful improvement in conversational continuity.',
-    section: 'projects',
+      'FAISS CPU Retrieval Benchmark (Nov 2026): she benchmarked FAISS IndexFlatL2 search (50K x 384-D) on a hybrid Intel i9-14900HX, sweeping OpenMP thread counts and P-core vs E-core placement with process affinity masks.\n\nBatch-32 throughput peaks at 3,492 qps at 8 threads (2.18x) and regresses at 16. Intel VTune Hotspots traced about 81% of CPU time to OpenMP barrier/wait vs 6% in the sgemm kernel. P-cores were 3.43x faster than E-cores. Results are reproducible with per-run subprocess isolation, SHA-256 dataset manifests, result-agreement checks and 47 regression tests.',
+    link: { href: '/projects/faiss-cpu-benchmark', label: 'Read the case study' },
   },
   {
-    triggers: ['reasoning', 'star', 'gsm8k', 'math', 'fine-tune', 'fine-tuning'],
+    id: 'flowmind',
+    priority: 2,
+    triggers: ['flowmind', 'flow mind', 'assistant builder', 'visual builder', 'supabase', 'row-level security', 'byok'],
     response:
-      'The STaR (Self-Taught Reasoner) project explored whether models can improve their own reasoning through practice. Varshini fine-tuned a language model using iteratively self-generated rationales, where the model learns from its own correct reasoning chains. The approach showed significant improvement on the GSM8K mathematical reasoning benchmark, demonstrating that structured self-improvement is a viable training strategy.',
-    section: 'projects',
+      'FlowMind (Spring 2026 – present, early-stage) is a visual AI assistant builder in Next.js, React, TypeScript and Supabase. Users design chat flows on a canvas, ground answers in their own documents, test in a live simulator and publish a hosted chat page.\n\nShe built a typed node-graph runtime with per-node execution traces, RAG with Gemini embeddings (768-dim) and pgvector/HNSW cosine retrieval plus a BM25 fallback, and inference via Gemini and Groq. Security: multi-tenant Postgres Row-Level Security with an automated cross-tenant test suite, encrypted BYOK keys, atomic inference quotas, and an offline RAG/eval harness in CI.',
+    link: { href: '/projects/flowmind', label: 'Read the case study' },
   },
   {
-    triggers: ['chatbot', 'conversational ai', 'nlp', 'natural language'],
+    id: 'skillshift',
+    priority: 2,
+    triggers: ['skillshift', 'skill shift', 'skillopt', 'spreadsheetbench', 'skill evolution', 'feedback selection', 'cse 572', 'data mining'],
     response:
-      'Conversational AI is Varshini\'s signature strength. At JPMC, she became known as "the chatbot girl" for turning proof-of-concepts into production systems. She built both a RASA NLU virtual assistant (320+ hours saved/quarter) and an LLM-powered incident chatbot (60% faster resolution). Her research continues this thread with work on conversational memory systems and agentic workflows.',
-    section: 'projects',
+      'SkillShift (CSE 572 Data Mining, team research, Fall 2026 – present) studies source-balanced feedback selection ahead of SkillOpt reflection, so repeated failures from one broken input do not over-steer agent skill updates. The team compares 5 selectors on 120 SpreadsheetBench Verified tasks.\n\nVarshini built the experiment infrastructure: resumable attempt collection, pool validation, fail-loud checks, 180-second request timeouts and an API cost ledger enforcing a 350-call budget. The pilot is complete (6/6 validation runs); the full evaluation is in progress.',
+    link: { href: '/projects/skillshift', label: 'Read more' },
+  },
+  {
+    id: 'rate-limiter',
+    priority: 2,
+    triggers: ['rate limiter', 'rate limiting', 'rate-limit', 'token bucket', 'sliding window', 'redis', 'lua'],
+    response:
+      'Distributed Rate Limiter (2026): a Python library with four algorithms (token bucket, fixed window, sliding window log, sliding window counter) behind one interface, with per-key isolation and a thread-safe core on monotonic timing.\n\nShe added a Redis-backed distributed token bucket using an atomic Lua script, so many servers share one limit. Tested with pytest and benchmarked at 1M+ checks per second.',
+    link: { href: '/projects/distributed-rate-limiter', label: 'Read more' },
+  },
+  {
+    id: 'compiler',
+    priority: 2,
+    triggers: ['compiler', 'ir generator', 'intermediate representation', 'recursive descent', 'recursive-descent', 'c++', 'interpreter'],
+    response:
+      'Compiler and IR Generator for a C-like language (C++ course project, Spring 2026): a recursive-descent compiler that emits a graph-based IR executed by an interpreter, lowering while/for/switch into jumps (switch without an equality primitive). She designed the symbol-to-memory table and constant pool, and it passed all hidden test suites.',
+    link: { href: '/projects/compiler-ir', label: 'Read more' },
+  },
+  {
+    id: 'construction',
+    priority: 2,
+    triggers: ['construction', 'builddocs', 'build docs', 'rfi', 'rbac'],
+    response:
+      'Construction Project Intelligence / BuildDocs AI (Spring 2026): a role-aware construction document platform (Next.js, React, TypeScript, FastAPI, Supabase PostgreSQL) with RBAC across 6 role types, document parsing, indexing, RFI classification and dashboards, cutting manual lookup by 95%. Chat answers are grounded in project documents with citations, using Groq-hosted Llama 3.1 8B and a TF-IDF extractive fallback; deployed on Vercel.',
+    link: { href: '/projects/construction-intelligence', label: 'Read the case study' },
+  },
+  {
+    id: 'clickless',
+    priority: 2,
+    triggers: ['clickless', 'click less', 'travel agent', 'travel planning', 'playwright'],
+    response:
+      'ClickLess AI (Spring 2026): a travel conversational agent that replaces click-through flows with chat, using OpenAI API intent handling and Playwright browser tool use behind FastAPI, integrating 5+ services.',
+    link: { href: '/projects/clickless-ai', label: 'Read more' },
+  },
+  {
+    id: 'hyarg',
+    priority: 2,
+    triggers: ['hyarg', 'memory', 'retriever', 'retrievers', 'retrieval', 'longmemeval', 'locomo', 'recall', 'bm25'],
+    response:
+      'HyArg: Hybrid Multi-Retriever Orchestration (research, Fall 2025) orchestrates BM25, TF-IDF, FAISS, SVM and time-weighted retrievers for long-term conversational memory with Qwen2.5-7B (Python, PyTorch, LangChain). An LLM selector routes each query to the right retriever. It improved Recall@5 from 0.65 to 0.83 on LongMemEval and gained +4 points on LoCoMo.',
+    link: { href: '/projects/memory-augmented-llm', label: 'Read the case study' },
+  },
+  {
+    id: 'star',
+    priority: 2,
+    triggers: ['star', 'self-taught', 'self taught', 'gsm8k', 'reasoning', 'fine-tune', 'fine-tuning', 'fine tuning', 'a100', 'llama'],
+    response:
+      'STaR: Self-Taught Reasoner (Fall 2025): she implemented the STaR rationale-generation and rationalization loop and fine-tuned Llama-3.2-3B in PyTorch/Hugging Face on an NVIDIA A100 with 3.5K synthetic samples, benchmarked against zero-shot CoT and vanilla SFT. It reached 46.2% on GSM8K, a 65% gain over zero-shot chain-of-thought.',
+    link: { href: '/projects/star-reasoning', label: 'Read the case study' },
+  },
+  {
+    id: 'deepfake',
+    priority: 2,
+    triggers: ['deepfake', 'deep fake', 'fake face', 'celeb-df', 'computer vision', 'inceptionresnet', 'bilstm', 'video detection'],
+    response:
+      'Deepfake Video Detection (research, Aug – Dec 2025): a detector combining dual InceptionResNet CNNs with BiLSTM temporal modeling and majority-vote ensembling, using MTCNN face detection, OpenCV, and spatial and frequency-domain analysis. It reached 94.5% accuracy on Celeb-DF and serves per-frame confidence scores through a Flask REST API.',
+    link: { href: '/projects/deepfake-detection', label: 'Read the case study' },
+  },
+  {
+    id: 'rasa',
+    priority: 2,
+    triggers: ['rasa', 'virtual assistant', 'onboarding', 'chatbot girl', '320'],
+    response:
+      'At JPMorgan Chase she architected a 3-service AWS platform (Rasa NLU, a Python action service and a TypeScript front end) that replaced manual onboarding calls, saving 320+ hours per quarter, and took it to production in under 6 months. She was named team SME for NLP and AI.',
+    link: { href: '/projects/rasa-virtual-assistant', label: 'Read the case study' },
+  },
+  {
+    id: 'incident',
+    priority: 2,
+    triggers: ['incident', 'incident chatbot', 'resolution time', 'openai'],
+    response:
+      'During her 2024 JPMC internship she built a React/TypeScript incident console with an LLM chatbot (OpenAI API, Python) over historical incident data, cutting mean incident query resolution time by 60%.',
+    link: { href: '/projects/llm-incident-chatbot', label: 'Read the case study' },
+  },
+  {
+    id: 'kafka',
+    priority: 2,
+    triggers: ['kafka', 'streaming', 'spring boot', 'junit', 'mockito', '70+'],
+    response:
+      'In her 2023 Databus internship at JPMorgan Chase she integrated a virtual assistant into an Apache Kafka publisher/consumer platform serving 70+ downstream applications, and delivered Java/Spring Boot upgrades with JUnit and Mockito coverage. It led to her full-time offer.',
+    link: { href: '/projects/kafka-streaming', label: 'Read more' },
+  },
+
+  // ── Beyond code ─────────────────────────────────────────
+  {
+    id: 'publications',
+    triggers: ['publication', 'publications', 'paper', 'papers', 'published', 'ijitce', 'journal'],
+    response:
+      'She has two peer-reviewed publications in IJITCE:\n\n• Optimizing Prediction of Security Data Using Feature Selection and Ensembling (May 2023).\n• Evaluating the Performance of Fake Face Detection Methods in Forensics (Jun 2024).',
+    link: { href: '/research', label: 'See research' },
+  },
+  {
+    id: 'research',
+    triggers: ['research', 'researching', 'academic'],
+    response:
+      'Her research centres on making AI systems reliable and measurable: HyArg (multi-retriever memory, Recall@5 0.65 → 0.83), STaR (self-taught reasoning, 46.2% on GSM8K), Deepfake Video Detection (94.5% on Celeb-DF), SkillShift (feedback selection for agent skill evolution, in progress) and BrandPilot AI (grounded outreach agent). She also has two IJITCE publications.',
+    link: { href: '/research', label: 'See research' },
+  },
+  {
+    id: 'leadership',
+    triggers: ['leadership', 'leadership experience', 'lead', 'leader', 'acm', 'conclave', 'women', 'literaria', 'community', 'teaching', 'teach', 'grader', 'ta', 'mentor'],
+    response:
+      '• Engagement Manager, ACM at ASU (4,700+ members, 2025-26).\n• Student Chair, Women\'s Leadership Conclave 2024, GNITS.\n• President, Literaria Clava, her college literature club.\n• Teaching: Grader for CSE 598 Advanced Software Analysis and Design and CIS 310 (Fall 2026), and Course Grader for Graduate Distributed Systems (Spring 2026) at ASU.\n• At JPMorgan Chase she was named team SME for NLP and AI.',
+    link: { href: '/leadership', label: 'See leadership' },
+  },
+  {
+    id: 'awards',
+    triggers: ['award', 'awards', 'hackathon', 'hackathons', 'code for good', 'nasa', 'space apps', 'competition', 'won', 'win', 'mun'],
+    response:
+      '• JPMorgan Code for Good: 1st place. The win led to her JPMorgan Chase internships and career.\n• NASA Space Apps Hackathon: Finalist, competing at nationals in Chandigarh.\n• Model United Nations: 1st place.',
+    link: { href: '/journey', label: 'See her journey' },
+  },
+  {
+    id: 'contact',
+    triggers: ['contact', 'email', 'reach', 'hire her', 'connect', 'linkedin', 'github', 'resume', 'cv', 'get in touch', 'phone', 'call'],
+    response:
+      'You can email her at varshiniakula2003@gmail.com, or connect on LinkedIn and GitHub (links on the Contact page). Her résumé is one click away: use the Résumé button in the top navigation to download the PDF.',
+    link: { href: '/contact', label: 'Open Contact page' },
+  },
+  {
+    id: 'hobbies',
+    triggers: ['hobby', 'hobbies', 'interests', 'fun', 'personal', 'travel', 'book', 'books', 'reading', 'coffee', 'outside work'],
+    response:
+      'Outside engineering she reads a lot of novels, travels (from the Western Ghats to the Rocky Mountains) and is always looking for the best coffee in town. Her Library and Travel pages have the details.',
+    link: { href: '/library', label: 'Visit the Library' },
+  },
+  {
+    id: 'ai-tools',
+    triggers: ['claude code', 'cursor', 'copilot', 'ai tools', 'coding assistant'],
+    response: 'She uses Claude Code, Cursor and Copilot daily as part of her development workflow.',
   },
 ];

@@ -36,7 +36,7 @@ export const caseStudyContent: Record<string, CaseStudy> = {
       {
         title: 'Impact',
         content: [
-          'The system eliminated 320+ hours of manual data entry per quarter, reduced storage provisioning time by 40%, and achieved 99.9% uptime SLA compliance. Beyond the metrics, the assistant changed the team\'s workflow - senior engineers could focus on architecture and optimization instead of data entry.',
+          'The platform replaced manual onboarding calls, saving 320+ hours per quarter, and went to production in under 6 months. Alongside it, a metadata pipeline processed 40M+ documents per day from Amazon S3 to MongoDB, and structured logging, tracing and health checks held a 99% uptime SLA. Beyond the metrics, the assistant changed the team\'s workflow - senior engineers could focus on architecture and optimization instead of data entry.',
           'The success of this project established a pattern for conversational AI adoption across adjacent teams, and the architecture became a reference implementation for other chatbot initiatives at JPMC.',
         ],
       },
@@ -348,6 +348,20 @@ export const caseStudyContent: Record<string, CaseStudy> = {
           'Team: Vemula Thushar Reddy, Charith Kutikuppala, Venkata Pradeep Reddy Venuthurla, Varshini Akula, Thanishka Bolisetty.',
         ],
       },
+    ],
+  },
+  'distributed-rate-limiter': {
+    sections: [
+      { title: 'The Problem', content: ['Every public API needs rate limiting, and the right algorithm depends on the traffic: bursty clients, strict fairness or low memory. Once there are several servers, a per-process limiter is no longer enough, because each server only sees part of the traffic.'] },
+      { title: 'The Approach', content: ['A Python library with four algorithms (token bucket, fixed window, sliding window log and sliding window counter) behind one interface, so callers can swap strategies without changing code. Each key is isolated, and the core is thread-safe and uses monotonic time so clock changes cannot break limits.', 'For multi-server deployments, a Redis-backed distributed token bucket runs the refill-and-take step as one atomic Lua script, so all servers share one limit without race conditions.'] },
+      { title: 'Results', content: ['Covered with pytest and benchmarked at 1M+ checks per second.'] },
+    ],
+  },
+  'compiler-ir': {
+    sections: [
+      { title: 'The Project', content: ['A compiler for a small C-like language, written in C++ as a course project in Spring 2026.'] },
+      { title: 'The Approach', content: ['A recursive-descent parser emits a graph-based intermediate representation that an interpreter executes. Structured control flow (while, for and switch) is lowered into jumps; switch is lowered without an equality primitive.', 'I designed the symbol-to-memory table and the constant pool that the IR refers to.'] },
+      { title: 'Results', content: ['Passed all hidden test suites.'] },
     ],
   },
 };

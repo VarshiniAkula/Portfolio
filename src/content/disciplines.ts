@@ -7,16 +7,16 @@ export const disciplines: Discipline[] = [
     short: 'Software',
     headline: 'Production services that teams can trust.',
     summary:
-      'Nearly two years at JPMorgan Chase building Java and AWS microservices, Kafka streaming pipelines and CI/CD for systems with real users and strict uptime targets. I care about clean contracts, access control and the boring reliability work that keeps things running.',
+      'A full-time SDE role and two internships at JPMorgan Chase: AWS services, a 40M+ documents/day pipeline, Kafka integrations and CI/CD for systems with real users and strict uptime targets. I care about clean contracts, access control and the boring reliability work that keeps things running.',
     capabilities: [
       'Cloud-native microservices on AWS',
       'Real-time data streaming with Kafka',
       'Full-stack apps with auth and Row-Level Security',
       'CI/CD hardening and observability',
     ],
-    tools: ['Java', 'Python', 'TypeScript', 'AWS', 'Kafka', 'PostgreSQL', 'Next.js', 'Docker'],
-    proof: { label: 'Uptime SLA', value: '99.9%', unit: 'on production services' },
-    projectSlugs: ['rasa-virtual-assistant', 'kafka-streaming', 'construction-intelligence', 'flowmind'],
+    tools: ['Java', 'Python', 'TypeScript', 'C++', 'AWS', 'Kafka', 'Spring Boot', 'PostgreSQL', 'MongoDB', 'Next.js'],
+    proof: { label: 'Uptime SLA', value: '99%', unit: 'SLA held on production services' },
+    projectSlugs: ['rasa-virtual-assistant', 'flowmind', 'construction-intelligence', 'distributed-rate-limiter', 'compiler-ir', 'kafka-streaming'],
   },
   {
     id: 'ai',
@@ -46,11 +46,11 @@ export const disciplines: Discipline[] = [
       'Benchmark design with reproducible protocols',
       'CPU profiling with Intel VTune',
       'Thread scaling and hybrid-core analysis',
-      'Latency and throughput optimisation',
+      'Concurrency and distributed rate limiting',
     ],
-    tools: ['Intel VTune', 'FAISS', 'OpenMP', 'NumPy', 'threadpoolctl', 'perf_counter', 'Kafka'],
+    tools: ['Intel VTune', 'FAISS', 'OpenMP', 'NumPy', 'threadpoolctl', 'Redis', 'pytest'],
     proof: { label: 'Throughput', value: '2.18x', unit: 'peak scaling, diagnosed past 8 threads' },
-    projectSlugs: ['faiss-cpu-benchmark', 'kafka-streaming', 'rasa-virtual-assistant'],
+    projectSlugs: ['faiss-cpu-benchmark', 'distributed-rate-limiter', 'rasa-virtual-assistant'],
   },
 ];
 

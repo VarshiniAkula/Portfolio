@@ -44,7 +44,7 @@ export function Hero() {
     >
       {/* Grid backdrop */}
       <div
-        className="absolute inset-0 opacity-[0.07] pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]"
+        className="absolute inset-0 opacity-[0.04] pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]"
         style={{
           backgroundImage:
             'linear-gradient(to right, #fff6e4 1px, transparent 1px), linear-gradient(to bottom, #fff6e4 1px, transparent 1px)',
@@ -70,7 +70,7 @@ export function Hero() {
           {/* Copy */}
           <div>
             <Reveal>
-              <div className="inline-flex items-center gap-2.5 pl-2 pr-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 mb-8">
+              <div className="inline-flex items-center gap-2.5 pl-2 pr-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 mb-7">
                 <span className="relative flex h-2 w-2 ml-1">
                   <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60 animate-ping" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
@@ -79,12 +79,6 @@ export function Hero() {
                   {hero.availability}
                 </span>
               </div>
-            </Reveal>
-
-            <Reveal delay={0.05}>
-              <p className="font-mono text-xs sm:text-sm text-[#fff6e4]/40 mb-3 tracking-wide">
-                {profile.name}
-              </p>
             </Reveal>
 
             <Reveal delay={0.1}>
@@ -135,8 +129,8 @@ export function Hero() {
 
             <Reveal delay={0.3}>
               <div className="flex flex-wrap gap-3">
-                <Button href="#projects" size="lg">
-                  Explore Projects
+                <Button href="/projects" size="lg">
+                  View Projects
                 </Button>
                 <Button href="#story" variant="secondary" size="lg">
                   Read My Story

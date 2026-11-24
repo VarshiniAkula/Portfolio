@@ -12,4 +12,6 @@ export const projectImages: Record<string, string> = {
   'lora-brand-assistant': '/projects/lora-brand-assistant.jpg',
   'faiss-cpu-benchmark': '/projects/faiss-cpu-benchmark.jpg',
   'skillshift': '/projects/skillshift.jpg',
+  'distributed-rate-limiter': '/projects/distributed-rate-limiter.jpg',
+  'compiler-ir': '/projects/compiler-ir.jpg',
 };

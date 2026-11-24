@@ -18,10 +18,10 @@ export const leadership: LeadershipItem[] = [
   },
   {
     id: 'women-leadership-conclave',
-    title: 'Chairperson',
-    organization: 'Women Leadership Conclave',
-    role: 'Event Chair',
-    period: '2022',
+    title: 'Student Chair',
+    organization: "Women's Leadership Conclave, GNITS",
+    role: 'Student Chair',
+    period: '2024',
     description:
       'Chaired a cross-departmental conclave focused on women in technology and leadership. Coordinated speakers from industry, organized panel discussions, and created mentorship pathways for students.',
     impact:
@@ -33,12 +33,12 @@ export const leadership: LeadershipItem[] = [
   },
   {
     id: 'acm-asu',
-    title: 'Director of Engagement',
+    title: 'Engagement Manager',
     organization: 'ACM @ Arizona State University',
     role: 'Board Member',
-    period: '2024 – Present',
+    period: '2025 – 2026',
     description:
-      'Driving community engagement for one of the largest CS organizations at ASU. Organizing technical workshops, speaker events, and building connections between students and industry.',
+      'Driving community engagement for ACM at ASU, one of the largest CS organizations on campus with 4,700+ members. Organizing technical workshops, speaker events, and building connections between students and industry.',
     impact:
       'Increased event attendance and created new pathways for students to connect with tech professionals.',
     metaphor: {
@@ -48,14 +48,14 @@ export const leadership: LeadershipItem[] = [
   },
   {
     id: 'grader-mentor',
-    title: 'Graduate Teaching Assistant',
+    title: 'Course Grader',
     organization: 'Arizona State University',
-    role: 'Grader & Mentor',
-    period: '2024 – Present',
+    role: 'Grader',
+    period: '2026 – Present',
     description:
-      'Serving as a grader and mentor for graduate-level courses, helping students navigate complex CS concepts and providing detailed feedback on assignments.',
+      'Grader for CSE 598 Advanced Software Analysis and Design and CIS 310 (Fall 2026), and Course Grader for Graduate Distributed Systems (Spring 2026).',
     impact:
-      'Supporting the learning journey of 50+ students per semester through personalized guidance.',
+      'Giving students detailed, consistent feedback on design, systems and analysis work.',
     metaphor: {
       icon: '🧭',
       label: 'Guide',

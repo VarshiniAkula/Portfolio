@@ -5,65 +5,54 @@ import { projects } from '@/content/projects';
 import { research } from '@/content/research';
 import { leadership } from '@/content/leadership';
 import { milestones } from '@/content/story-milestones';
+import type { ChatLink, PromptChip } from '@/types/content';
+
+export interface ChatAnswer {
+  response: string;
+  link?: ChatLink;
+  followUps?: PromptChip[];
+}
 
 interface ContentChunk {
+  title: string;
   text: string;
-  source: string;
-  section: string;
+  link: ChatLink;
 }
 
 function buildContentIndex(): ContentChunk[] {
-  const chunks: ContentChunk[] = [];
+  const chunks: ContentChunk[] = [
+    {
+      title: profile.name,
+      text: profile.bio.recruiter,
+      link: { href: '/journey', label: 'Read her story' },
+    },
+  ];
 
-  // Profile
-  chunks.push({
-    text: `${profile.name} is an ${profile.title}. ${profile.bio.recruiter} ${profile.bio.explorer}`,
-    source: 'profile',
-    section: 'home',
-  });
-
-  // Metrics
-  profile.highlights.forEach((m) => {
-    chunks.push({
-      text: `${m.label}: ${m.value} ${m.unit}${m.context ? ` - ${m.context}` : ''}`,
-      source: 'metrics',
-      section: 'home',
-    });
-  });
-
-  // Projects
   projects.forEach((p) => {
     chunks.push({
-      text: `Project: ${p.title}. ${p.description.recruiter} Tech: ${p.techStack.join(', ')}. Metrics: ${p.metrics.map((m) => `${m.value} ${m.unit}`).join(', ')}`,
-      source: p.slug,
-      section: 'projects',
+      title: p.title,
+      text: `${p.description.recruiter} Tech: ${p.techStack.join(', ')}.`,
+      link: { href: `/projects/${p.slug}`, label: `Open ${p.title}` },
     });
   });
 
-  // Research
   research.forEach((r) => {
-    chunks.push({
-      text: `Research: ${r.title}. ${r.abstract} Status: ${r.status}. Tags: ${r.tags.join(', ')}`,
-      source: r.id,
-      section: 'research',
-    });
+    chunks.push({ title: r.title, text: r.abstract, link: { href: '/research', label: 'See research' } });
   });
 
-  // Leadership
   leadership.forEach((l) => {
     chunks.push({
-      text: `Leadership: ${l.title} at ${l.organization}. ${l.description} Impact: ${l.impact}`,
-      source: l.id,
-      section: 'leadership',
+      title: `${l.title}, ${l.organization}`,
+      text: `${l.description} ${l.impact}`,
+      link: { href: '/leadership', label: 'See leadership' },
     });
   });
 
-  // Milestones
   milestones.forEach((m) => {
     chunks.push({
-      text: `${m.date}: ${m.title} - ${m.description.explorer}`,
-      source: m.id,
-      section: 'journey',
+      title: `${m.title} (${m.date})`,
+      text: m.description.recruiter,
+      link: { href: '/journey', label: 'See her journey' },
     });
   });
 
@@ -74,41 +63,60 @@ let fuse: Fuse<ContentChunk> | null = null;
 
 function getFuse() {
   if (!fuse) {
-    const chunks = buildContentIndex();
-    fuse = new Fuse(chunks, {
-      keys: ['text'],
-      threshold: 0.4,
+    fuse = new Fuse(buildContentIndex(), {
+      keys: [
+        { name: 'title', weight: 2 },
+        { name: 'text', weight: 1 },
+      ],
+      threshold: 0.35,
+      ignoreLocation: true,
       includeScore: true,
     });
   }
   return fuse;
 }
 
-export function findAnswer(query: string): { response: string; section?: string } {
+const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+/** Matches a trigger as a whole word or phrase, not inside other words. */
+function matches(query: string, trigger: string): boolean {
+  return new RegExp(`(^|[^a-z0-9])${escape(trigger)}([^a-z0-9]|$)`, 'i').test(query);
+}
+
+export function findAnswer(query: string): ChatAnswer {
   const q = query.toLowerCase().trim();
 
-  // Check curated responses first
-  for (const curated of curatedResponses) {
-    if (curated.triggers.some((trigger) => q.includes(trigger))) {
-      return { response: curated.response, section: curated.section };
+  // 1. Curated answers: score by the length of matched triggers, weighted by priority.
+  let best: { score: number; index: number } | null = null;
+  curatedResponses.forEach((c, index) => {
+    const score =
+      c.triggers.filter((t) => matches(q, t)).reduce((sum, t) => sum + t.length, 0) * (c.priority ?? 1);
+    if (score > 0 && (!best || score > best.score)) best = { score, index };
+  });
+
+  if (best) {
+    const c = curatedResponses[(best as { index: number }).index];
+    return { response: c.response, link: c.link, followUps: c.followUps };
+  }
+
+  // 2. Fuzzy search over all site content.
+  const results = getFuse().search(query, { limit: 2 });
+  if (results.length > 0) {
+    const [top, second] = results;
+    let response = `${top.item.title}: ${top.item.text}`;
+    if (second && second.item.title !== top.item.title) {
+      response += `\n\nRelated: ${second.item.title}.`;
     }
+    return { response, link: top.item.link };
   }
-
-  // Fall back to fuzzy search
-  const results = getFuse().search(query, { limit: 3 });
-
-  if (results.length === 0) {
-    return {
-      response:
-        "I don't have a specific answer for that, but I'd recommend exploring the Projects, Research, or Journey sections. You can also reach out directly through the Contact page.",
-    };
-  }
-
-  const topResults = results.map((r) => r.item.text).join('\n\n');
-  const section = results[0].item.section;
 
   return {
-    response: `Based on Varshini's profile:\n\n${topResults}\n\nYou can find more details in the ${section.charAt(0).toUpperCase() + section.slice(1)} section.`,
-    section,
+    response:
+      "I don't have an answer for that yet. Try asking about her experience at JPMorgan Chase, a project by name, her skills, education or publications. You can also reach Varshini directly through the Contact page.",
+    link: { href: '/contact', label: 'Contact Varshini' },
+    followUps: [
+      { label: 'Who is Varshini?', query: 'Tell me about Varshini' },
+      { label: 'Projects', query: 'What projects has she built?' },
+    ],
   };
 }

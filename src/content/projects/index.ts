@@ -7,17 +7,17 @@ export const projects: ProjectMeta[] = [
     subtitle: 'Conversational AI that eliminated 320+ hours of manual work per quarter',
     description: {
       recruiter:
-        'Architected a RASA NLU virtual assistant that collected customer metadata for document-storage onboarding, eliminating 320+ hours of manual data entry per quarter. Built Java and SQL microservices on AWS to automate metadata extraction and container-storage record creation across Consumer & Community Banking, cutting provisioning time by 40%.',
+        'Architected a 3-service AWS platform (Rasa NLU, a Python action service and a TypeScript front end) that replaced manual onboarding calls for document-storage onboarding, saving 320+ hours per quarter, and took it to production in under 6 months. Also built a metadata pipeline processing 40M+ documents per day from Amazon S3 to MongoDB through CRUD APIs, and Java and AWS microservices with CI/CD, structured logging, tracing and health checks to hold a 99% uptime SLA. Named team subject matter expert (SME) for NLP and AI.',
       explorer:
         'The storage team was drowning in manual data entry - hundreds of hours per quarter spent on repetitive metadata extraction. I built a conversational AI system that understood natural language queries, extracted metadata automatically, and created storage records. It went from a proof-of-concept nobody believed in to a production system that changed how the team worked.',
     },
     date: 'Jul 2024 – Aug 2025',
     tags: ['NLP', 'Conversational AI', 'Enterprise', 'Automation'],
-    techStack: ['RASA NLU', 'Python', 'Java', 'SQL', 'AWS', 'Kafka', 'React'],
+    techStack: ['Rasa NLU', 'Python', 'TypeScript', 'Java', 'AWS', 'Amazon S3', 'MongoDB', 'CI/CD'],
     metrics: [
       { label: 'Hours Saved', value: '320+', unit: 'per quarter' },
-      { label: 'Provisioning Time', value: '40%', unit: 'reduction' },
-      { label: 'Uptime SLA', value: '99.9%', unit: 'compliance' },
+      { label: 'Documents', value: '40M+', unit: 'processed per day' },
+      { label: 'Uptime SLA', value: '99%', unit: 'held in production' },
     ],
     role: 'Software Development Engineer I',
     duration: '14 months',
@@ -31,13 +31,13 @@ export const projects: ProjectMeta[] = [
     subtitle: 'Reducing mean incident query resolution time by 60%',
     description: {
       recruiter:
-        'Engineered an LLM-powered incident chatbot using OpenAI APIs, Python, and React that summarized tickets, auto-generated severity-based runbooks, and reduced mean incident query resolution time by 60%.',
+        'Built a React/TypeScript incident console with an LLM chatbot (OpenAI API, Python) over historical incident data, cutting mean incident query resolution time by 60%. In the same internship, built a retrieval-augmented onboarding assistant over document embeddings and vector search with a rule-based fallback, and migrated a .NET test suite to Java.',
       explorer:
         'When production incidents hit, every minute counts. Engineers were spending too long searching through runbooks and Slack threads for answers. I built an LLM-powered chatbot that understood incident context, searched historical data, and surfaced relevant solutions instantly. The 60% reduction in resolution time meant fewer late nights and faster recovery.',
     },
     date: 'Jan 2024 – Jun 2024',
     tags: ['LLM', 'Incident Management', 'Enterprise', 'OpenAI'],
-    techStack: ['OpenAI API', 'Python', 'React', 'TypeScript', 'PostgreSQL'],
+    techStack: ['OpenAI API', 'Python', 'React', 'TypeScript', 'Embeddings', 'Vector Search'],
     metrics: [
       { label: 'Resolution Time', value: '60%', unit: 'reduction' },
     ],
@@ -53,7 +53,7 @@ export const projects: ProjectMeta[] = [
     subtitle: 'Hybrid multi-retriever orchestration for long-term conversational memory - Recall@5 0.65 → 0.83',
     description: {
       recruiter:
-        'HyArg is a hybrid multi-retriever orchestration system in Python that uses an LLM-based selector to dynamically route queries across 5 specialized retrievers (BM25, TF-IDF, FAISS, SVM, Time-Weighted). Evaluated on LongMemEval (500 questions) and Locomo (1538 questions); achieved Recall@5 of 0.83 on LongMemEval with Qwen2.5-7B (+18 pts over the best single retriever) and 0.36 on Locomo with LLaMA 3.1 8B Instruct.',
+        'HyArg is a hybrid multi-retriever orchestration system in Python that uses an LLM-based selector to dynamically route queries across 5 specialized retrievers (BM25, TF-IDF, FAISS, SVM, Time-Weighted). Evaluated on LongMemEval (500 questions) and Locomo (1538 questions); achieved Recall@5 of 0.83 on LongMemEval with Qwen2.5-7B (+18 pts over the best single retriever) and gained +4 points on LoCoMo.',
       explorer:
         'LLMs forget context across long conversations, and no single retriever is good at everything - BM25 nails exact phrases, FAISS handles semantics, time-weighted methods catch recency. HyArg is the system I co-built that uses an LLM orchestrator to read each query, extract signals (temporal cues, quoted phrases, entity mentions, query length), and dynamically route to the best of five retrievers. We tested it on LongMemEval and Locomo across LLaMA 3.1 8B, Mistral 7B, and Qwen2.5 7B, and the jump from 0.65 → 0.83 Recall@5 on LongMemEval validated that dynamic retriever selection beats any fixed single-retriever baseline.',
     },
@@ -117,22 +117,22 @@ export const projects: ProjectMeta[] = [
   },
   {
     slug: 'kafka-streaming',
-    title: 'Real-Time Data Streaming Platform',
-    subtitle: 'Lowering cross-system propagation latency for 70+ downstream applications',
+    title: 'Virtual Assistant on a Kafka Platform',
+    subtitle: 'Integrating a virtual assistant into a Kafka publisher/consumer platform serving 70+ downstream applications',
     description: {
       recruiter:
-        'Developed a real-time data streaming application with Java and Apache Kafka for JPMorgan\'s Global Technology & Innovation team, lowering cross-system propagation latency for 70+ downstream applications.',
+        'JPMorgan Chase Databus internship: integrated a virtual assistant into an Apache Kafka publisher/consumer platform serving 70+ downstream applications, and delivered Java/Spring Boot upgrades with JUnit and Mockito test coverage. The internship led to a full-time offer.',
       explorer:
-        'When data needs to flow across 70+ systems in real-time, every millisecond matters. I built a streaming platform with Java and Kafka that ensured consistent, low-latency data propagation across JPMorgan\'s Global Technology infrastructure.',
+        'My first summer at JPMorgan Chase was on Databus, the Kafka platform that 70+ applications depend on. I wired a virtual assistant into its publisher/consumer flow and shipped Java/Spring Boot upgrades with real test coverage, because on a platform that many teams depend on, an untested change is a risk to all of them. It ended with a full-time offer.',
     },
-    date: 'Jan 2024 – Jun 2024',
-    tags: ['Data Streaming', 'Enterprise', 'Real-Time'],
-    techStack: ['Java', 'Apache Kafka', 'AWS', 'Docker'],
+    date: 'May 2023 – Jul 2023',
+    tags: ['Data Streaming', 'Enterprise', 'Kafka'],
+    techStack: ['Java', 'Spring Boot', 'Apache Kafka', 'JUnit', 'Mockito'],
     metrics: [
       { label: 'Downstream Apps', value: '70+', unit: 'served' },
     ],
-    role: 'Software Engineering Program Intern',
-    duration: '6 months',
+    role: 'Software Engineering Intern (Databus)',
+    duration: '3 months',
     status: 'completed',
     featured: false,
     category: 'enterprise',
@@ -143,11 +143,11 @@ export const projects: ProjectMeta[] = [
     subtitle: 'Travel conversational agent that replaces clicks with conversations',
     description: {
       recruiter:
-        'Built a multi-source travel planning conversational agent using Playwright browser automation, LLM-based intent parsing, and FastAPI. Aggregates flights, hotels, weather, and cultural data from a single natural language query.',
+        'Built a travel conversational agent that replaces click-through flows with chat, using OpenAI API intent handling and Playwright browser tool use behind FastAPI, integrating 5+ services: flights, hotels, weather and cultural data from a single natural-language query.',
       explorer:
         'Travel planning is broken - you open 10 tabs, compare prices, check weather, read guides, and still feel uncertain. ClickLess AI replaces that entire workflow with a single conversation. Ask it "Plan a week in Tokyo in April" and it scrapes real-time flights, hotel prices, weather forecasts, and cultural tips, then synthesizes everything into a coherent trip brief.',
     },
-    date: '2025',
+    date: 'Spring 2026',
     tags: ['Conversational AI', 'Web Scraping', 'Travel', 'LLM', 'Playwright'],
     techStack: ['Python', 'FastAPI', 'Playwright', 'OpenAI API', 'spaCy', 'React'],
     metrics: [
@@ -162,17 +162,18 @@ export const projects: ProjectMeta[] = [
   {
     slug: 'construction-intelligence',
     title: 'Construction Project Intelligence',
-    subtitle: 'AI-powered construction project management with document intelligence',
+    subtitle: 'BuildDocs AI: a role-aware construction document platform that cut manual lookup by 95%',
     description: {
       recruiter:
-        'Full-stack construction project management platform with RBAC, AI-powered document search (RAG), RFI intelligence with NLP classification, and analytics dashboards. Live demo: https://constructionrag.vercel.app/',
+        'BuildDocs AI: a role-aware construction document platform (Next.js, React, TypeScript, FastAPI, Supabase PostgreSQL) with RBAC across 6 role types, document parsing, indexing, RFI classification and dashboards, cutting manual lookup by 95%. Chat answers are grounded in project documents with citations, using Groq-hosted Llama 3.1 8B with a TF-IDF extractive fallback; deployed on Vercel. Live demo: https://constructionrag.vercel.app/',
       explorer:
         'Construction projects generate mountains of documents - RFIs, change orders, submittals, schedules. I built an AI assistant that understands construction documents, answers questions with citations, classifies RFIs automatically, and flags risks before they become problems. Try the live demo at https://constructionrag.vercel.app/',
     },
-    date: '2026',
+    date: 'Spring 2026',
     tags: ['Full-Stack', 'RAG', 'NLP', 'Construction Tech'],
-    techStack: ['Python', 'FastAPI', 'React', 'TypeScript', 'PostgreSQL', 'Docker', 'OpenAI API'],
+    techStack: ['Next.js', 'React', 'TypeScript', 'FastAPI', 'Supabase', 'PostgreSQL', 'Groq', 'Llama 3.1 8B', 'Vercel'],
     metrics: [
+      { label: 'Manual Lookup', value: '95%', unit: 'less' },
       { label: 'RBAC Roles', value: '6', unit: 'role types' },
     ],
     role: 'Full-Stack Developer',
@@ -194,7 +195,7 @@ export const projects: ProjectMeta[] = [
       explorer:
         'FlowMind turns building a chat assistant into something you can see and debug instead of a wall of prompt files. You sign in, then either describe an assistant in plain English (Story Builder) or drag nodes onto a React Flow canvas - message, input, choice, condition, RAG query, LLM response - wire them together, and run the whole thing in a Test simulator with a live execution trace. Upload your own .txt/.md/.csv/.html knowledge and it is stored in private Supabase Storage, parsed and chunked on the server, embedded with Gemini (768-dim) into pgvector, and retrieved per-user by cosine search with a BM25-lite fallback. LLM answers follow a strict precedence: your own Gemini key (BYOK, encrypted in an HttpOnly cookie) → a small shared Groq demo allowance → a clearly-labeled deterministic simulation. Every assistant is private to your account via Postgres Row-Level Security. It is an honest early prototype - accounts, the builder, RAG, hosted chat and a /widget.js embed all work today; organizations, PDF/DOCX ingestion, and a versioned publish schema are still on the roadmap. Preview at https://flowmind-nine-tau.vercel.app/',
     },
-    date: '2026 –',
+    date: 'Spring 2026 –',
     tags: ['LLM', 'Visual Builder', 'RAG', 'Full-Stack', 'In Progress'],
     techStack: [
       'Next.js 15',
@@ -310,6 +311,51 @@ export const projects: ProjectMeta[] = [
     links: [
       { label: 'GitHub', url: 'https://github.com/vemula20262/skillshift' },
     ],
+  },
+  {
+    slug: 'distributed-rate-limiter',
+    title: 'Distributed Rate Limiter',
+    subtitle: 'Four rate-limiting algorithms behind one interface, plus a Redis-backed distributed token bucket at 1M+ checks/sec',
+    description: {
+      recruiter:
+        'Python library with four algorithms (token bucket, fixed window, sliding window log, sliding window counter) behind one interface, with per-key isolation and a thread-safe core on monotonic timing. Added a Redis-backed distributed token bucket using an atomic Lua script so many servers share one limit. Tested with pytest and benchmarked at 1M+ checks per second.',
+      explorer:
+        'Rate limiting looks simple until two servers disagree about how many requests are left. I built the four classic algorithms behind a single interface so they can be swapped and compared, made the in-process core thread-safe on a monotonic clock, and then moved the token bucket into Redis with an atomic Lua script so the check-and-decrement can never race across servers.',
+    },
+    date: '2026',
+    tags: ['Distributed Systems', 'Concurrency', 'Performance'],
+    techStack: ['Python', 'Redis', 'Lua', 'pytest'],
+    metrics: [
+      { label: 'Throughput', value: '1M+', unit: 'checks per second' },
+      { label: 'Algorithms', value: '4', unit: 'behind one interface' },
+    ],
+    role: 'Solo Builder',
+    duration: 'Systems project',
+    status: 'completed',
+    featured: false,
+    category: 'systems',
+  },
+  {
+    slug: 'compiler-ir',
+    title: 'Compiler and IR Generator',
+    subtitle: 'A recursive-descent compiler in C++ for a C-like language, emitting a graph-based IR run by an interpreter',
+    description: {
+      recruiter:
+        'Built a recursive-descent compiler in C++ that emits a graph-based intermediate representation executed by an interpreter, lowering while, for and switch into jumps (switch without an equality primitive). Designed the symbol-to-memory table and constant pool; passed all hidden test suites.',
+      explorer:
+        'Writing a compiler is the fastest way to stop treating control flow as magic. Every while, for and switch becomes a set of jumps in a graph IR, and switch had to be lowered without an equality primitive. Designing the symbol-to-memory table and constant pool myself, then passing every hidden test, was very satisfying.',
+    },
+    date: 'Spring 2026',
+    tags: ['Compilers', 'Systems', 'C++'],
+    techStack: ['C++', 'Recursive Descent', 'Graph IR', 'Interpreter'],
+    metrics: [
+      { label: 'Hidden Tests', value: 'All', unit: 'passed' },
+    ],
+    role: 'Course Project',
+    duration: 'Spring 2026',
+    status: 'completed',
+    featured: false,
+    category: 'systems',
   },
 ];
 

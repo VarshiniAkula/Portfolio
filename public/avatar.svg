@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Illustrated portrait of Varshini Akula">
+  <defs>
+    <clipPath id="c"><circle cx="100" cy="100" r="100"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f4b52"/>
+      <stop offset="1" stop-color="#0a1f2b"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a1a14"/>
+      <stop offset="1" stop-color="#1a100c"/>
+    </linearGradient>
+  </defs>
+  <g clip-path="url(#c)">
+    <rect width="200" height="200" fill="url(#bg)"/>
+    <circle cx="150" cy="40" r="60" fill="#00F2FF" opacity="0.12"/>
+
+    <!-- hair, back layer -->
+    <path d="M44 98 C38 52 66 22 104 22 C144 22 166 52 160 100 C158 140 168 170 176 200 L26 200 C34 170 46 140 44 98 Z" fill="url(#hair)"/>
+
+    <!-- jacket and top -->
+    <path d="M30 200 C34 172 58 160 100 158 C142 160 166 172 170 200 Z" fill="#141414"/>
+    <path d="M74 166 C84 160 116 160 126 166 L120 200 L80 200 Z" fill="#111"/>
+    <g fill="#f2efe8">
+      <rect x="80" y="176" width="40" height="5" rx="2"/>
+      <rect x="79" y="188" width="42" height="5" rx="2"/>
+    </g>
+    <path d="M74 166 L86 200 L70 200 L58 172 Z" fill="#232323"/>
+    <path d="M126 166 L114 200 L130 200 L142 172 Z" fill="#232323"/>
+
+    <!-- neck -->
+    <path d="M86 138 L114 138 L116 164 C106 170 94 170 84 164 Z" fill="#b97a55"/>
+
+    <!-- face (slightly oversized, caricature proportion) -->
+    <ellipse cx="100" cy="100" rx="42" ry="48" fill="#c98a63"/>
+    <!-- ears + studs -->
+    <ellipse cx="58" cy="104" rx="7" ry="10" fill="#bd7f59"/>
+    <ellipse cx="142" cy="104" rx="7" ry="10" fill="#bd7f59"/>
+    <circle cx="58" cy="114" r="2" fill="#f5e6c8"/>
+    <circle cx="142" cy="114" r="2" fill="#f5e6c8"/>
+
+    <!-- hair, front strands framing the face with a side part -->
+    <path d="M58 104 C54 64 74 40 98 38 C92 52 80 60 66 74 C62 86 61 96 60 112 Z" fill="url(#hair)"/>
+    <path d="M98 38 C128 34 150 56 144 108 C140 88 132 70 112 58 C106 52 100 46 98 38 Z" fill="url(#hair)"/>
+    <path d="M56 108 C52 140 54 168 48 200 L36 200 C44 170 46 140 50 106 Z" fill="#22150f"/>
+    <path d="M146 108 C150 140 150 168 158 200 L170 200 C160 170 154 140 152 104 Z" fill="#22150f"/>
+
+    <!-- brows -->
+    <path d="M70 80 C76 75 86 75 92 79" stroke="#1d120d" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <path d="M108 79 C114 75 124 75 130 80" stroke="#1d120d" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+
+    <!-- eyes -->
+    <ellipse cx="82" cy="96" rx="6" ry="5" fill="#fbf6ef"/>
+    <ellipse cx="118" cy="96" rx="6" ry="5" fill="#fbf6ef"/>
+    <circle cx="83" cy="96" r="3.6" fill="#2a1a12"/>
+    <circle cx="117" cy="96" r="3.6" fill="#2a1a12"/>
+    <circle cx="84.3" cy="94.6" r="1.1" fill="#fff"/>
+    <circle cx="118.3" cy="94.6" r="1.1" fill="#fff"/>
+    <path d="M75 93 C79 89 86 89 90 92" stroke="#1a100c" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <path d="M110 92 C114 89 121 89 125 93" stroke="#1a100c" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+
+    <!-- glasses: bold dark frames -->
+    <g fill="none" stroke="#0d0d0d" stroke-width="3.6" stroke-linejoin="round">
+      <path d="M64 88 C64 83 69 82 74 82 L91 83 C96 83 98 86 97 90 L95 99 C93 106 88 108 82 108 C72 108 66 104 65 97 Z"/>
+      <path d="M136 88 C136 83 131 82 126 82 L109 83 C104 83 102 86 103 90 L105 99 C107 106 112 108 118 108 C128 108 134 104 135 97 Z"/>
+      <path d="M97 90 C99 88 101 88 103 90"/>
+      <path d="M64 89 L58 92"/>
+      <path d="M136 89 L142 92"/>
+    </g>
+    <g fill="#ffffff" opacity="0.18">
+      <path d="M70 86 L80 86 L72 100 L68 98 Z"/>
+      <path d="M110 86 L120 86 L112 100 L108 98 Z"/>
+    </g>
+
+    <!-- nose -->
+    <path d="M100 104 C99 112 96 116 95 118 C98 120 102 120 105 118" stroke="#a5653f" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+
+    <!-- cheeks -->
+    <ellipse cx="74" cy="120" rx="8" ry="5" fill="#e0786a" opacity="0.35"/>
+    <ellipse cx="126" cy="120" rx="8" ry="5" fill="#e0786a" opacity="0.35"/>
+
+    <!-- big smile -->
+    <path d="M78 124 C86 142 114 142 122 124 C110 128 90 128 78 124 Z" fill="#7a2a24"/>
+    <path d="M81 125 C92 129 108 129 119 125 L117 131 C106 134 94 134 83 131 Z" fill="#ffffff"/>
+    <path d="M76 123 C88 128 112 128 124 123" stroke="#5a1d18" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>

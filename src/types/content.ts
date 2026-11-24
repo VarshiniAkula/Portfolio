@@ -144,10 +144,25 @@ export interface PromptChip {
   query: string;
 }
 
+export interface PromptGroup {
+  title: string;
+  chips: PromptChip[];
+}
+
+export interface ChatLink {
+  href: string;
+  label: string;
+}
+
 export interface CuratedResponse {
+  id: string;
   triggers: string[];
+  /** Weight for specific topics (e.g. a named project) over broad ones. Default 1. */
+  priority?: number;
   response: string;
-  section?: string;
+  link?: ChatLink;
+  /** Suggested next questions shown under the answer. */
+  followUps?: PromptChip[];
 }
 
 export type DisciplineId = 'software' | 'ai' | 'performance';

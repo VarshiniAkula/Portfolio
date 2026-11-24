@@ -42,11 +42,12 @@ export function Navbar() {
           aria-label="Home"
         >
           <Image
-            src="/logo.jpg"
-            alt="Logo"
-            width={36}
-            height={36}
-            className="rounded-full"
+            src="/avatar.svg"
+            alt=""
+            width={40}
+            height={40}
+            className="rounded-full ring-1 ring-white/15"
+            unoptimized
           />
           <span className="font-serif italic font-bold text-xl text-[#fff6e4] tracking-tighter hidden sm:inline">
             Varshini Akula
