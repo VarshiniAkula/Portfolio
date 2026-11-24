@@ -2,17 +2,17 @@ import type { Profile } from '@/types/content';
 
 export const profile: Profile = {
   name: 'Varshini Akula',
-  title: 'Backend & Software Engineer',
-  tagline: 'Shipping secure, production-oriented AI systems.',
+  title: 'Software Engineer',
+  tagline: 'Software engineer working across three disciplines: production software, applied AI and performance engineering.',
   location: 'Tempe, AZ, USA',
   email: 'varshiniakula2003@gmail.com',
   resumeUrl: '/resume.pdf',
   monogram: 'VA',
   bio: {
     recruiter:
-      'Backend and software engineer, M.S. Computer Science at ASU and former SDE at JPMorgan Chase, who ships secure, production-oriented AI systems. I build cloud-native Java and AWS microservices, real-time data pipelines, and LLM-powered assistants with the access controls, reliability, and observability that production actually demands, turning prototypes into systems teams can trust at scale.',
+      'I build across three disciplines. As a software engineer, I shipped Java and AWS microservices and Kafka pipelines at JPMorgan Chase with 99.9% uptime. As an AI engineer, I build RAG systems, LoRA fine-tunes and agent feedback loops that are evaluated on held-out data. As a software performance engineer, I benchmark and profile down to the CPU core so every speed-up has evidence behind it. M.S. Computer Science at ASU, 4.0 GPA.',
     explorer:
-      'I taught myself C during a summer holiday because I wanted to understand how computers think. That curiosity led me from building chatbots at JPMorgan Chase to researching LLM vulnerabilities at ASU. I turn early prototypes into secure, production-ready systems, lead communities that matter, and believe the best AI is the kind that makes someone\'s Tuesday afternoon easier. When I\'m not shipping code, I\'m reading novels, exploring new cities, or finding the best coffee in town.',
+      'I taught myself C during a summer holiday because I wanted to understand how computers think. That curiosity led me from building chatbots at JPMorgan Chase to researching LLM vulnerabilities at ASU. Today I work as three engineers in one: I build production software, ship AI systems I can actually evaluate, and profile code until I know exactly where the time goes. I turn early prototypes into secure, production-ready systems, lead communities that matter, and believe the best AI is the kind that makes someone\'s Tuesday afternoon easier. When I\'m not shipping code, I\'m reading novels, exploring new cities, or finding the best coffee in town.',
   },
   highlights: [
     {

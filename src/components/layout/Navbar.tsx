@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { profile } from '@/content/profile';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -53,7 +54,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-7">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -70,11 +71,21 @@ export function Navbar() {
           ))}
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
+          <a
+            href={profile.resumeUrl}
+            download="Varshini_Akula_Resume.pdf"
+            className="hidden sm:inline-flex items-center gap-2 rounded-full bg-[#fff6e4] px-4 py-2 text-sm font-semibold text-black transition-all hover:bg-white hover:shadow-[0_0_24px_rgba(255,246,228,0.3)]"
+          >
+            <svg width="15" height="15" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M10 3v10m0 0l-4-4m4 4l4-4M4 16h12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            Résumé
+          </a>
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden flex flex-col gap-1.5 p-2"
+            className="lg:hidden flex flex-col gap-1.5 p-2"
             aria-label="Toggle navigation menu"
             aria-expanded={mobileOpen}
           >
@@ -87,7 +98,7 @@ export function Navbar() {
 
       {/* Mobile Nav */}
       {mobileOpen && (
-        <div className="md:hidden glass-panel mx-4 mb-4 rounded-xl py-4 space-y-1">
+        <div className="lg:hidden glass-panel mx-4 mb-4 rounded-xl py-4 space-y-1">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -103,6 +114,14 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
+          <a
+            href={profile.resumeUrl}
+            download="Varshini_Akula_Resume.pdf"
+            onClick={() => setMobileOpen(false)}
+            className="block px-6 py-3 text-lg font-serif text-[#00F2FF]"
+          >
+            Download Résumé
+          </a>
         </div>
       )}
 

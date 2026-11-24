@@ -149,3 +149,17 @@ export interface CuratedResponse {
   response: string;
   section?: string;
 }
+
+export type DisciplineId = 'software' | 'ai' | 'performance';
+
+export interface Discipline {
+  id: DisciplineId;
+  label: string;
+  short: string;
+  headline: string;
+  summary: string;
+  capabilities: string[];
+  tools: string[];
+  proof: Metric;
+  projectSlugs: string[];
+}

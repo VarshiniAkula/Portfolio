@@ -8,14 +8,14 @@ import { AskVarshini } from '@/components/ai-assistant/AskVarshini';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Varshini Akula',
+  title: 'Varshini Akula - Software Engineer',
   description:
     'Backend and software engineer who ships secure, production-oriented AI systems. M.S. CS at ASU (4.0 GPA), former SDE at JPMorgan Chase. Cloud-native services, real-time data pipelines, and LLM-powered assistants.',
   metadataBase: new URL('https://varshiniakula.com'),
   openGraph: {
     title: 'Varshini Akula',
     description:
-      'Backend and software engineer who ships secure, production-oriented AI systems.',
+      'Software engineer across production software, applied AI and performance engineering.',
     siteName: 'Varshini Akula',
     type: 'website',
     locale: 'en_US',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Varshini Akula',
     description:
-      'Backend and software engineer who ships secure, production-oriented AI systems.',
+      'Software engineer across production software, applied AI and performance engineering.',
   },
   robots: { index: true, follow: true },
 };

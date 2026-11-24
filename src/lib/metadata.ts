@@ -17,10 +17,10 @@ export function generatePageMetadata({
 }: PageMetaArgs): Metadata {
   const fullTitle = title
     ? `${title} - Varshini Akula`
-    : 'Varshini Akula - Backend & Software Engineer';
+    : 'Varshini Akula - Software Engineer';
   const desc =
     description ||
-    'Backend and software engineer who ships secure, production-oriented AI systems. M.S. CS at ASU, former SDE at JPMorgan Chase.';
+    'Software engineer working across software, AI and performance engineering. M.S. CS at ASU (4.0 GPA), former SDE at JPMorgan Chase.';
 
   return {
     title: fullTitle,
@@ -49,7 +49,7 @@ export function generatePersonJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Varshini Akula',
-    jobTitle: 'Backend & Software Engineer',
+    jobTitle: 'Software Engineer',
     url: siteUrl,
     alumniOf: [
       {
@@ -63,6 +63,8 @@ export function generatePersonJsonLd() {
     ],
     knowsAbout: [
       'Backend Engineering',
+      'AI Engineering',
+      'Software Performance Engineering',
       'Software Engineering',
       'Distributed Systems',
       'Cloud Infrastructure',

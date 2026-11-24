@@ -83,7 +83,9 @@ export function ContactPage() {
               </h3>
               <div className="flex flex-wrap justify-center gap-2">
                 {[
-                  'Backend & Software Engineering Roles',
+                  'Software Engineering Roles',
+                  'AI Engineering Roles',
+                  'Performance Engineering Roles',
                   'Production AI Systems',
                   'Research Collaborations',
                   'Startup Conversations',
