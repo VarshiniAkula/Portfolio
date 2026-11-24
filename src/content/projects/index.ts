@@ -334,6 +334,9 @@ export const projects: ProjectMeta[] = [
     status: 'completed',
     featured: false,
     category: 'systems',
+    links: [
+      { label: 'GitHub', url: 'https://github.com/VarshiniAkula/rate-limiter' },
+    ],
   },
   {
     slug: 'compiler-ir',
