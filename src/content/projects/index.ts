@@ -227,6 +227,90 @@ export const projects: ProjectMeta[] = [
       { label: 'GitHub', url: 'https://github.com/VarshiniAkula/FlowMind' },
     ],
   },
+  {
+    slug: 'lora-brand-assistant',
+    title: 'LoRA Brand Outreach Assistant',
+    subtitle: 'Gemma 3 1B + LoRA + RAG for fact-grounded brand outreach, evaluated on a frozen held-out set',
+    description: {
+      recruiter:
+        'Team project: a LoRA + RAG system that researches a company on the public web and drafts a short, cited Instagram collaboration email. I built the inference pipeline and owned Phases 3 to 5: verified LoRA adapter inference on Gemma 3 1B (MLX, 4-bit QAT) with a runtime load ledger, a verification and bounded-repair controller, and a fact-first workflow where code selects exact-quote facts, the model writes only a 100-150 word email, and code attaches citations and runs deterministic checks. Workflow is hash-frozen before a 10-company held-out evaluation; 175 tests pass.',
+      explorer:
+        'A 1B model cannot reliably write a full analysis-and-claims JSON, so I split the job. Code picks a few company facts as exact quotes with passage IDs, states one Instagram opportunity, and the model writes only a subject and a short email. Code then attaches [P#] citations by stemmed content-word coverage and runs checks for recipient, sender voice, platform, promises, weakness language and unsupported claims, with at most one targeted revision before human review. Every workflow file is SHA-256 frozen and the driver refuses held-out runs on drift. The honest result: the split workflow produces correctly addressed, Instagram-only, promise-free emails in 10/10 cases, a clear step up from Phase 4, but only 5 of 20 held-out drafts passed the checks, and the main failure was the selector accepting text that was not a real company fact. That finding is the most useful thing the project produced.',
+    },
+    date: '2026',
+    tags: ['LLM', 'LoRA', 'RAG', 'Evaluation', 'Fine-tuning'],
+    techStack: ['Python', 'Gemma 3 1B', 'MLX-LM', 'LoRA', 'FastAPI', 'pytest'],
+    metrics: [
+      { label: 'Held-out Set', value: '10', unit: 'companies, frozen workflow' },
+      { label: 'Correctly Addressed', value: '10/10', unit: 'Instagram-only, no promises' },
+      { label: 'Tests', value: '175', unit: 'passing' },
+    ],
+    role: 'ML Engineer (team of 4)',
+    duration: 'Phases 3-5',
+    status: 'completed',
+    featured: true,
+    category: 'ai',
+    links: [
+      {
+        label: 'GitHub',
+        url: 'https://github.com/Amatya27/LoRA-Brand-Assistant/tree/varshini/phase5-short-outreach',
+      },
+    ],
+  },
+  {
+    slug: 'faiss-cpu-benchmark',
+    title: 'FAISS CPU Retrieval Benchmark',
+    subtitle: 'Thread scaling, P-core vs E-core placement and VTune profiling on a hybrid Intel CPU',
+    description: {
+      recruiter:
+        'Reproducible FAISS IndexFlatL2 benchmark (50K x 384-D vectors, k=5) on an Intel i9-14900HX. Per-process workers, seeded shuffled reps and manifest validation before any result is published. Batch-32 throughput peaks at 8 threads (3,492 qps, 2.18x over 1 thread) and regresses at 16. 4 P-cores run 3.43x faster than 4 E-cores. Intel VTune Hotspots traced the 16-thread regression to OpenMP spin and kernel-wait time (~81% of CPU time), not E-core spillover. 47 regression tests guard the pipeline.',
+      explorer:
+        'Vector search is the hot path of every RAG system, so I wanted to know what thread count actually helps on a hybrid laptop CPU. Every (config, rep) runs in a fresh subprocess with thread env vars set before import, only index.search() is timed, and the analyser validates manifests, dataset hashes, timing totals and top-5 agreement before writing a single chart. Throughput climbs to 8 threads then drops 18% at 16. The obvious story was "16 threads spill onto E-cores", but VTune Hotspots showed balanced per-thread work and spin time growing near-linearly with threads, so I removed that claim. The README lists what was measured and, just as clearly, what was not.',
+    },
+    date: 'Nov 2026',
+    tags: ['Performance', 'Benchmarking', 'Vector Search', 'Systems'],
+    techStack: ['Python', 'FAISS', 'NumPy', 'OpenMP', 'Intel VTune', 'threadpoolctl', 'Matplotlib'],
+    metrics: [
+      { label: 'Peak Throughput', value: '3,492', unit: 'qps at 8 threads' },
+      { label: 'P vs E Cores', value: '3.43x', unit: 'faster at 4 threads' },
+      { label: 'Regression Tests', value: '47', unit: 'passing' },
+    ],
+    role: 'Solo Builder',
+    duration: '1 week',
+    status: 'completed',
+    featured: true,
+    category: 'systems',
+    links: [
+      { label: 'GitHub', url: 'https://github.com/VarshiniAkula/faiss-cpu-benchmark' },
+    ],
+  },
+  {
+    slug: 'skillshift',
+    title: 'SkillShift',
+    subtitle: 'Source-balanced feedback selection for reliable agent skill evolution',
+    description: {
+      recruiter:
+        'CSE 572 (Data Mining) team research project. When an agent updates its skill from past attempts, twenty failures from one broken input can look like twenty reasons to change. SkillShift adds feedback selection before SkillOpt\'s reflection step and compares five methods (unfiltered, exact dedup, semantic dedup, source balancing, source-behavior weighting) on 120 SpreadsheetBench Verified tasks. I built resumable attempt collection, the pilot runner and the API cost ledger with hard call limits. Pilot: 6 of 6 validation-only runs completed and accepted by the gate. Full evaluation in progress.',
+      explorer:
+        'Self-improving agents learn from their own attempts, but repeated failures from a single source can masquerade as strong evidence and push the skill in a bad direction. SkillShift groups feedback by source family and failure behavior so that one broken workbook counts once, while the same failure across different tasks still counts strongly. My part was making the experiment trustworthy and affordable: collection that never repeats a completed model call and stops instead of recording fake failures, pool checks before any model call, runs that fail loudly if optimizer calls are dropped, 180-second timeouts for stalled endpoints, and a cost ledger that keeps the team inside a 350-call allowance. Test sets stay sealed until the full grid runs.',
+    },
+    date: 'Fall 2026 -',
+    tags: ['AI Agents', 'Data Mining', 'Research', 'In Progress'],
+    techStack: ['Python', 'SkillOpt', 'Sentence Transformers', 'GLM-5.3 Flash (NVIDIA API)', 'openpyxl'],
+    metrics: [
+      { label: 'Status', value: 'In Progress', unit: 'pilot complete' },
+      { label: 'Benchmark', value: '120', unit: 'SpreadsheetBench tasks' },
+      { label: 'Methods', value: '5', unit: 'feedback selectors compared' },
+    ],
+    role: 'Researcher (team of 5)',
+    duration: 'Ongoing',
+    status: 'ongoing',
+    featured: true,
+    category: 'research',
+    links: [
+      { label: 'GitHub', url: 'https://github.com/vemula20262/skillshift' },
+    ],
+  },
 ];
 
 export function getProjectBySlug(slug: string): ProjectMeta | undefined {

@@ -259,4 +259,95 @@ export const caseStudyContent: Record<string, CaseStudy> = {
       },
     ],
   },
+  'lora-brand-assistant': {
+    sections: [
+      {
+        title: 'The Problem',
+        content: [
+          'Brand outreach emails are only useful if every claim about the company is true and current. A fine-tuned small model is cheap and fast, but it will happily invent facts. The goal: input a company, research it on the public web, and produce a short Instagram collaboration email where every factual sentence traces back to a real source.',
+          'Phase 4 showed that a 1B generator could not produce the full analysis-and-claims JSON it was trained on. No output reached a usable email.',
+        ],
+      },
+      {
+        title: 'The Approach',
+        content: [
+          'Phase 3 (my work): verified LoRA adapter inference on Gemma 3 1B (4-bit QAT) served by MLX-LM, with a runtime load ledger that proves which adapter actually answered, saved-packet replay so base and adapter see identical evidence, and per-run records with honest statuses.',
+          'Phase 4 (my work): verification checks, an atomic reviewer, caching and a bounded repair controller, with the evaluation configuration frozen before any model call.',
+          'Phase 5 (my work): a fact-first split. Code selects 2-3 company facts as exact quotes with passage IDs, states one Instagram opportunity, and the model writes only a subject and a 100-150 word body at temperature 0. Code attaches [P#] citations using stemmed content-word coverage (0.6 threshold, numbers and negations must match), then deterministic checks run, with at most one sentence-level revision before human review.',
+        ],
+      },
+      {
+        title: 'Key Decisions',
+        content: [
+          'Keep facts in RAG and style in LoRA. The model never sees fact IDs and never writes citations; any model-written citation fails the checks, so the system cannot cite evidence for claims the model invented.',
+          'Freeze before testing. The workflow freeze records the SHA-256 of every workflow file, prompt and check versions, the adapter hash and the held-out list. The driver refuses held-out runs if anything changed, and hashes were re-checked after the runs.',
+          'A held-out rule fixed in code before any held-out packet was read: 10 companies never used for training, checkpoint selection or workflow development.',
+        ],
+      },
+      {
+        title: 'Results',
+        content: [
+          'On the 10 held-out companies, every final draft in both arms (base and v5 adapter) was correctly addressed, Instagram-only and free of promised results. 5 of 20 drafts passed all automated checks, with a median first-draft latency of about 8 seconds.',
+          'Passing the checks was necessary but not sufficient: the main cause of rejection was the fact selector accepting text that was not a real company fact (agency SEO copy, taglines, image alt text). The adapter did not help this short-email task, since it was trained on the long JSON format. These are reported plainly rather than tuned away, and they point directly at the next fix: better fact selection.',
+        ],
+      },
+    ],
+  },
+  'faiss-cpu-benchmark': {
+    sections: [
+      {
+        title: 'The Question',
+        content: [
+          'On a hybrid Intel i9-14900HX (8 P-cores with SMT, 16 E-cores), which OpenMP thread count gives the best FAISS search latency for single queries and the best throughput for batches of 32? And how much does core type matter?',
+        ],
+      },
+      {
+        title: 'The Approach',
+        content: [
+          'A synthetic IndexFlatL2 of 50,000 x 384-D float32 vectors with 512 seeded held-out queries and k=5. Every (threads, batch, rep) runs in a fresh subprocess with all BLAS and OpenMP thread variables set before import, so no run inherits another run\'s thread pool.',
+          'Only index.search() is timed with perf_counter. A separate untimed pass collects top-5 IDs to confirm every configuration returns identical results. The analyser validates manifests, dataset SHA-256 hashes, timing totals and agreement before writing any report.',
+          'P-core vs E-core placement used Windows process affinity masks with 10 interleaved repetitions and per-record read-back of the observed affinity (0 mismatches). Intel VTune Hotspots was collected at 1/4/8/16 threads with ITT markers gating the measured region.',
+        ],
+      },
+      {
+        title: 'Results',
+        content: [
+          'Batch-32 throughput: 1,600 qps at 1 thread, peaking at 3,492 qps at 8 threads (2.18x), then dropping to 2,870 qps at 16. Batch-1 p95 latency showed no clear winner across 1, 2 and 4 threads.',
+          'Placement: 4 physical P-cores reached 3,283 qps vs 956 qps on 4 E-cores, a 3.43x gap.',
+          'VTune showed that at 16 threads, OpenMP barrier and kernel-wait functions account for about 81% of CPU time while the productive OpenBLAS sgemm kernel is about 6%. Per-thread work was balanced, which does not support the "spills onto E-cores" explanation, so that claim was removed.',
+        ],
+      },
+      {
+        title: 'Lessons Learned',
+        content: [
+          'Write down what was not measured. The README separates verified findings from open hypotheses (SMT contention, scheduler placement, KMP_BLOCKTIME tuning) and makes no energy or performance-per-watt claims.',
+          'Validation before publishing is what makes a benchmark trustworthy. 47 regression tests reject forged sums, manifest mismatches, incomplete runs and missing references.',
+        ],
+      },
+    ],
+  },
+  'skillshift': {
+    sections: [
+      {
+        title: 'The Problem',
+        content: [
+          'An agent that updates its skill from past attempts can treat repeated failures as stronger evidence than they are. If twenty failed attempts all come from one broken workbook, the optimizer reads that as twenty reasons to change the skill, and the new rule can then hurt many other tasks.',
+        ],
+      },
+      {
+        title: 'The Approach',
+        content: [
+          'SkillShift adds a feedback selection step before SkillOpt\'s reflection and compares five selectors on 120 SpreadsheetBench Verified tasks (60 dev / 30 validation / 30 test): unfiltered, exact dedup, semantic dedup, source balancing, and source-behavior weighting, which groups records by source family and failure behavior. Executor, optimizer, starting skill, prompts and token budget stay fixed across methods.',
+          'My part: resumable attempt collection that never repeats a completed model call, selector-ready record preparation, the pilot runner with pool validation before any model call, and an API cost ledger that enforces the team\'s 350-call allowance. Runs fail loudly if optimizer calls are dropped, and every request times out after 180 seconds so a stalled endpoint cannot hang a run.',
+        ],
+      },
+      {
+        title: 'Status',
+        content: [
+          'In progress. The pilot completed 6 of 6 validation-only runs across two pools (no injected repeats, and 50% repeats) and three selectors; every run produced an edit that the validation gate accepted, and no test tasks were evaluated. Next: the second development pass, semantic selectors and the full comparison grid on the sealed test split.',
+          'Team: Vemula Thushar Reddy, Charith Kutikuppala, Venkata Pradeep Reddy Venuthurla, Varshini Akula, Thanishka Bolisetty.',
+        ],
+      },
+    ],
+  },
 };
