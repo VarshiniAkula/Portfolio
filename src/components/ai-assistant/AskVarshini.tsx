@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
 import { promptGroups } from '@/content/prompts';
@@ -168,13 +167,13 @@ export function AskVarshini() {
                 >
                   <p className="whitespace-pre-wrap">{msg.content}</p>
                   {msg.link && (
-                    <Link
+                    <a
                       href={msg.link.href}
                       onClick={() => setIsOpen(false)}
                       className="inline-flex items-center gap-1 mt-3 text-sm font-semibold text-[#00F2FF] hover:underline underline-offset-4"
                     >
                       {msg.link.label} &rarr;
-                    </Link>
+                    </a>
                   )}
                 </div>
               </div>

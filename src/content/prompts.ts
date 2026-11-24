@@ -53,16 +53,16 @@ export const curatedResponses: CuratedResponse[] = [
     id: 'about',
     triggers: ['tell me about varshini', 'about varshini', 'who is', 'who are you', 'introduce', 'summary', 'overview of her', 'about her', 'background', 'doing now', 'currently', 'right now', 'these days'],
     response:
-      'Varshini Akula is a software engineer who works across three disciplines: software engineering, AI engineering and software performance engineering.\n\nShe is pursuing an M.S. in Computer Science at Arizona State University (4.00 GPA, graduating May 2027). Before that she spent a full-time Software Development Engineer I role and two internships at JPMorgan Chase, building AWS services, Kafka integrations and NLP/LLM assistants at scale: 40M+ documents per day and 320+ hours saved per quarter.\n\nToday she builds and measures LLM, RAG and agent systems, fine-tunes models in PyTorch, and profiles CPU performance at the thread and core level. She was named SME for NLP and AI at JPMC and has two peer-reviewed publications.',
-    link: { href: '/journey', label: 'Read her story' },
+      'Varshini Akula is a software engineer (backend and AI systems) and a software performance engineer.\n\nShe is pursuing an M.S. in Computer Science at Arizona State University (4.00 GPA, graduating May 2027). Before that she spent a full-time Software Development Engineer I role and two internships at JPMorgan Chase, building AWS services, Kafka integrations and NLP/LLM assistants at scale: 40M+ documents per day and 320+ hours saved per quarter.\n\nToday she builds and measures LLM, RAG and agent systems, fine-tunes models in PyTorch, and profiles CPU performance at the thread and core level. She was named SME for NLP and AI at JPMC and has two peer-reviewed publications.',
+    link: { href: '/software#about', label: 'Open her portfolio' },
     followUps: [P('Roles she fits', 'What roles is she looking for?'), P('JPMorgan Chase', 'What did she do at JPMorgan Chase?'), P('Projects', 'What projects has she built?')],
   },
   {
     id: 'roles',
     triggers: ['roles', 'role', 'looking for', 'open to', 'position', 'job', 'disciplines', 'software engineer', 'ai engineer', 'performance engineer', 'fit'],
     response:
-      'She is open to full-time roles starting after May 2027 in three areas:\n\n• Software engineering: backend and full-stack services. At JPMC she built AWS microservices, a 40M+ documents/day pipeline and Kafka integrations, holding a 99% uptime SLA.\n• AI engineering: LLM, RAG and agent systems that are evaluated honestly, e.g. BrandPilot AI (8/10 held-out companies approved) and HyArg (Recall@5 0.65 → 0.83).\n• Software performance engineering: benchmarking and profiling, e.g. the FAISS benchmark (VTune, thread scaling, P-core vs E-core) and a rate limiter benchmarked at 1M+ checks/sec.',
-    link: { href: '/contact', label: 'Get in touch' },
+      'She is open to full-time roles from May 2027, and her portfolio is split in two:\n\n• Software Engineer (backend, full-stack and AI): AWS microservices, a 40M+ documents/day pipeline and Kafka integrations at JPMC with a 99% uptime SLA, plus LLM, RAG and agent systems such as BrandPilot AI (8/10 held-out companies approved) and HyArg (Recall@5 0.65 → 0.83).\n• Software Performance Engineer: benchmarking and profiling, e.g. the FAISS benchmark (Intel VTune, thread scaling, P-core vs E-core) and a rate limiter benchmarked at 1M+ checks/sec.',
+    link: { href: '/software#contact', label: 'Get in touch' },
     followUps: [P('Why hire her?', 'Why should we hire her?'), P('When can she start?', 'When does she graduate and when is she available?')],
   },
   {
@@ -77,7 +77,7 @@ export const curatedResponses: CuratedResponse[] = [
     triggers: ['graduate', 'graduation', 'graduating', 'available', 'availability', 'start date', 'when can she start', 'full-time', 'full time', 'visa', 'sponsor', 'sponsorship', 'relocate', 'relocation', 'location', 'where is she', 'based'],
     response:
       'She graduates with her M.S. in Computer Science from Arizona State University in May 2027 and is open to full-time roles from then. She is based in Tempe, Arizona.\n\nFor questions about start dates, relocation or work authorization, please reach out to her directly; she will answer quickly.',
-    link: { href: '/contact', label: 'Contact Varshini' },
+    link: { href: '/software#contact', label: 'Contact Varshini' },
   },
 
   // ── Experience ──────────────────────────────────────────
@@ -101,7 +101,7 @@ export const curatedResponses: CuratedResponse[] = [
     triggers: ['education', 'degree', 'gpa', 'university', 'asu', 'arizona state', 'jntu', 'gnits', 'master', 'masters', 'bachelor', 'b.tech', 'btech', 'college', 'coursework', 'studying', 'study', 'studied', 'undergrad', 'undergraduate'],
     response:
       '• M.S. in Computer Science, Arizona State University, Tempe (Aug 2025 – May 2027), GPA 4.00/4.00.\n• B.Tech in Computer Science and Engineering (Data Science), Jawaharlal Nehru Technological University via G. Narayanamma Institute of Technology and Science, Hyderabad (Dec 2020 – May 2024), 9.49/10 CGPA, First Class with Distinction.\n\nAt ASU she also works as a course grader (Graduate Distributed Systems, CSE 598 Advanced Software Analysis and Design, CIS 310).',
-    link: { href: '/journey', label: 'See her journey' },
+    link: { href: '/software#experience', label: 'See her experience' },
   },
   {
     id: 'skills',
@@ -115,7 +115,7 @@ export const curatedResponses: CuratedResponse[] = [
     triggers: ['certification', 'certifications', 'certified', 'certificate', 'nptel', 'aws certified'],
     response:
       '• AWS Certified Cloud Practitioner (2024).\n• Database Management Systems, NPTEL, IIT Kharagpur.',
-    link: { href: '/research', label: 'See certifications' },
+    link: { href: '/software#skills', label: 'See skills' },
   },
 
   // ── Projects ────────────────────────────────────────────
@@ -124,7 +124,7 @@ export const curatedResponses: CuratedResponse[] = [
     triggers: ['projects', 'project', 'built', 'portfolio', 'side projects', 'what has she made', 'work samples'],
     response:
       'Highlights, grouped by discipline:\n\n• AI: BrandPilot AI (LoRA-tuned Gemma 3 1B agent, 8/10 held-out approvals), HyArg (Recall@5 0.65 → 0.83), STaR (46.2% on GSM8K), SkillShift (agent skill evolution, in progress), Deepfake Detection (94.5% on Celeb-DF), ClickLess AI.\n• Software: FlowMind (visual AI assistant builder, in progress), Construction Project Intelligence / BuildDocs AI (95% less manual lookup), Compiler and IR Generator in C++, and her JPMC platforms.\n• Performance: FAISS CPU Retrieval Benchmark (3,492 qps, VTune) and a Distributed Rate Limiter (1M+ checks/sec).\n\nAsk about any of them by name.',
-    link: { href: '/projects', label: 'Browse all projects' },
+    link: { href: '/software#projects', label: 'Browse projects' },
     followUps: [P('BrandPilot AI', 'Tell me about BrandPilot AI'), P('FAISS benchmark', 'Tell me about the FAISS benchmark'), P('FlowMind', 'Tell me about FlowMind')],
   },
   {
@@ -132,21 +132,21 @@ export const curatedResponses: CuratedResponse[] = [
     triggers: ['ai projects', 'ai work', 'llm', 'llms', 'machine learning', 'ml', 'rag', 'agent', 'agents', 'agentic', 'nlp', 'genai', 'generative'],
     response:
       'Her AI work covers the full loop from data to evaluation:\n\n• Agents: BrandPilot AI, a local research-to-outreach agent with a LoRA-tuned Gemma 3 1B, verified facts and [P#] citations (8/10 held-out approvals vs 3/10 base). SkillShift, research on feedback selection for agent skill evolution.\n• RAG and retrieval: HyArg, LLM-routed retrieval across 5 retrievers (Recall@5 0.65 → 0.83 on LongMemEval). RAG in FlowMind and BuildDocs AI.\n• Fine-tuning: STaR on Llama-3.2-3B (46.2% on GSM8K, +65% over zero-shot CoT).\n• Production NLP: a Rasa NLU platform and an LLM incident chatbot at JPMorgan Chase.',
-    link: { href: '/projects', label: 'See AI projects' },
+    link: { href: '/software#projects', label: 'See AI projects' },
   },
   {
     id: 'performance',
     triggers: ['performance', 'profiling', 'profile', 'optimization', 'optimisation', 'latency', 'throughput', 'benchmark', 'benchmarking', 'vtune', 'concurrency'],
     response:
-      'Performance engineering is one of her three disciplines:\n\n• FAISS CPU Retrieval Benchmark: thread scaling and P-core vs E-core placement on an Intel i9-14900HX. Throughput peaks at 3,492 qps at 8 threads (2.18x) and regresses at 16; Intel VTune traced ~81% of CPU time to OpenMP barrier/wait vs 6% in sgemm. P-cores were 3.43x faster than E-cores. 47 regression tests keep results reproducible.\n• Distributed Rate Limiter: a thread-safe core and a Redis/Lua distributed token bucket, benchmarked at 1M+ checks/sec.\n• At JPMC: observability work (logging, tracing, health checks) holding a 99% uptime SLA.',
-    link: { href: '/projects/faiss-cpu-benchmark', label: 'See the FAISS benchmark' },
+      'Performance engineering has its own portfolio on this site:\n\n• FAISS CPU Retrieval Benchmark: thread scaling and P-core vs E-core placement on an Intel i9-14900HX. Throughput peaks at 3,492 qps at 8 threads (2.18x) and regresses at 16; Intel VTune traced ~81% of CPU time to OpenMP barrier/wait vs 6% in sgemm. P-cores were 3.43x faster than E-cores. 47 regression tests keep results reproducible.\n• Distributed Rate Limiter: a thread-safe core and a Redis/Lua distributed token bucket, benchmarked at 1M+ checks/sec.\n• At JPMC: observability work (logging, tracing, health checks) holding a 99% uptime SLA.',
+    link: { href: '/performance#benchmarks', label: 'Open the performance portfolio' },
   },
   {
     id: 'backend',
     triggers: ['backend', 'back end', 'distributed', 'system design', 'microservice', 'microservices', 'api', 'apis', 'database', 'full stack', 'full-stack'],
     response:
       'On the backend and systems side:\n\n• JPMC: Java and AWS microservices with CI/CD, a 3-service Rasa platform, a 40M+ documents/day S3 → MongoDB pipeline through CRUD APIs, and Kafka integrations serving 70+ applications.\n• FlowMind: Next.js + Supabase with multi-tenant Postgres Row-Level Security, encrypted BYOK keys and atomic inference quotas.\n• Distributed Rate Limiter: four algorithms, Redis-backed shared limits via an atomic Lua script.\n• Compiler and IR Generator: recursive-descent compiler in C++ with a graph IR.',
-    link: { href: '/projects', label: 'Browse projects' },
+    link: { href: '/software#projects', label: 'Browse projects' },
   },
   {
     id: 'brandpilot',
@@ -267,42 +267,41 @@ export const curatedResponses: CuratedResponse[] = [
     triggers: ['publication', 'publications', 'paper', 'papers', 'published', 'ijitce', 'journal'],
     response:
       'She has two peer-reviewed publications in IJITCE:\n\n• Optimizing Prediction of Security Data Using Feature Selection and Ensembling (May 2023).\n• Evaluating the Performance of Fake Face Detection Methods in Forensics (Jun 2024).',
-    link: { href: '/research', label: 'See research' },
+    link: { href: '/software#leadership', label: 'See publications' },
   },
   {
     id: 'research',
     triggers: ['research', 'researching', 'academic'],
     response:
       'Her research centres on making AI systems reliable and measurable: HyArg (multi-retriever memory, Recall@5 0.65 → 0.83), STaR (self-taught reasoning, 46.2% on GSM8K), Deepfake Video Detection (94.5% on Celeb-DF), SkillShift (feedback selection for agent skill evolution, in progress) and BrandPilot AI (grounded outreach agent). She also has two IJITCE publications.',
-    link: { href: '/research', label: 'See research' },
+    link: { href: '/software#leadership', label: 'See publications' },
   },
   {
     id: 'leadership',
     triggers: ['leadership', 'leadership experience', 'lead', 'leader', 'acm', 'conclave', 'women', 'literaria', 'community', 'teaching', 'teach', 'grader', 'ta', 'mentor'],
     response:
       '• Engagement Manager, ACM at ASU (4,700+ members, 2025-26).\n• Student Chair, Women\'s Leadership Conclave 2024, GNITS.\n• President, Literaria Clava, her college literature club.\n• Teaching: Grader for CSE 598 Advanced Software Analysis and Design and CIS 310 (Fall 2026), and Course Grader for Graduate Distributed Systems (Spring 2026) at ASU.\n• At JPMorgan Chase she was named team SME for NLP and AI.',
-    link: { href: '/leadership', label: 'See leadership' },
+    link: { href: '/software#leadership', label: 'See leadership' },
   },
   {
     id: 'awards',
     triggers: ['award', 'awards', 'hackathon', 'hackathons', 'code for good', 'nasa', 'space apps', 'competition', 'won', 'win', 'mun'],
     response:
       '• JPMorgan Code for Good: 1st place. The win led to her JPMorgan Chase internships and career.\n• NASA Space Apps Hackathon: Finalist, competing at nationals in Chandigarh.\n• Model United Nations: 1st place.',
-    link: { href: '/journey', label: 'See her journey' },
+    link: { href: '/software#experience', label: 'See her experience' },
   },
   {
     id: 'contact',
     triggers: ['contact', 'email', 'reach', 'hire her', 'connect', 'linkedin', 'github', 'resume', 'cv', 'get in touch', 'phone', 'call'],
     response:
       'You can email her at varshiniakula2003@gmail.com, or connect on LinkedIn and GitHub (links on the Contact page). Her résumé is one click away: use the Résumé button in the top navigation to download the PDF.',
-    link: { href: '/contact', label: 'Open Contact page' },
+    link: { href: '/software#contact', label: 'Open contact' },
   },
   {
     id: 'hobbies',
     triggers: ['hobby', 'hobbies', 'interests', 'fun', 'personal', 'travel', 'book', 'books', 'reading', 'coffee', 'outside work'],
     response:
-      'Outside engineering she reads a lot of novels, travels (from the Western Ghats to the Rocky Mountains) and is always looking for the best coffee in town. Her Library and Travel pages have the details.',
-    link: { href: '/library', label: 'Visit the Library' },
+      'Outside engineering she reads a lot of novels, travels (from the Western Ghats to the Rocky Mountains) and is always looking for the best coffee in town.',
   },
   {
     id: 'ai-tools',

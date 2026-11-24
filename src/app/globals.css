@@ -411,3 +411,37 @@ body {
 /* Hide scrollbar on horizontal scroll containers */
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* === Portfolio design (landing + two portfolios) === */
+:root {
+  --page-bg: #0d0b0b;
+  --cream: #fcf6dc;
+  --fg: #efe7e1;
+  --text: #d5cbc5;
+  --muted: #a99d97;
+  --dim: #766c67;
+  --line: rgba(255, 240, 230, 0.12);
+  --line2: rgba(255, 240, 230, 0.22);
+}
+
+.eyebrow {
+  font-family: var(--font-label);
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--cream);
+}
+
+.caps {
+  font-family: var(--font-label);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Fine dot grain used on card visuals */
+.dot-grain {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.22) 1px, transparent 1.2px);
+  background-size: 4px 4px;
+}

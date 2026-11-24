@@ -18,7 +18,8 @@ export const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
   variable: '--font-label',
   display: 'swap',
-  weight: ['400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
 });
 
 export const firaCode = Fira_Code({

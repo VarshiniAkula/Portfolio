@@ -3,7 +3,7 @@ import type { Profile } from '@/types/content';
 export const profile: Profile = {
   name: 'Varshini Akula',
   title: 'Software Engineer',
-  tagline: 'Software engineer working across three disciplines: production software, applied AI and performance engineering.',
+  tagline: 'Software engineer and software performance engineer.',
   location: 'Tempe, AZ, USA',
   email: 'varshiniakula2003@gmail.com',
   resumeUrl: '/resume.pdf',

@@ -2,20 +2,19 @@ import type { Metadata } from 'next';
 import { spaceGrotesk, inter, jakarta, firaCode, caveat } from '@/lib/fonts';
 import { generatePersonJsonLd } from '@/lib/metadata';
 import { ExperienceModeProvider } from '@/providers/ExperienceModeProvider';
-import { Navbar } from '@/components/layout/Navbar';
-import { Footer } from '@/components/layout/Footer';
+import { TopNav } from '@/components/layout/TopNav';
 import { AskVarshini } from '@/components/ai-assistant/AskVarshini';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Varshini Akula - Software Engineer',
+  title: 'Varshini Akula · Portfolio',
   description:
     'Backend and software engineer who ships secure, production-oriented AI systems. M.S. CS at ASU (4.0 GPA), former SDE at JPMorgan Chase. Cloud-native services, real-time data pipelines, and LLM-powered assistants.',
   metadataBase: new URL('https://varshiniakula.com'),
   openGraph: {
     title: 'Varshini Akula',
     description:
-      'Software engineer across production software, applied AI and performance engineering.',
+      'Software engineer and software performance engineer. M.S. Computer Science at ASU (4.00 GPA), former Software Development Engineer I at JPMorgan Chase.',
     siteName: 'Varshini Akula',
     type: 'website',
     locale: 'en_US',
@@ -24,7 +23,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Varshini Akula',
     description:
-      'Software engineer across production software, applied AI and performance engineering.',
+      'Software engineer and software performance engineer. M.S. Computer Science at ASU (4.00 GPA), former Software Development Engineer I at JPMorgan Chase.',
   },
   robots: { index: true, follow: true },
 };
@@ -48,16 +47,13 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-sans antialiased bg-black text-[#fff6e4]">
+      <body className="font-sans antialiased bg-[var(--page-bg)] text-[var(--fg)]">
         <ExperienceModeProvider>
           <a href="#main-content" className="skip-link">
             Skip to main content
           </a>
-          <div className="grain" aria-hidden="true" />
-          <div className="ambient-glow" aria-hidden="true" />
-          <Navbar />
+          <TopNav />
           <main id="main-content">{children}</main>
-          <Footer />
           <AskVarshini />
         </ExperienceModeProvider>
       </body>

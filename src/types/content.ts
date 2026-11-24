@@ -178,3 +178,54 @@ export interface Discipline {
   proof: Metric;
   projectSlugs: string[];
 }
+
+export type PortfolioId = 'software' | 'performance';
+
+export interface DeckLink {
+  label: string;
+  href: string;
+  primary?: boolean;
+  download?: string;
+}
+
+export interface DeckCard {
+  /** Pill in the top-left corner, e.g. "01 · AGENTS". */
+  kicker: string;
+  title: string;
+  /** Small caps line under the title. */
+  subtitle: string;
+  /** Large figure at the bottom of the visual area. */
+  stat?: { value: string; caption: string };
+  /** Optional screenshot shown in the visual area. */
+  image?: string;
+  /** Link for the corner arrow button. */
+  href?: string;
+  /** Small caps line at the top of the text panel (dates, place). */
+  meta: string;
+  body: string;
+  tags: string[];
+  links?: DeckLink[];
+  /** Two colors for the glow behind the visual area. */
+  glow: [string, string];
+}
+
+export interface PortfolioSection {
+  id: string;
+  label: string;
+  headline: [string, string];
+  intro: string;
+  cards: DeckCard[];
+}
+
+export interface Portfolio {
+  id: PortfolioId;
+  index: string;
+  name: string;
+  short: string;
+  tagline: string;
+  /** Accent used for italic headline words and highlights. */
+  accent: string;
+  /** Two colors for the landing card glow. */
+  glow: [string, string];
+  sections: PortfolioSection[];
+}

@@ -17,7 +17,7 @@ export function generatePageMetadata({
 }: PageMetaArgs): Metadata {
   const fullTitle = title
     ? `${title} - Varshini Akula`
-    : 'Varshini Akula - Software Engineer';
+    : 'Varshini Akula · Portfolio';
   const desc =
     description ||
     'Software engineer working across software, AI and performance engineering. M.S. CS at ASU (4.0 GPA), former SDE at JPMorgan Chase.';

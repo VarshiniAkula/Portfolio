@@ -6,13 +6,8 @@ const baseUrl = 'https://varshiniakula.com';
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     '',
-    '/journey',
-    '/projects',
-    '/research',
-    '/leadership',
-    '/library',
-    '/travel',
-    '/contact',
+    '/software',
+    '/performance',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),

@@ -24,7 +24,7 @@ function buildContentIndex(): ContentChunk[] {
     {
       title: profile.name,
       text: profile.bio.recruiter,
-      link: { href: '/journey', label: 'Read her story' },
+      link: { href: '/software#about', label: 'Open her portfolio' },
     },
   ];
 
@@ -37,14 +37,14 @@ function buildContentIndex(): ContentChunk[] {
   });
 
   research.forEach((r) => {
-    chunks.push({ title: r.title, text: r.abstract, link: { href: '/research', label: 'See research' } });
+    chunks.push({ title: r.title, text: r.abstract, link: { href: '/software#leadership', label: 'See publications' } });
   });
 
   leadership.forEach((l) => {
     chunks.push({
       title: `${l.title}, ${l.organization}`,
       text: `${l.description} ${l.impact}`,
-      link: { href: '/leadership', label: 'See leadership' },
+      link: { href: '/software#leadership', label: 'See leadership' },
     });
   });
 
@@ -52,7 +52,7 @@ function buildContentIndex(): ContentChunk[] {
     chunks.push({
       title: `${m.title} (${m.date})`,
       text: m.description.recruiter,
-      link: { href: '/journey', label: 'See her journey' },
+      link: { href: '/software#experience', label: 'See her experience' },
     });
   });
 
@@ -113,7 +113,7 @@ export function findAnswer(query: string): ChatAnswer {
   return {
     response:
       "I don't have an answer for that yet. Try asking about her experience at JPMorgan Chase, a project by name, her skills, education or publications. You can also reach Varshini directly through the Contact page.",
-    link: { href: '/contact', label: 'Contact Varshini' },
+    link: { href: '/software#contact', label: 'Contact Varshini' },
     followUps: [
       { label: 'Who is Varshini?', query: 'Tell me about Varshini' },
       { label: 'Projects', query: 'What projects has she built?' },
