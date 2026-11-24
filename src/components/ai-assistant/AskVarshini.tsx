@@ -80,10 +80,10 @@ export function AskVarshini() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          'fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex items-center gap-3 rounded-full border transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00F2FF]',
+          'fixed bottom-[max(20px,env(safe-area-inset-bottom))] right-[max(20px,env(safe-area-inset-right))] sm:bottom-6 sm:right-6 z-50 flex items-center gap-3 rounded-full border transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00F2FF]',
           isOpen
             ? 'bg-[#141414] border-white/15 px-5 py-3 text-[#fff6e4]'
-            : 'bg-[#0d0d0d]/95 backdrop-blur border-[#00F2FF]/30 p-1.5 sm:pr-5 shadow-[0_0_30px_rgba(0,242,255,0.25)] hover:shadow-[0_0_40px_rgba(0,242,255,0.4)] hover:-translate-y-0.5'
+            : 'bg-[#0d0d0d]/95 backdrop-blur border-[#00F2FF]/30 p-1.5 lg:pr-5 shadow-[0_0_30px_rgba(0,242,255,0.25)] hover:shadow-[0_0_40px_rgba(0,242,255,0.4)] hover:-translate-y-0.5'
         )}
         aria-label={isOpen ? 'Close chat' : 'Ask Varshini Bot about her work'}
         aria-expanded={isOpen}
@@ -93,7 +93,7 @@ export function AskVarshini() {
         ) : (
           <>
             <Avatar size={52} />
-            <span className="hidden sm:block text-left">
+            <span className="hidden lg:block text-left">
               <span className="block text-sm font-semibold text-[#fff6e4]">Ask Varshini Bot</span>
               <span className="block text-xs text-[#fff6e4]/55">Projects, experience, skills</span>
             </span>
@@ -106,7 +106,7 @@ export function AskVarshini() {
         <div
           role="dialog"
           aria-label="Varshini Bot"
-          className="fixed z-50 right-3 left-3 bottom-20 sm:left-auto sm:right-6 sm:bottom-24 sm:w-[460px] rounded-3xl border border-white/10 bg-[#070707] shadow-[0_40px_120px_-20px_rgba(0,0,0,0.9)] flex flex-col overflow-hidden"
+          className="fixed z-50 right-3 left-3 bottom-[calc(80px+env(safe-area-inset-bottom))] sm:left-auto sm:right-6 sm:bottom-24 sm:w-[460px] rounded-3xl border border-white/10 bg-[#070707] shadow-[0_40px_120px_-20px_rgba(0,0,0,0.9)] flex flex-col overflow-hidden"
           style={{ height: 'min(720px, calc(100dvh - 120px))' }}
         >
           {/* Header */}

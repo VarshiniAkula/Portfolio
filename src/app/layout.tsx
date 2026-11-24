@@ -1,10 +1,18 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { spaceGrotesk, inter, jakarta, firaCode, caveat } from '@/lib/fonts';
 import { generatePersonJsonLd } from '@/lib/metadata';
 import { ExperienceModeProvider } from '@/providers/ExperienceModeProvider';
 import { TopNav } from '@/components/layout/TopNav';
 import { AskVarshini } from '@/components/ai-assistant/AskVarshini';
 import './globals.css';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#0d0b0b',
+  colorScheme: 'dark',
+};
 
 export const metadata: Metadata = {
   title: 'Varshini Akula · Portfolio',

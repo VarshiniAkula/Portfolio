@@ -19,6 +19,7 @@ export function PortfolioView({ portfolio }: { portfolio: Portfolio }) {
   const [hovering, setHovering] = useState(false);
   const prefersReduced = useReducedMotion();
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
 
   const section = sections[sectionIndex];
   const total = section.cards.length;
@@ -54,6 +55,15 @@ export function PortfolioView({ portfolio }: { portfolio: Portfolio }) {
     window.addEventListener('hashchange', sync);
     return () => window.removeEventListener('hashchange', sync);
   }, [sections, goSection]);
+
+  // Keep the selected tab visible when the tab bar scrolls (phones).
+  useEffect(() => {
+    const tab = tabRefs.current[sectionIndex];
+    const bar = tab?.parentElement;
+    if (!tab || !bar || bar.scrollWidth <= bar.clientWidth) return;
+    // Scroll only the tab bar sideways; never move the page.
+    bar.scrollTo({ left: tab.offsetLeft - (bar.clientWidth - tab.offsetWidth) / 2, behavior: prefersReduced ? 'auto' : 'smooth' });
+  }, [sectionIndex, prefersReduced]);
 
   // Auto-advance.
   useEffect(() => {
@@ -104,14 +114,14 @@ export function PortfolioView({ portfolio }: { portfolio: Portfolio }) {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto max-w-[1240px] px-4 pb-16 sm:px-6">
+      <div className="relative mx-auto max-w-[1240px] px-[max(16px,env(safe-area-inset-left))] pb-16 sm:px-6">
         {/* Section tabs */}
         <div className="flex justify-center">
           <div
             role="tablist"
             aria-label={`${portfolio.name} sections`}
             onKeyDown={onTabKey}
-            className="no-scrollbar flex max-w-full gap-1 overflow-x-auto rounded-2xl border border-[var(--line)] bg-white/[0.02] p-1.5"
+            className="no-scrollbar relative flex max-w-full gap-1 overflow-x-auto rounded-2xl border border-[var(--line)] bg-white/[0.02] p-1.5"
           >
             {sections.map((s, i) => {
               const selected = i === sectionIndex;
@@ -177,7 +187,26 @@ export function PortfolioView({ portfolio }: { portfolio: Portfolio }) {
           </div>
 
           {/* Card deck */}
-          <div onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)} onFocusCapture={() => setHovering(true)} onBlurCapture={() => setHovering(false)}>
+          <div
+            onPointerEnter={(e) => e.pointerType === 'mouse' && setHovering(true)}
+            onPointerLeave={(e) => e.pointerType === 'mouse' && setHovering(false)}
+            onFocusCapture={() => setHovering(true)}
+            onBlurCapture={() => setHovering(false)}
+            onTouchStart={(e) => {
+              const t = e.touches[0];
+              touchStart.current = { x: t.clientX, y: t.clientY };
+            }}
+            onTouchEnd={(e) => {
+              const start = touchStart.current;
+              touchStart.current = null;
+              if (!start) return;
+              const t = e.changedTouches[0];
+              const dx = t.clientX - start.x;
+              const dy = t.clientY - start.y;
+              // Horizontal swipe only; vertical movement is page scrolling.
+              if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) step(dx < 0 ? 1 : -1);
+            }}
+          >
             <div className="relative mx-auto max-w-[560px] lg:mx-0">
               {/* Shells of the next cards */}
               {[2, 1].map((k) =>
@@ -210,11 +239,11 @@ export function PortfolioView({ portfolio }: { portfolio: Portfolio }) {
             </div>
 
             {/* Controls */}
-            <div className="mx-auto mt-8 flex max-w-[560px] items-center gap-4 lg:mx-0">
-              <button onClick={() => step(-1)} className="grid h-12 w-12 place-items-center rounded-full border border-[var(--line2)] text-[var(--fg)] hover:bg-white/[0.06]" aria-label="Previous card">
+            <div className="mx-auto mt-8 flex max-w-[560px] items-center gap-2 sm:gap-4 lg:mx-0">
+              <button onClick={() => step(-1)} className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-[var(--line2)] text-[var(--fg)] hover:bg-white/[0.06]" aria-label="Previous card">
                 ←
               </button>
-              <div className="flex flex-1 flex-wrap items-center justify-center gap-1.5">
+              <div className="flex flex-1 flex-wrap items-center justify-center">
                 {section.cards.map((c, i) => (
                   <button
                     key={c.title + i}
@@ -224,19 +253,21 @@ export function PortfolioView({ portfolio }: { portfolio: Portfolio }) {
                     }}
                     aria-label={`Card ${i + 1}: ${c.title}`}
                     aria-current={i === cardIndex ? 'true' : undefined}
-                    className={cn('h-1.5 rounded-full transition-all', i === cardIndex ? 'w-6 bg-[var(--cream)]' : 'w-1.5 bg-[var(--dim)] hover:bg-[var(--muted)]')}
-                  />
+                    className="group grid h-8 min-w-[18px] place-items-center px-1"
+                  >
+                    <span className={cn('block h-1.5 rounded-full transition-all', i === cardIndex ? 'w-6 bg-[var(--cream)]' : 'w-1.5 bg-[var(--dim)] group-hover:bg-[var(--muted)]')} />
+                  </button>
                 ))}
               </div>
               <button
                 onClick={() => setAuto((a) => !a)}
                 aria-pressed={auto}
-                className="caps flex items-center gap-2 rounded-full border border-[var(--line2)] px-3.5 py-2 text-[10.5px] text-[var(--text)] hover:bg-white/[0.06]"
+                className="caps flex shrink-0 items-center gap-2 rounded-full border border-[var(--line2)] px-3.5 py-2.5 text-[10.5px] text-[var(--text)] hover:bg-white/[0.06]"
               >
                 <span className={cn('h-1.5 w-1.5 rounded-full', playing ? 'bg-[var(--cream)]' : 'bg-[var(--dim)]')} />
                 Auto
               </button>
-              <button onClick={() => step(1)} className="grid h-12 w-12 place-items-center rounded-full border border-[var(--line2)] text-[var(--fg)] hover:bg-white/[0.06]" aria-label="Next card">
+              <button onClick={() => step(1)} className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-[var(--line2)] text-[var(--fg)] hover:bg-white/[0.06]" aria-label="Next card">
                 →
               </button>
             </div>
@@ -244,7 +275,7 @@ export function PortfolioView({ portfolio }: { portfolio: Portfolio }) {
         </div>
 
         {/* Keyboard hints */}
-        <div className="mt-14 hidden items-center justify-center gap-6 border-t border-[var(--line)] pt-6 text-[12px] text-[var(--dim)] md:flex">
+        <div className="mt-14 hidden items-center justify-center gap-6 border-t border-[var(--line)] pt-6 text-[12px] text-[var(--dim)] md:flex [@media(hover:none)]:!hidden">
           <span className="flex items-center gap-2">
             <kbd className="rounded border border-[var(--line2)] px-1.5 py-0.5 font-mono text-[11px]">←</kbd>
             <kbd className="rounded border border-[var(--line2)] px-1.5 py-0.5 font-mono text-[11px]">→</kbd> navigate

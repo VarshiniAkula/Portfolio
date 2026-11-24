@@ -5,7 +5,7 @@ import { Diamond } from './icons';
 
 export function PortfolioLanding() {
   return (
-    <section className="relative px-4 pb-20 pt-10 sm:pt-16" aria-labelledby="landing-name">
+    <section className="relative px-4 pb-16 pt-10 sm:pt-16" aria-labelledby="landing-name">
       <div
         className="pointer-events-none absolute inset-0 -top-24"
         style={{ background: 'radial-gradient(1000px 700px at 70% 10%, rgba(40,90,100,0.18), transparent 60%), radial-gradient(900px 600px at 20% 80%, rgba(120,70,40,0.14), transparent 60%)' }}

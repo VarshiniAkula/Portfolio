@@ -445,3 +445,15 @@ body {
   background-image: radial-gradient(rgba(0, 0, 0, 0.22) 1px, transparent 1.2px);
   background-size: 4px 4px;
 }
+
+/* Life's great photo strip: the list holds two copies, so -50% loops seamlessly */
+@keyframes life-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.life-marquee {
+  animation: life-marquee 90s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .life-marquee { animation: none; }
+}

@@ -229,3 +229,10 @@ export interface Portfolio {
   glow: [string, string];
   sections: PortfolioSection[];
 }
+
+export interface LifePhoto {
+  label: string;
+  image: string;
+  rotate: string;
+  objectPosition?: string;
+}
