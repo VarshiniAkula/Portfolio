@@ -72,15 +72,17 @@
     </g>
 
     <!-- nose -->
-    <path d="M100 104 C99 112 96 116 95 118 C98 120 102 120 105 118" stroke="#a5653f" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <path d="M100 104 C99 112 96 116 95 118 C98 120 102 120 105 118" stroke="#a5653f" stroke-width="2" fill="none" stroke-linecap="round"/>
 
     <!-- cheeks -->
-    <ellipse cx="74" cy="120" rx="8" ry="5" fill="#e0786a" opacity="0.35"/>
-    <ellipse cx="126" cy="120" rx="8" ry="5" fill="#e0786a" opacity="0.35"/>
+    <ellipse cx="74" cy="118" rx="8" ry="5" fill="#ef8b7e" opacity="0.4"/>
+    <ellipse cx="126" cy="118" rx="8" ry="5" fill="#ef8b7e" opacity="0.4"/>
 
-    <!-- big smile -->
-    <path d="M78 124 C86 142 114 142 122 124 C110 128 90 128 78 124 Z" fill="#7a2a24"/>
-    <path d="M81 125 C92 129 108 129 119 125 L117 131 C106 134 94 134 83 131 Z" fill="#ffffff"/>
-    <path d="M76 123 C88 128 112 128 124 123" stroke="#5a1d18" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <!-- warm smile -->
+    <path d="M82 122 C88 139 112 139 118 122 C106 126 94 126 82 122 Z" fill="#b4544c"/>
+    <path d="M85.5 123.4 C94 126 106 126 114.5 123.4 C113.5 127.2 86.5 127.2 85.5 123.4 Z" fill="#ffffff"/>
+    <path d="M92 133.2 C97 131 103 131 108 133.2 C104 135.6 96 135.6 92 133.2 Z" fill="#e8807a"/>
+    <path d="M80.5 121.4 C82 122.6 83 122.8 84 122.6" stroke="#9b4a43" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    <path d="M119.5 121.4 C118 122.6 117 122.8 116 122.6" stroke="#9b4a43" stroke-width="1.6" fill="none" stroke-linecap="round"/>
   </g>
 </svg>
