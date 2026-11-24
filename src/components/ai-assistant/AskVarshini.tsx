@@ -17,7 +17,7 @@ interface Message {
 function Avatar({ size }: { size: number }) {
   return (
     <Image
-      src="/avatar.svg"
+      src="/bot-avatar.svg"
       alt=""
       width={size}
       height={size}
