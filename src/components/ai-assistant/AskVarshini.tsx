@@ -36,7 +36,9 @@ export function AskVarshini() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (isOpen) inputRef.current?.focus();
+    // Focus the input only with a mouse: on touch screens focusing opens the
+    // keyboard and can zoom the page.
+    if (isOpen && window.matchMedia('(hover: hover) and (pointer: fine)').matches) inputRef.current?.focus();
   }, [isOpen]);
 
   useEffect(() => {
@@ -226,7 +228,7 @@ export function AskVarshini() {
               maxLength={500}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about a project, role, skill..."
-              className="flex-1 px-4 py-3 rounded-xl bg-black border border-white/10 text-[15px] text-[#fff6e4] placeholder:text-[#fff6e4]/35 focus:outline-none focus:border-[#00F2FF]/40"
+              className="min-w-0 flex-1 px-4 py-3 rounded-xl bg-black border border-white/10 text-base text-[#fff6e4] placeholder:text-[#fff6e4]/35 focus:outline-none focus:border-[#00F2FF]/40"
               disabled={loading}
             />
             <button
